@@ -1,0 +1,25 @@
+/* 
+  Style.css file is linked in the header template, therefore
+  it is applied to every page of our application.
+  Write some style to begin.
+*/
+
+
+footer {
+  background-color: rgb(51, 51, 51);
+  color: dimgrey;
+  position: absolute;
+  bottom: 0;
+  width: 100%; 
+}
+
+.card-body {
+  background-color: rgb(65, 65, 65);
+  color: whitesmoke;
+}
+
+body {
+  position: relative;
+  background-color: rgb(65, 65, 65);
+  color: whitesmoke;
+}

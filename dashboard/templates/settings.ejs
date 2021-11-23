@@ -1,0 +1,61 @@
+<%- include("partials/header", { bot, user, path, title: `Settings | ${guild.name}` }) %>
+
+<div class="container-sm center" style="margin-top: 30px;">
+  <div class="d-grid gap-2 col-4 mx-auto">
+    <% if (alert) { %>
+      <div class="alert alert-success" role="alert">
+        <%= alert %>
+      </div>
+    <% } %>
+    <%- guild.icon ? `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}" class="card-img-top" style="max-width: 9rem;">` : `<img src="https://cdn.discordapp.com/attachments/765919453766352916/877787616974622770/wCfHtuoejLIbAAAAABJRU5ErkJggg.png" class="card-img-top" style="max-width: 9rem;">` %>
+    <h1><%= guild.name %></h1>
+    <hr>
+    <form method="POST">
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Announcement Channel:</p>
+      <p style="font-style: italic;" class="disabled">the channel to send /announce messages to.</p>
+      <select class="form-control" name="AchannelID" value="<%= settings.AchannelID %>" placeholder="Announcement Channel ID.">
+      <option value="">OFF</option>
+      <% guild.channels.cache.forEach(channel => { %>
+        <% if (channel.type !== "GUILD_TEXT") return %>
+        <option value="<%= channel.id %>" <% if (channel.id === settings.AchannelID) {%> selected <%} else {%> <% } %> > <%= channel.name %></option>
+        <% }) %>
+      </select>
+
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Join/leave message channel:</p>
+      <p style="font-style: italic;" class="disabled">The channel to send join/leave messages to.</p>
+      <select class="form-control" name="joinChannelID" value="<%= settings.joinChannelID %>" placeholder="Join Channel ID.">
+      <option value="">OFF</option>
+      <% guild.channels.cache.forEach(channel => { %>
+        <% if (channel.type !== "GUILD_TEXT") return %>
+        <option value="<%= channel.id %>" <% if (channel.id === settings.joinChannelID) {%> selected <%} else {%> <% } %> > <%= channel.name %></option>
+      <% }) %>
+    </select>
+
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Join Message:</p>
+      <p style="font-style: italic;" class="disabled">The message to send when a user joins your server you can use .</p>
+      <input type="text" class="form-control" name="joinMessage" value="<%= settings.joinMessage %>" placeholder="Your Join Message.">
+
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Leave Message:</p>
+      <p style="font-style: italic;" class="disabled">The prefix that is added to discord messages in order to invoke commands.</p>
+      <input type="text" class="form-control" name="leaveMessage" value="<%= settings.leaveMessage %>" placeholder="Your Leave Message.">
+
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Vent Channel:</p>
+      <p style="font-style: italic;" class="disabled">The prefix that is added to discord messages in order to invoke commands.</p>
+      <select class="form-control" name="ventChannelID" value="<%= settings.ventChannelID %>" placeholder="Your Vent Channel.">
+      <option value="">OFF</option>
+      <% guild.channels.cache.forEach(channel => { %>
+        <% if (channel.type !== "GUILD_TEXT") return %>
+        <option value="<%= channel.id %>" <% if (channel.id === settings.ventChannelID) {%> selected <%} else {%> <% } %> > <%= channel.name %></option>
+      <% }) %>
+    </select>
+
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Prefix:</p>
+      <p style="font-style: italic;" class="disabled">The prefix that is added to discord messages in order to invoke commands.</p>
+      <input type="text" class="form-control" name="prefix" value="<%= settings.prefix %>" placeholder="Your prefix.">
+
+      <br><button type="submit" class="btn btn-secondary text-white">Save Settings</button>
+    </form>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

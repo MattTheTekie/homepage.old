@@ -1,0 +1,42 @@
+<%- include("partials/header", { bot, user, path, title: "Privacy Policy" }) %>
+
+<div style="margin-top: 25px;">
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <h1 style="text-align: center;">Privacy Policy</h1>
+    <h1 style="text-align: center;">As of November 22nd, 2021.</h1>
+    <hr>
+    <h2>By using Shoto or Shoto's website in any form and you agree to the following privacy policy and the storage of your data.</h2>
+
+    <h3>1. What information is stored?</h3>
+        <ul style="font-size: 20px;">
+            <li>GuildId for settings</li>
+            <li>UserId if blacklisted</li>
+            <li>Deleted and or edited messages if snipe command is enabled</li>
+            <li>When donating your userId and donation tier is stored</li>
+            <li>If you setup the announce command your guildId and channelId are stored</li>
+            <li>If you setup join/leave messages your guildId, join/leave messages, and ChannelId are stored</li>
+            <li>If you setup the chat revive command your ReviveRole, message, and guildId are stored</li>
+            <li>If you setup the vent command your guildId, and channelId are stored</li>
+            <li>If you setup a staff role your roleId, and guildId are stored</li>
+        </ul>
+    <h3>2. Why this information is stored and how its used.</h3>
+    <ul style="font-size: 20px;">
+        <li>We store your guildId to keep track of which settings are for which guild</li>
+        <li>We store your userId if you have been blacklisted from using our bot so that we may stop you from using our bot</li>
+        <li>We store your userId if you have donated to make sure you are able to use certain donor locked features.</li>
+        <li>We store deleted and or edited messages so that our snipe command works</li>
+        <li>For welcome/leave message, the commands /vent, /announce, /revive, this data is used to send messages/perform actions with previously used information.</li>
+    </ul>
+    <h3>3. Who gets this stored data?</h3>
+    <h4>Settings data is available to administrators of your guild and all other data is only available to Shoto developers only.</h4>
+    <h3>4. Third Party Data Sharing.</h3>
+    <h4>Shoto shares data with the service <a href="https://statcord.com">Statcord,</a> to provide publicly available bot usage statistics.</h4>
+    <h4>For Statcord's privacy policy please refer to <a href="https://discordlabs.org/privacy">discordlabs.org/privacy</a></h4>
+    <h3>5. Questions and Concerns.</h3>
+    <h4>For any Questions and/or concerns about stored data and/or how to remove it please contact the owner in our <a href="https://discord.gg/CNrvu6A">Support Server</a>.</h4>
+    <br>
+    <h2>Note: We reserve the right to change this without notifying our users.</h2>
+  </div>
+</div>
+
+<%- include("partials/footer") %>
