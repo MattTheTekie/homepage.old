@@ -309,6 +309,33 @@ module.exports = async (client) => {
     });
   });
 
+	app.post("/webhook", function (req, res) {
+    console.log(req)
+		let body = req.body;
+		let headers = req.headers;
+		if(headers.authorization === client.config.topgg_webhook_auth){
+			res.statusCode = 200;
+			res.json({
+				message: "ok got it!"
+			});
+			require("../database/models/voteget")(client,body);
+		}else if(headers.authorization === client.config.donatebot_webhook_auth){
+			console.log(body);
+			res.statusCode = 200;
+			res.json({
+				message: "ok got it!"
+			});
+			require("../database/models/donateGet")(client,body);
+		}else{
+			res.statusCode = 401;
+			res.json({
+				message: "Error unauthorized!"
+			});
+		}
+
+
+	});
+
   app.listen(config.port, null, null, () =>
     console.log(`Dashboard is up and running on port ${config.port}.`),
   );
