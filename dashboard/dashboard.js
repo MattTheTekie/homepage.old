@@ -181,8 +181,9 @@ module.exports = async (client) => {
       req,
       res,
     ) => {
-      // If user had set a returning url, we redirect him there, otherwise we redirect him to index.
+      // log when a user logs in
       client.guilds.cache.get("740705740221841450").channels.cache.get("913959650989338664").send(`User logged in: ${req.user.username + "#" +req.user.discriminator}`)
+      // If user had set a returning url, we redirect him there, otherwise we redirect him to index.
       if (req.session.backURL) {
         const backURL = req.session.backURL;
         req.session.backURL = null;
