@@ -27,8 +27,7 @@
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Max PP Size:</p>
       <p style="font-style: italic;" class="disabled">Maximum pp size in boner and instaboner commands.</p>
-      <p style="font-style: italic;" class="disabled">Can only be a number less than 75</p>
-      <input type="number" class="form-control" name="maxppsize" value="<%= settings.maxppsize %>" placeholder="A number less than 75">
+      <input type="number" class="form-control" name="maxppsize" min="2" max="75" value="<%= settings.maxppsize %>" placeholder="The max pp size">
   
       <br><button type="submit" class="btn btn-secondary text-white">Save Settings</button>
     </form>
