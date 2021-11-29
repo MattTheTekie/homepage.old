@@ -4,9 +4,10 @@
   Write some style to begin.
 */
 
-.card-body {
+.card {
   background-color: rgb(20, 20, 20);
   color: white;
+  text-align: center;
 }
 
 #buttons {
