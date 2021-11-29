@@ -216,6 +216,10 @@ module.exports = async (client) => {
 		});
 	});
 
+	app.get('/discord', (req, res) => {
+		renderTemplate(res, req, 'discord.html');
+	});
+
 	app.get('/privacy', (req, res) => {
 		renderTemplate(res, req, 'privacy.ejs', {
 			discordInvite: config.discordInvite,
