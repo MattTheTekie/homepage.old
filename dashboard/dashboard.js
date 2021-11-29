@@ -185,7 +185,7 @@ module.exports = async (client) => {
 			res,
 		) => {
 			// log when a user logs in
-			client.guilds.cache.get('740705740221841450').channels.cache.get('913959650989338664').send(`User logged in: ${req.user.username + '#' + req.user.discriminator}`);
+			client.guilds.cache.get('811354612547190794').channels.cache.get('830013224753561630').send(`User logged in: ${req.user.username + '#' + req.user.discriminator}`);
 			// If user had set a returning url, we redirect him there, otherwise we redirect him to index.
 			if (req.session.backURL) {
 				const backURL = req.session.backURL;
@@ -282,17 +282,8 @@ module.exports = async (client) => {
 		}
 
 		// We save the settings.
-		await client.query(`UPDATE Settings SET 
-    prefix="${setting.prefix ? setting.prefix : '^'}",
-    joinMessage=${setting.joinMessage ? `"${setting.joinMessage}"` : null},
-    leaveMessage=${setting.leaveMessage ? `"${setting.leaveMessage}"` : null},
-    joinChannelID=${setting.joinChannelID ? `"${setting.joinChannelID}"` : null},
-    ventChannelID=${setting.ventChannelID ? `"${setting.ventChannelID}"` : null},
-    AchannelID=${setting.AchannelID ? `"${setting.AchannelID}"` : null},
-    ReviveRoleID=${setting.ReviveRoleID ? `"${setting.ReviveRoleID}"` : null},
-    reviveMessage=${setting.reviveMessage ? `"${setting.reviveMessage}"` : null},
-    StaffRoleID=${setting.StaffRoleID ? `"${setting.StaffRoleID}"` : null},
-    language=${setting.language ? `"${setting.language}"` : 'en'}
+		await client.query(`UPDATE settings SET 
+    prefix="${setting.prefix ? setting.prefix : '-'}",
     WHERE guildID = "${req.params.guildID}"`).catch((e) => {
 			console.log(e);
 		});
