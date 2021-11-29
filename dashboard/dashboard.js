@@ -286,7 +286,7 @@ module.exports = async (client) => {
 		// We save the settings.
 		await client.query(`UPDATE settings SET 
     prefix="${setting.prefix ? setting.prefix : '-'}",
-    WHERE guildID = "${req.params.guildID}"`).catch((e) => {
+    WHERE guildId = "${req.params.guildID}"`).catch((e) => {
 			console.log(e);
 		});
 
