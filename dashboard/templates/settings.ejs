@@ -28,6 +28,14 @@
       <p style="font-style: italic;" class="disabled">Maximum pp size in boner and instaboner commands.</p>
       <input type="number" class="form-control" name="maxppsize" min="2" max="75" value="<%= settings.maxppsize %>" placeholder="The max pp size">
   
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Tickets:</p>
+      <p style="font-style: italic;" class="disabled">Toggles the ticket system.</p>
+      <select class="form-control" name="tickets" value="<%= settings.tickets %>" placeholder="The ticket option">
+        <option value="false">false</option>
+        <option value="buttons">buttons</option>
+        <option value="reaction">reaction</option>
+      </select>
+
       <br><button type="submit" class="btn btn-secondary text-white">Save Settings</button>
     </form>
   </div>
