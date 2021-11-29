@@ -31,9 +31,9 @@
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Tickets:</p>
       <p style="font-style: italic;" class="disabled">Toggles the ticket system.</p>
       <select class="form-control" name="tickets" value="<%= settings.tickets %>" placeholder="The ticket option">
-        <option value="false">false</option>
-        <option value="buttons">buttons</option>
-        <option value="reaction">reaction</option>
+        <option value="false" <% if (settings.tickets === 'false') {%> selected <%} else {%> <% } %>>false</option>
+        <option value="buttons" <% if (settings.tickets === 'buttons') {%> selected <%} else {%> <% } %>>buttons</option>
+        <option value="reactions" <% if (settings.tickets === 'reactions') {%> selected <%} else {%> <% } %>>reactions</option>
       </select>
 
       <br><button type="submit" class="btn btn-secondary text-white">Save Settings</button>
