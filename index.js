@@ -9,6 +9,7 @@
 const config = require('./config');
 const fs = require('fs');
 const Dashboard = require('./dashboard/dashboard');
+const { NodeactylClient } = require('nodeactyl');
 const { Client, Intents, Permissions } = require('discord.js');
 
 // We instiate the client and connect to database.
@@ -35,35 +36,11 @@ client.on('ready', async () => {
 
 // We listen for message events.
 client.on('messageCreate', async (message) => {
-	// Doing some basic command logic.
-	if (message.author.bot) return;
-	if (!message.channel.permissionsFor(message.guild.me).has(Permissions.FLAGS.SEND_MESSAGES)) {
-		return;
-	}
-
-	// Retriving the guild settings from database.
-	let storedSettings = await client.getSettings(message.guild.id);
-	if (!storedSettings) {
-		// If there are no settings stored for this guild, we create them and try to retrive them again.
-		client.setSettings(message.guild.id);
-		storedSettings = await client.getSettings(message.guild.id);
-	}
-	// If the message does not start with the prefix stored in database, we ignore the message.
-	if (message.content.indexOf(storedSettings.prefix) !== 0) return;
-
-	// We remove the prefix from the message and process the arguments.
-	const args = message.content
-		.slice(storedSettings.prefix.length)
-		.trim()
-		.split(/ +/g);
-	const command = args.shift().toLowerCase();
-
-	// If command is ping we send a sample and then edit it with the latency.
-	if (command === 'ping') {
-		const roundtripMessage = await message.channel.send({ content: 'Pong!' });
-		return roundtripMessage.edit(
-			`*${roundtripMessage.createdTimestamp - message.createdTimestamp}ms*`,
-		);
+	if (message.webhookId && message.channel.id == '812082273393704960' && message.embeds[0].title.startsWith('[Dashboard:master]')) {
+		await message.reply({ content: 'Updating dashboard to latest commit...' });
+		await sleep(1000);
+		const Client = new NodeactylClient(config.pterodactylURL, config.pterodactylKey);
+		await Client.restartServer(config.pterodactylId);
 	}
 });
 
