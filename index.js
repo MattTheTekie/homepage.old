@@ -26,14 +26,9 @@ client.on('ready', async () => {
 	// }
 	// console.log("Fetched members.");
 
-	console.log(
-		`Bot is ready. (${client.guilds.cache.size} Guilds - ${client.channels.cache.size} Channels - ${client.users.cache.size} Users)`,
-	);
+	console.log(`Bot is ready. (${client.guilds.cache.size} Guilds - ${client.channels.cache.size} Channels - ${client.users.cache.size} Users)`);
 
-	client.user.setActivity(
-		'The Dashboard',
-		{ type: 'WATCHING' },
-	);
+	client.user.setPresence({ status: 'dnd' });
 
 	Dashboard(client);
 });
