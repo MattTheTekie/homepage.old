@@ -285,7 +285,11 @@ module.exports = async (client) => {
 
 		// We save the settings.
 		await client.query(`UPDATE settings SET 
-    prefix="${setting.prefix ? setting.prefix : '-'}"
+    prefix="${setting.prefix ? setting.prefix : '-'}",
+    leavemessage="${setting.leavemessage ? setting.leavemessage : 'false'}",
+    joinmessage="${setting.joinmessage ? setting.joinmessage : 'false'}",
+    maxppsize="${setting.maxppsize ? setting.maxppsize : '35'}",
+    tickets="${setting.tickets ? setting.tickets : 'buttons'}"
     WHERE guildId = "${req.params.guildID}"`).catch((e) => {
 			console.log(e);
 		});
