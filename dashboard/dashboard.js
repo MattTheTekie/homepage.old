@@ -289,8 +289,8 @@ module.exports = async (client) => {
     leavemessage="${setting.leavemessage ? setting.leavemessage : 'false'}",
     joinmessage="${setting.joinmessage ? setting.joinmessage : 'false'}",
     maxppsize="${setting.maxppsize ? setting.maxppsize : '35'}",
-    tickets="${setting.tickets ? setting.tickets : 'buttons'}"
-    bonercmd="${setting.bonercmd ? setting.bonercmd : 'true'}"
+    tickets="${setting.tickets ? setting.tickets : 'buttons'}",
+    bonercmd="${setting.bonercmd ? setting.bonercmd : 'true'}",
     suggestionchannel="${setting.suggestionchannel ? setting.suggestionchannel : 'false'}"
     WHERE guildId = "${req.params.guildID}"`).catch((e) => {
 			console.log(e);
