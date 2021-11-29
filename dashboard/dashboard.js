@@ -126,7 +126,7 @@ module.exports = async (client) => {
 	// We host all of the files in the assets using their name in the root address.
 	// A style.css file will be located at http://<your url>/style.css
 	// You can link it in any template using src="/assets/filename.extension"
-	app.use('/', express.static(path.resolve(`${dataDir}${path.sep}assets`)), {
+	app.use(express.static(path.resolve(`${dataDir}${path.sep}assets`)), {
 		extensions: ['html'],
 	});
 
