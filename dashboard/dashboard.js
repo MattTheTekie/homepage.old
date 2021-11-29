@@ -310,22 +310,20 @@ module.exports = async (client) => {
   });
 
 	app.post("/webhook", function (req, res) {
-    console.log(req)
 		let body = req.body;
 		let headers = req.headers;
-		if(headers.authorization === client.config.topgg_webhook_auth){
+		if(headers.authorization === config.topgg_webhook_auth){
 			res.statusCode = 200;
 			res.json({
 				message: "ok got it!"
 			});
-			require("../database/models/voteget")(client,body);
-		}else if(headers.authorization === client.config.donatebot_webhook_auth){
-			console.log(body);
+			require("../database/functions/topggVoteGet")(client,body);
+		}else if(headers.authorization === config.topgg_webhook_auth){
 			res.statusCode = 200;
 			res.json({
 				message: "ok got it!"
 			});
-			require("../database/models/donateGet")(client,body);
+			require("../database/functions/dblVoteGet")(client,body);
 		}else{
 			res.statusCode = 401;
 			res.json({
