@@ -31,71 +31,82 @@
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Tickets:</p>
       <p style="font-style: italic;" class="disabled">Toggles the ticket system</p>
       <select class="form-control" name="tickets" value="<%= settings.tickets %>" placeholder="The ticket option">
-        <option value="false" <% if (settings.tickets === 'false') {%> selected <%} else {%> <%} %>>false</option>
-        <option value="buttons" <% if (settings.tickets === 'buttons') {%> selected <%} else {%> <%} %>>buttons</option>
-        <option value="reactions" <% if (settings.tickets === 'reactions') {%> selected <%} else {%> <%} %>>reactions</option>
+        <option value="false" <% if (settings.tickets === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
+        <option value="buttons" <% if (settings.tickets === 'buttons') {%> selected <%} else {%> <%} %>>Buttons</option>
+        <option value="reactions" <% if (settings.tickets === 'reactions') {%> selected <%} else {%> <%} %>>Reactions</option>
       </select>
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Boner Command:</p>
       <p style="font-style: italic;" class="disabled">Toggles the boner command</p>
       <select class="form-control" name="bonercmd" value="<%= settings.bonercmd %>" placeholder="The value">
-        <option value="true" <% if (settings.bonercmd === 'true') {%> selected <%} else {%> <%} %>>true</option>
-        <option value="false" <% if (settings.bonercmd === 'false') {%> selected <%} else {%> <%} %>>false</option>
+        <option value="true" <% if (settings.bonercmd === 'true') {%> selected <%} else {%> <%} %>>Enabled</option>
+        <option value="false" <% if (settings.bonercmd === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
       </select>
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Suggestion Channel:</p>
       <p style="font-style: italic;" class="disabled">The channel where the bot puts suggestions in</p>
       <select class="form-control" name="suggestionchannel" value="<%= settings.suggestionchannel %>" placeholder="The suggestion channel">
-        <option value="false" <% if (settings.suggestionchannel === 'false') {%> selected <%} else {%> <%} %>>false</option>
+        <option value="false" <% if (settings.suggestionchannel === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
         <% guild.channels.cache.forEach(channel => { %>
           <% if (channel.type !== "GUILD_TEXT") return %>
-          <option value="<%= channel.id %>" <% if (channel.id === settings.suggestionchannel) {%> selected <%} else {%> <% } %> > <%= channel.name %></option>
+          <option value="<%= channel.id %>" <% if (channel.id === settings.suggestionchannel) {%> selected <%} else {%> <% } %> > <%= `#${channel.name}` %></option>
         <% }) %>
       </select>
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Suggestion Threads:</p>
       <p style="font-style: italic;" class="disabled">Creates a thread for discussion when a suggestion is created</p>
       <select class="form-control" name="suggestthreads" value="<%= settings.suggestthreads %>" placeholder="The value">
-        <option value="true" <% if (settings.suggestthreads === 'true') {%> selected <%} else {%> <%} %>>true</option>
-        <option value="false" <% if (settings.suggestthreads === 'false') {%> selected <%} else {%> <%} %>>false</option>
+        <option value="true" <% if (settings.suggestthreads === 'true') {%> selected <%} else {%> <%} %>>Enabled</option>
+        <option value="false" <% if (settings.suggestthreads === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
       </select>
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Poll Channel:</p>
       <p style="font-style: italic;" class="disabled">The channel where the bot puts polls in</p>
       <select class="form-control" name="pollchannel" value="<%= settings.pollchannel %>" placeholder="The poll channel">
-        <option value="false" <% if (settings.pollchannel === 'false') {%> selected <%} else {%> <%} %>>false</option>
+        <option value="false" <% if (settings.pollchannel === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
         <% guild.channels.cache.forEach(channel => { %>
           <% if (channel.type !== "GUILD_TEXT") return %>
-          <option value="<%= channel.id %>" <% if (channel.id === settings.pollchannel) {%> selected <%} else {%> <% } %> > <%= channel.name %></option>
+          <option value="<%= channel.id %>" <% if (channel.id === settings.pollchannel) {%> selected <%} else {%> <% } %> > <%= `#${channel.name}` %></option>
         <% }) %>
       </select>
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Log Channel:</p>
       <p style="font-style: italic;" class="disabled">The channel where the bot puts various logs in</p>
       <select class="form-control" name="logchannel" value="<%= settings.logchannel %>" placeholder="The log channel">
-        <option value="false" <% if (settings.logchannel === 'false') {%> selected <%} else {%> <%} %>>false</option>
+        <option value="false" <% if (settings.logchannel === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
         <% guild.channels.cache.forEach(channel => { %>
           <% if (channel.type !== "GUILD_TEXT") return %>
-          <option value="<%= channel.id %>" <% if (channel.id === settings.logchannel) {%> selected <%} else {%> <% } %> > <%= channel.name %></option>
+          <option value="<%= channel.id %>" <% if (channel.id === settings.logchannel) {%> selected <%} else {%> <% } %> > <%= `#${channel.name}` %></option>
         <% }) %>
       </select>
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Ticket Category:</p>
       <p style="font-style: italic;" class="disabled">The category where the bot creates tickets in</p>
       <select class="form-control" name="ticketcategory" value="<%= settings.ticketcategory %>" placeholder="The category">
-        <option value="false" <% if (settings.ticketcategory === 'false') {%> selected <%} else {%> <%} %>>false</option>
+        <option value="false" <% if (settings.ticketcategory === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
         <% guild.channels.cache.forEach(channel => { %>
           <% if (channel.type !== "GUILD_CATEGORY") return %>
-          <option value="<%= channel.id %>" <% if (channel.id === settings.ticketcategory) {%> selected <%} else {%> <% } %> > <%= channel.name %></option>
+          <option value="<%= channel.id %>" <% if (channel.id === settings.ticketcategory) {%> selected <%} else {%> <% } %> > <%= `📂${channel.name}` %></option>
         <% }) %>
       </select>
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Support Role:</p>
       <p style="font-style: italic;" class="disabled">The ticket support team role</p>
       <select class="form-control" name="supportrole" value="<%= settings.supportrole %>" placeholder="The Support Role">
-        <option value="false" <% if (settings.supportrole === 'false') {%> selected <%} else {%> <%} %>>false</option>
+        <option value="false" <% if (settings.supportrole === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
         <% guild.roles.cache.forEach(role => { %>
-          <option value="<%= role.id %>" <% if (role.id === settings.supportrole) {%> selected <%} else {%> <% } %> > <%= role.name %></option>
+          <option value="<%= role.id %>" <% if (role.id === settings.supportrole) {%> selected <%} else {%> <% } %> > <%= `@${role.name}` %></option>
+        <% }) %>
+      </select>
+  
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Ticket Mention:</p>
+      <p style="font-style: italic;" class="disabled">Pings the specified role every time a new ticket is created</p>
+      <select class="form-control" name="supportrole" value="<%= settings.supportrole %>" placeholder="The Support Role">
+        <option value="false" <% if (settings.supportrole === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
+        <option value="here" <% if (settings.supportrole === 'here') {%> selected <%} else {%> <%} %>>@here</option>
+        <option value="everyone" <% if (settings.supportrole === 'everyone') {%> selected <%} else {%> <%} %>>@everyone</option>
+        <% guild.roles.cache.forEach(role => { %>
+          <option value="<%= role.id %>" <% if (role.id === settings.supportrole) {%> selected <%} else {%> <% } %> > <%= `@${role.name}` %></option>
         <% }) %>
       </select>
 
