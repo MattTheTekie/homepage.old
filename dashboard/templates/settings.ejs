@@ -13,12 +13,22 @@
     <form method="POST">
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Prefix:</p>
       <p style="font-style: italic;" class="disabled">The bot's command prefix</p>
-      <input type="text" class="form-control" name="prefix" value="<%= settings.prefix %>" placeholder="Your prefix.">
+      <input type="text" class="form-control" name="prefix" value="<%= settings.prefix %>" placeholder="Your prefix">
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Leave Message:</p>
       <p style="font-style: italic;" class="disabled">The message when someone leaves the guild.</p>
       <p style="font-style: italic;" class="disabled">Variables: {USER MENTION} {USER TAG}</p>
-      <input type="text" class="form-control" name="leavemessage" value="<%= settings.leavemessage %>" placeholder="The leave message, or just 'false'.">
+      <input type="text" class="form-control" name="leavemessage" value="<%= settings.leavemessage %>" placeholder="The leave message, or just 'false'">
+  
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Join Message:</p>
+      <p style="font-style: italic;" class="disabled">The message when someone joins the guild.</p>
+      <p style="font-style: italic;" class="disabled">Variables: {USER MENTION} {USER TAG}</p>
+      <input type="text" class="form-control" name="joinmessage" value="<%= settings.joinmessage %>" placeholder="The join message, or just 'false'">
+  
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Max PP Size:</p>
+      <p style="font-style: italic;" class="disabled">Maximum pp size in boner and instaboner commands.</p>
+      <p style="font-style: italic;" class="disabled">Can only be a number less than 75</p>
+      <input type="number" class="form-control" name="maxppsize" value="<%= settings.maxppsize %>" placeholder="A number less than 75">
   
       <br><button type="submit" class="btn btn-secondary text-white">Save Settings</button>
     </form>
