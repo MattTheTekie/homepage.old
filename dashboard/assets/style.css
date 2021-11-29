@@ -4,18 +4,16 @@
   Write some style to begin.
 */
 
-
-footer {
-  background-color: rgb(20, 20, 20);
-  color: dimgrey;
-  position: absolute;
-  bottom: 0;
-  width: 100%; 
-}
-
 .card-body {
   background-color: rgb(20, 20, 20);
   color: white;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
 }
 
 body {
