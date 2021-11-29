@@ -291,7 +291,17 @@ module.exports = async (client) => {
     maxppsize="${setting.maxppsize ? setting.maxppsize : '35'}",
     tickets="${setting.tickets ? setting.tickets : 'buttons'}",
     bonercmd="${setting.bonercmd ? setting.bonercmd : 'true'}",
-    suggestionchannel="${setting.suggestionchannel ? setting.suggestionchannel : 'false'}"
+    suggestionchannel="${setting.suggestionchannel ? setting.suggestionchannel : 'false'}",
+    suggestthreads="${setting.suggestthreads ? setting.suggestthreads : 'true'}",
+    pollchannel="${setting.pollchannel ? setting.pollchannel : 'false'}",
+    logchannel="${setting.logchannel ? setting.logchannel : 'false'}",
+    ticketcategory="${setting.ticketcategory ? setting.ticketcategory : 'false'}",
+    supportrole="${setting.supportrole ? setting.supportrole : 'false'}",
+    ticketmention="${setting.ticketmention ? setting.ticketmention : 'here'}",
+    mutecmd="${setting.mutecmd ? setting.mutecmd : 'false'}",
+    adminrole="${setting.adminrole ? setting.adminrole : 'permission'}",
+    msgshortener="${setting.msgshortener ? setting.msgshortener : '30'}",
+    djrole="${setting.djrole ? setting.djrole : 'false'}"
     WHERE guildId = "${req.params.guildID}"`).catch((e) => console.log(e));
 
 		// We retrive the settings stored for this guild.
