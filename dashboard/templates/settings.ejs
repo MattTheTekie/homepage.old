@@ -101,15 +101,46 @@
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Ticket Mention:</p>
       <p style="font-style: italic;" class="disabled">Pings the specified role every time a new ticket is created</p>
-      <select class="form-control" name="supportrole" value="<%= settings.supportrole %>" placeholder="The Support Role">
-        <option value="false" <% if (settings.supportrole === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
-        <option value="here" <% if (settings.supportrole === 'here') {%> selected <%} else {%> <%} %>>@here</option>
-        <option value="everyone" <% if (settings.supportrole === 'everyone') {%> selected <%} else {%> <%} %>>@everyone</option>
+      <select class="form-control" name="ticketmention" value="<%= settings.ticketmention %>" placeholder="The Role to mention">
+        <option value="false" <% if (settings.ticketmention === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
+        <option value="here" <% if (settings.ticketmention === 'here') {%> selected <%} else {%> <%} %>>@here</option>
+        <option value="everyone" <% if (settings.ticketmention === 'everyone') {%> selected <%} else {%> <%} %>>@everyone</option>
         <% guild.roles.cache.forEach(role => { %>
-          <option value="<%= role.id %>" <% if (role.id === settings.supportrole) {%> selected <%} else {%> <% } %> > <%= `@${role.name}` %></option>
+          <option value="<%= role.id %>" <% if (role.id === settings.ticketmention) {%> selected <%} else {%> <% } %> > <%= `@${role.name}` %></option>
         <% }) %>
       </select>
-
+  
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Mute Command:</p>
+      <p style="font-style: italic;" class="disabled">Toggles the mute command / use a mute role</p>
+      <select class="form-control" name="mutecmd" value="<%= settings.mutecmd %>" placeholder="Whether or not to use a mute role">
+        <option value="false" <% if (settings.mutecmd === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
+        <% guild.roles.cache.forEach(role => { %>
+          <option value="<%= role.id %>" <% if (role.id === settings.mutecmd) {%> selected <%} else {%> <% } %> > <%= `@${role.name}` %></option>
+        <% }) %>
+      </select>
+  
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Admin Role:</p>
+      <p style="font-style: italic;" class="disabled">The role to replace the ADMINISTRATOR permission</p>
+      <select class="form-control" name="adminrole" value="<%= settings.adminrole %>" placeholder="Whether or not to use a role instead of the admin perm">
+        <option value="permission" <% if (settings.adminrole === 'permission') {%> selected <%} else {%> <%} %>>Disabled</option>
+        <% guild.roles.cache.forEach(role => { %>
+          <option value="<%= role.id %>" <% if (role.id === settings.adminrole) {%> selected <%} else {%> <% } %> > <%= `@${role.name}` %></option>
+        <% }) %>
+      </select>
+  
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">DJ Role:</p>
+      <p style="font-style: italic;" class="disabled">The DJ feature of the bot that limits the skip/etc commands</p>
+      <select class="form-control" name="djrole" value="<%= settings.djrole %>" placeholder="The DJ Role">
+        <option value="permission" <% if (settings.djrole === 'permission') {%> selected <%} else {%> <%} %>>Disabled</option>
+        <% guild.roles.cache.forEach(role => { %>
+          <option value="<%= role.id %>" <% if (role.id === settings.djrole) {%> selected <%} else {%> <% } %> > <%= `@${role.name}` %></option>
+        <% }) %>
+      </select>
+  
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Message Shortener:</p>
+      <p style="font-style: italic;" class="disabled">The amount of lines in a message to delete and send to a bin link (Setting it to 0 disables it)</p>
+      <input type="number" class="form-control" name="msgshortener" value="<%= settings.msgshortener %>" placeholder="The max lines to shorten msg">
+  
       <br><button type="submit" class="btn btn-secondary text-white">Save Settings</button>
     </form>
   </div>
