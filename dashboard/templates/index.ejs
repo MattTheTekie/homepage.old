@@ -1,6 +1,6 @@
 <%- include("partials/header", { bot, user, path, title: "Home" }) %>
 
-<div class="container-sm center" style="height: 100%; display: flex; align-items: center;">
+<div class="container-sm center" style="height: calc(100% - 56px); display: flex; align-items: center;">
   <div class="d-grid gap-2 col-6 mx-auto">
     <div id="buttons">
       <img src="https://pup.smhsmh.club/assets/images/pup.png" style="max-width: 18rem;" id="buttons">
@@ -15,3 +15,5 @@
     </div>
   </div>
 </div>
+
+<%- include("partials/footer") %>
