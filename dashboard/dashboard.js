@@ -218,12 +218,6 @@ module.exports = async (client) => {
 		});
 	});
 
-	app.get('/privacy', (req, res) => {
-		renderTemplate(res, req, 'privacy.ejs', {
-			discordInvite: config.discordInvite,
-		});
-	});
-
 	app.get('/tos', (req, res) => {
 		renderTemplate(res, req, 'terms.ejs', {
 			discordInvite: config.discordInvite,
