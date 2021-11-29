@@ -292,9 +292,7 @@ module.exports = async (client) => {
     tickets="${setting.tickets ? setting.tickets : 'buttons'}",
     bonercmd="${setting.bonercmd ? setting.bonercmd : 'true'}",
     suggestionchannel="${setting.suggestionchannel ? setting.suggestionchannel : 'false'}"
-    WHERE guildId = "${req.params.guildID}"`).catch((e) => {
-			console.log(e);
-		});
+    WHERE guildId = "${req.params.guildID}"`).catch((e) => console.log(e));
 
 		// We retrive the settings stored for this guild.
 		let storedSettings = await client.getSettings(req.params.guildID);
