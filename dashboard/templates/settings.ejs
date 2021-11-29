@@ -15,12 +15,9 @@
       <p style="font-style: italic;" class="disabled">The bot's command prefix</p>
       <input type="text" class="form-control" name="prefix" value="<%= settings.prefix %>" placeholder="Your prefix.">
   
-      <br><button type="submit" class="btn btn-secondary text-white">Save Settings</button>
-    </form>
-    <form method="POST">
-      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Prefix:</p>
-      <p style="font-style: italic;" class="disabled">The bot's command prefix</p>
-      <input type="text" class="form-control" name="prefix" value="<%= settings.prefix %>" placeholder="Your prefix.">
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Leave Message:</p>
+      <p style="font-style: italic;" class="disabled">The message when someone leaves the guild. ([message]/false)\nVariables: {USER MENTION} {USER TAG}</p>
+      <input type="text" class="form-control" name="leavemessage" value="<%= settings.leavemessage %>" placeholder="The leave message, or just 'false'.">
   
       <br><button type="submit" class="btn btn-secondary text-white">Save Settings</button>
     </form>
