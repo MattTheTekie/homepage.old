@@ -29,6 +29,11 @@ client.on('ready', async () => {
 
 	console.log(`Bot is ready. (${client.guilds.cache.size} Guilds - ${client.channels.cache.size} Channels - ${client.users.cache.size} Users)`);
 
+	client.channels.cache.get('812082273393704960').messages.fetch({ limit: 1 }).then(msg => {
+		const mesg = msg.first();
+		if (mesg.content !== 'Started Dashboard Successfully!' && !mesg.webhookId) client.channels.cache.get('812082273393704960').send({ content: 'Started Dashboard Successfully!' });
+	});
+
 	client.user.setPresence({ status: 'dnd' });
 
 	Dashboard(client);
