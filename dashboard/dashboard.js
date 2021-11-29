@@ -98,8 +98,7 @@ module.exports = async (client) => {
 	app.use(
 		session({
 			store: new MemoryStore({ checkPeriod: 86400000 }),
-			secret:
-				config.secret,
+			secret: config.secret,
 			resave: false,
 			saveUninitialized: false,
 		}),
