@@ -10,10 +10,8 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">
-      <img style="max-width:24px;" src="https://pup.smhsmh.club/assets/images/pup.png">
-      Pup Dashboard
-      </a>
+      <img style="width:27px;" src="/assets/images/pup.png" href="/">
+      <a style="padding-left:10px;" class="navbar-brand" href="/">Pup Dashboard</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -23,7 +21,7 @@
             <a class="nav-link" href="/dashboard">Settings</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://pup.smhsmh.club/discord">Support Server</a>
+            <a class="nav-link" href="/discord">Support Server</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/tos">Legal</a>
@@ -31,18 +29,11 @@
         </ul>
         <ul class="navbar-nav">
           <% if (user) { %>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Logged in as <%= user.username %>#<%= user.discriminator %>
-                <img style="max-width:24px; border-radius:50%" src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>">
+            <li class="nav-item">
+              <a class="nav-link" href="/logout" id="navbarScrollingDropdown" role="button">
+                <img style="width: 21px; height: 21px; border-radius:50%;" src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>">
+                <%= user.username %>#<%= user.discriminator %>
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
-                <li><a class="dropdown-item" href="https://pup.smhsmh.club/discord">Support Server</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/logout">Logout</a></li>
-              </ul>
-            </li>
             </li>
           <% } else { %>
             <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>

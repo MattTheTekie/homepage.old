@@ -45,8 +45,8 @@ client.on('messageCreate', async (message) => {
 	if (message.webhookId && message.channel.id == '812082273393704960' && message.embeds[0].title.startsWith('[Dashboard:master]')) {
 		await message.reply({ content: 'Updating dashboard to latest commit...' });
 		await sleep(1000);
-		const ndClient = new NodeactylClient(config.pterodactylURL, config.pterodactylKey);
-		await ndClient.restartServer(config.pterodactylId);
+		const ndClient = new NodeactylClient(client.config.pterodactylURL, client.config.pterodactylKey);
+		await ndClient.restartServer(client.config.pterodactylId);
 	}
 });
 

@@ -212,22 +212,12 @@ module.exports = async (client) => {
 	});
 
 	// Index endpoint.
-	app.get('/', (req, res) => {
-		renderTemplate(res, req, 'index.ejs', {
-			discordInvite: config.discordInvite,
-		});
-	});
+	app.get('/', (req, res) => renderTemplate(res, req, 'index.ejs'));
 
-	app.get('/tos', (req, res) => {
-		renderTemplate(res, req, 'terms.ejs', {
-			discordInvite: config.discordInvite,
-		});
-	});
+	app.get('/tos', (req, res) => renderTemplate(res, req, 'terms.ejs'));
 
 	// Dashboard endpoint.
-	app.get('/dashboard', checkAuth, (req, res) => {
-		renderTemplate(res, req, 'dashboard.ejs', { perms: Permissions });
-	});
+	app.get('/dashboard', checkAuth, (req, res) => renderTemplate(res, req, 'dashboard.ejs', { perms: Permissions }));
 
 	// Settings endpoint.
 	app.get('/dashboard/:guildID', checkAuth, async (req, res) => {
