@@ -7,30 +7,30 @@
         <%= alert %>
       </div>
     <% } %>
-    <%- guild.icon ? `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}" class="card-img-top" style="max-width: 9rem;">` : `<img src="https://cdn.discordapp.com/attachments/765919453766352916/877787616974622770/wCfHtuoejLIbAAAAABJRU5ErkJggg.png" class="card-img-top" style="max-width: 9rem;">` %>
+    <%- guild.icon ? `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}" class="card-img-top" style="max-width: 9rem; border-radius:50%; margin-bottom:20px">` : `<img src="/assets/images/placeholder.png" class="card-img-top" style="max-width: 9rem; border-radius:50%; margin-bottom:20px">` %>
     <h1><%= guild.name %></h1>
     <hr>
     <form method="POST">
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Prefix:</p>
       <p style="font-style: italic;" class="disabled">The bot's command prefix</p>
-      <input type="text" class="form-control" name="prefix" value="<%= settings.prefix %>" placeholder="Your prefix">
+      <input type="text" class="form-control darktextboxes" name="prefix" value="<%= settings.prefix %>" placeholder="Your prefix">
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Leave Message:</p>
       <p style="font-style: italic;" class="disabled">The message when someone leaves the guild</p>
       <p style="font-style: italic;" class="disabled">Variables: {USER MENTION} {USER TAG}</p>
-      <input type="text" class="form-control" name="leavemessage" value="<%= settings.leavemessage %>" placeholder="The leave message, or just 'false'">
+      <input type="text" class="form-control darktextboxes" name="leavemessage" value="<%= settings.leavemessage %>" placeholder="The leave message, or just 'false'">
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Join Message:</p>
       <p style="font-style: italic;" class="disabled">The message when someone joins the guild</p><p style="font-style: italic;" class="disabled">Variables: {USER MENTION} {USER TAG}</p>
-      <input type="text" class="form-control" name="joinmessage" value="<%= settings.joinmessage %>" placeholder="The join message, or just 'false'">
+      <input type="text" class="form-control darktextboxes" name="joinmessage" value="<%= settings.joinmessage %>" placeholder="The join message, or just 'false'">
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Max PP Size:</p>
       <p style="font-style: italic;" class="disabled">Maximum pp size in boner and instaboner commands</p>
-      <input type="number" class="form-control" name="maxppsize" min="2" max="75" value="<%= settings.maxppsize %>" placeholder="The max pp size">
+      <input type="number" class="form-control darktextboxes" name="maxppsize" min="2" max="75" value="<%= settings.maxppsize %>" placeholder="The max pp size">
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Tickets:</p>
       <p style="font-style: italic;" class="disabled">Toggles the ticket system</p>
-      <select class="form-control" name="tickets" value="<%= settings.tickets %>" placeholder="The ticket option">
+      <select class="darktextboxes darkselectboxes" name="tickets" value="<%= settings.tickets %>" placeholder="The ticket option">
         <option value="false" <% if (settings.tickets === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
         <option value="buttons" <% if (settings.tickets === 'buttons') {%> selected <%} else {%> <%} %>>Buttons</option>
         <option value="reactions" <% if (settings.tickets === 'reactions') {%> selected <%} else {%> <%} %>>Reactions</option>
@@ -38,14 +38,14 @@
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Boner Command:</p>
       <p style="font-style: italic;" class="disabled">Toggles the boner command</p>
-      <select class="form-control" name="bonercmd" value="<%= settings.bonercmd %>" placeholder="The value">
+      <select class="darktextboxes darkselectboxes" name="bonercmd" value="<%= settings.bonercmd %>" placeholder="The value">
         <option value="true" <% if (settings.bonercmd === 'true') {%> selected <%} else {%> <%} %>>Enabled</option>
         <option value="false" <% if (settings.bonercmd === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
       </select>
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Suggestion Channel:</p>
       <p style="font-style: italic;" class="disabled">The channel where the bot puts suggestions in</p>
-      <select class="form-control" name="suggestionchannel" value="<%= settings.suggestionchannel %>" placeholder="The suggestion channel">
+      <select class="darktextboxes darkselectboxes" name="suggestionchannel" value="<%= settings.suggestionchannel %>" placeholder="The suggestion channel">
         <option value="false" <% if (settings.suggestionchannel === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
         <% guild.channels.cache.forEach(channel => { %>
           <% if (channel.type !== "GUILD_TEXT") return %>
@@ -55,14 +55,14 @@
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Suggestion Threads:</p>
       <p style="font-style: italic;" class="disabled">Creates a thread for discussion when a suggestion is created</p>
-      <select class="form-control" name="suggestthreads" value="<%= settings.suggestthreads %>" placeholder="The value">
+      <select class="darktextboxes darkselectboxes" name="suggestthreads" value="<%= settings.suggestthreads %>" placeholder="The value">
         <option value="true" <% if (settings.suggestthreads === 'true') {%> selected <%} else {%> <%} %>>Enabled</option>
         <option value="false" <% if (settings.suggestthreads === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
       </select>
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Poll Channel:</p>
       <p style="font-style: italic;" class="disabled">The channel where the bot puts polls in</p>
-      <select class="form-control" name="pollchannel" value="<%= settings.pollchannel %>" placeholder="The poll channel">
+      <select class="darktextboxes darkselectboxes" name="pollchannel" value="<%= settings.pollchannel %>" placeholder="The poll channel">
         <option value="false" <% if (settings.pollchannel === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
         <% guild.channels.cache.forEach(channel => { %>
           <% if (channel.type !== "GUILD_TEXT") return %>
@@ -72,7 +72,7 @@
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Log Channel:</p>
       <p style="font-style: italic;" class="disabled">The channel where the bot puts various logs in</p>
-      <select class="form-control" name="logchannel" value="<%= settings.logchannel %>" placeholder="The log channel">
+      <select class="darktextboxes darkselectboxes" name="logchannel" value="<%= settings.logchannel %>" placeholder="The log channel">
         <option value="false" <% if (settings.logchannel === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
         <% guild.channels.cache.forEach(channel => { %>
           <% if (channel.type !== "GUILD_TEXT") return %>
@@ -82,7 +82,7 @@
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Ticket Category:</p>
       <p style="font-style: italic;" class="disabled">The category where the bot creates tickets in</p>
-      <select class="form-control" name="ticketcategory" value="<%= settings.ticketcategory %>" placeholder="The category">
+      <select class="darktextboxes darkselectboxes" name="ticketcategory" value="<%= settings.ticketcategory %>" placeholder="The category">
         <option value="false" <% if (settings.ticketcategory === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
         <% guild.channels.cache.forEach(channel => { %>
           <% if (channel.type !== "GUILD_CATEGORY") return %>
@@ -92,7 +92,7 @@
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Support Role:</p>
       <p style="font-style: italic;" class="disabled">The ticket support team role</p>
-      <select class="form-control" name="supportrole" value="<%= settings.supportrole %>" placeholder="The Support Role">
+      <select class="darktextboxes darkselectboxes" name="supportrole" value="<%= settings.supportrole %>" placeholder="The Support Role">
         <option value="false" <% if (settings.supportrole === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
         <% guild.roles.cache.forEach(role => { %>
           <option value="<%= role.id %>" <% if (role.id === settings.supportrole) {%> selected <%} else {%> <% } %> > <%= `@${role.name}` %></option>
@@ -101,7 +101,7 @@
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Ticket Mention:</p>
       <p style="font-style: italic;" class="disabled">Pings the specified role every time a new ticket is created</p>
-      <select class="form-control" name="ticketmention" value="<%= settings.ticketmention %>" placeholder="The Role to mention">
+      <select class="darktextboxes darkselectboxes" name="ticketmention" value="<%= settings.ticketmention %>" placeholder="The Role to mention">
         <option value="false" <% if (settings.ticketmention === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
         <option value="here" <% if (settings.ticketmention === 'here') {%> selected <%} else {%> <%} %>>@here</option>
         <option value="everyone" <% if (settings.ticketmention === 'everyone') {%> selected <%} else {%> <%} %>>@everyone</option>
@@ -112,7 +112,7 @@
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Mute Command:</p>
       <p style="font-style: italic;" class="disabled">Toggles the mute command / use a mute role</p>
-      <select class="form-control" name="mutecmd" value="<%= settings.mutecmd %>" placeholder="Whether or not to use a mute role">
+      <select class="darktextboxes darkselectboxes" name="mutecmd" value="<%= settings.mutecmd %>" placeholder="Whether or not to use a mute role">
         <option value="false" <% if (settings.mutecmd === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
         <% guild.roles.cache.forEach(role => { %>
           <option value="<%= role.id %>" <% if (role.id === settings.mutecmd) {%> selected <%} else {%> <% } %> > <%= `@${role.name}` %></option>
@@ -121,7 +121,7 @@
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Admin Role:</p>
       <p style="font-style: italic;" class="disabled">The role to replace the ADMINISTRATOR permission</p>
-      <select class="form-control" name="adminrole" value="<%= settings.adminrole %>" placeholder="Whether or not to use a role instead of the admin perm">
+      <select class="darktextboxes darkselectboxes" name="adminrole" value="<%= settings.adminrole %>" placeholder="Whether or not to use a role instead of the admin perm">
         <option value="permission" <% if (settings.adminrole === 'permission') {%> selected <%} else {%> <%} %>>Disabled</option>
         <% guild.roles.cache.forEach(role => { %>
           <option value="<%= role.id %>" <% if (role.id === settings.adminrole) {%> selected <%} else {%> <% } %> > <%= `@${role.name}` %></option>
@@ -130,7 +130,7 @@
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">DJ Role:</p>
       <p style="font-style: italic;" class="disabled">The DJ feature of the bot that limits the skip/etc commands</p>
-      <select class="form-control" name="djrole" value="<%= settings.djrole %>" placeholder="The DJ Role">
+      <select class="darktextboxes darkselectboxes" name="djrole" value="<%= settings.djrole %>" placeholder="The DJ Role">
         <option value="permission" <% if (settings.djrole === 'permission') {%> selected <%} else {%> <%} %>>Disabled</option>
         <% guild.roles.cache.forEach(role => { %>
           <option value="<%= role.id %>" <% if (role.id === settings.djrole) {%> selected <%} else {%> <% } %> > <%= `@${role.name}` %></option>
@@ -139,9 +139,9 @@
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Message Shortener:</p>
       <p style="font-style: italic;" class="disabled">The amount of lines in a message to delete and send to a bin link (Setting it to 0 disables it)</p>
-      <input type="number" class="form-control" name="msgshortener" value="<%= settings.msgshortener %>" placeholder="The max lines to shorten msg">
+      <input type="number" class="form-control darktextboxes" name="msgshortener" value="<%= settings.msgshortener %>" placeholder="The max lines to shorten msg">
   
-      <br><button type="submit" class="btn btn-secondary text-white">Save Settings</button>
+      <br><button type="submit" class="btn btn-primary text-white">Save Settings</button>
     </form>
   </div>
 </div>

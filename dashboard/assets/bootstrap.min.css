@@ -762,9 +762,11 @@ progress {
 	width: 25%
 }
 
-.col-4 {
-	flex: 0 0 auto;
-	width: 33.3333333333%
+@media screen and (min-width: 1250px) {
+	.col-4 {
+		flex: 0 0 auto;
+		width: 33.3333333333%
+	}
 }
 
 .col-5 {
@@ -5049,9 +5051,9 @@ fieldset:disabled .btn {
 }
 
 .alert-success {
-	color: #075a34;
-	background-color: #ceeadd;
-	border-color: #b6e0cd
+	color: #ffffff;
+	background-color: #007a41;
+	border-color: #00c167
 }
 
 .alert-success .alert-link {

@@ -26,12 +26,12 @@ body {
   color: white;
 }
 
-a:hover {
+a:hover, button:hover {
   transform: scale(0.9);
   transition: 0.3s ease-in-out;
 }
 
-a {
+a, button {
   transform: scale(1);
   transition: 0.3s ease-in-out;
 }
@@ -46,4 +46,22 @@ a {
   100% {
       background-position: 0% 0%
   }
+}
+
+.darktextboxes, option {
+  background:#121212;
+  background-color:#121212;
+  border-color:#121212;
+  color:white;
+  border-radius: 10px;
+}
+.darkselectboxes {
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
 }
