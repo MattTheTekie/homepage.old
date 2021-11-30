@@ -5,7 +5,8 @@
 */
 
 .card {
-  background-color: rgb(20, 20, 20);
+  background-color: #00000000;
+  border: none;
   color: white;
   text-align: center;
 }
@@ -19,6 +20,20 @@
 
 body {
   position: relative;
-  background-color: rgb(20, 20, 20);
+  background-image: linear-gradient(315deg, #000000, #703c00, #000000);
+  background-size: 400% 400%;
+  animation: bganim 25s ease infinite;
   color: white;
+}
+
+@keyframes bganim {
+  0% {
+      background-position: 0% 0%
+  }
+  50% {
+      background-position: 100% 100%
+  }
+  100% {
+      background-position: 0% 0%
+  }
 }
