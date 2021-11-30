@@ -10,7 +10,7 @@
   %>
   <a href="/dashboard/<%- guild.id %>" style="text-decoration: none;">
     <div class="card" style="width: 18rem; margin: 2rem;">
-      <%- guild.icon ? `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}" class="card-img-top" style="width: 12rem; margin: 3rem; border-radius: 50%;">` : `<img src="/assets/images/placeholder.png" class="card-img-top" style="max-width: 18rem; border-radius: 50%;">` %>
+      <%- guild.icon ? `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}" class="card-img-top" style="width: 12rem; margin: 3rem; border-radius: 50%;">` : `<img src="/assets/images/placeholder.png" class="card-img-top" style="width: 12rem; margin: 3rem; border-radius: 50%;">` %>
       <h2 class="card-title" style="font-size:30px"><%= guild.name %></h2>
     </div>
   </a>
