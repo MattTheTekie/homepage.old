@@ -6,6 +6,7 @@
 /* eslint-disable no-shadow-restricted-names */
 
 // We import the modules.
+function sleep(ms) { return new Promise(res => setTimeout(res, ms)); }
 const config = require('./config');
 const fs = require('fs');
 const Dashboard = require('./dashboard/dashboard');
@@ -44,8 +45,8 @@ client.on('messageCreate', async (message) => {
 	if (message.webhookId && message.channel.id == '812082273393704960' && message.embeds[0].title.startsWith('[Dashboard:master]')) {
 		await message.reply({ content: 'Updating dashboard to latest commit...' });
 		await sleep(1000);
-		const Client = new NodeactylClient(config.pterodactylURL, config.pterodactylKey);
-		await Client.restartServer(config.pterodactylId);
+		const ndClient = new NodeactylClient(config.pterodactylURL, config.pterodactylKey);
+		await ndClient.restartServer(config.pterodactylId);
 	}
 });
 
