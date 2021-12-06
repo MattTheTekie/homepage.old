@@ -1,0 +1,100 @@
+<%- include("partials/header", { bot, user, path, title: "Pup Music Player" }) %>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<br></br>
+<h1 style="text-align: center; padding:10px">Playing Now</h1>
+<h4 style="text-align: center; word-wrap: break-word;" id="vcname"></h4>
+<div id="buttons">
+  <img src="/assets/images/musicplaceholder.png" style="min-width: 10%; max-width: 80%; border-radius: 3%; margin:50px" id="cover">
+</div>
+<div id="buttons">
+  <h1 style="text-align: center; width: 50%;" id="title"></h1>
+</div>
+<br></br>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+    <h5 id="pos" style="padding-right:15px; display: flex; align-items: center; margin: 0;" for="progress"></h5>
+      <input type="range" id="progress" oninput="seeksong(event);" style="width:50%;">
+    <h5 id="total" style="padding-left:15px; display: flex; align-items: center; margin: 0;" for="progress"></h5>
+  </div>
+  <br></br>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+    <button class="fa fa-repeat" id="repeat" style="padding:0px;margin:30px;font-size:40px;background:none;border:none;color:#ffffff9f" onclick="loopsong()"></button>
+    <button class="fa fa-random" id="shuffle" style="padding:0px;margin:30px;font-size:40px;background:none;border:none;color:#ffffff9f" onclick="shufflequeue()"></button>
+    <button id="play" style="padding:0px;margin:30px" class="button" onclick="toggleplaypause()"></button>
+    <button class="fa fa-fast-forward" id="skip" style="padding:0px;margin:30px;font-size:40px;background:none;border:none;color:#ffffff9f" onclick="skipsong()"></button>
+  </div>
+  <br></br>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+    <h5 style="padding-right:15px; display: flex; align-items: center; margin: 0;" for="volume">🔇</h5>
+      <input type="range" id="volume" oninput="changevolume(event);" style="width:40%;" max=100>
+    <h5 style="padding-left:15px; display: flex; align-items: center; margin: 0;" for="volume">🔊</h5>
+  </div>
+<script>
+  function changevolume(event) { ws.send(`volume change: <%=user.id%> / ${event.srcElement.value}`); }
+  function seeksong(event) { ws.send(`seek song: <%=user.id%> / ${event.srcElement.value}`); }
+  function skipsong() { ws.send(`skip song: <%=user.id%>`); }
+  function toggleplaypause() {
+    document.getElementById('play').classList.toggle("paused");
+    ws.send(`playpause: <%=user.id%>`);
+  };
+	function sleep(ms) { return new Promise(res => setTimeout(res, ms)); }
+  function convert(duration) {
+		let seconds = parseInt((duration / 1000) % 60);
+		let minutes = parseInt((duration / (1000 * 60)) % 60);
+		const hours = parseInt((duration / (1000 * 60 * 60)) % 24);
+		seconds = (seconds < 10) ? '0' + seconds : seconds;
+		if (duration < 3600000) {
+			return minutes + ':' + seconds ;
+		}
+		else {
+		  minutes = (minutes < 10) ? '0' + minutes : minutes;
+			return hours + ':' + minutes + ':' + seconds ;
+		}
+	}
+  const body = document.getElementsByTagName('body')[0];
+  const bar = document.getElementById('progress');
+  const posLabel = document.getElementById('pos');
+  const totalLabel = document.getElementById('total');
+  const cover = document.getElementById('cover');
+  const title = document.getElementById('title');
+  const ws = new WebSocket('ws://localhost:6969');
+  body.classList.remove('bgradient');
+	ws.onopen = function open() {
+    ws.send('music info for: <%=user.id%>');
+    setInterval(() => ws.send('music info for: <%=user.id%>'), 5000);
+  };
+	ws.onmessage = async function message(data) {
+		const player = JSON.parse(data.data);
+    document.getElementById('volume').value = player.volume;
+    document.getElementById('vcname').innerText = player.voiceChannelName;
+    if (player.current) {
+      cover.src = player.current.img;
+      body.style.backgroundColor = player.current.color;
+      bar.max = player.current.duration;
+      bar.value = player.position;
+      posLabel.innerText = convert(bar.value);
+      totalLabel.innerText = convert(player.current.duration - bar.value);
+      title.innerText = player.current.title;
+      if (!player.paused) {
+        document.getElementById('play').classList.add("paused");
+        for (let step = 0; step < 5; step++) {
+			    await sleep(1000);
+          bar.value = parseInt(bar.value) + 1000;
+          posLabel.innerText = convert(bar.value);
+          totalLabel.innerText = convert(player.current.duration - bar.value);
+		    }
+      }
+      else {
+        document.getElementById('play').classList.remove("paused");
+      }
+    }
+    else {
+      cover.src = '/assets/images/musicplaceholder.png';
+      body.style.backgroundColor = '#000000';
+      bar.max = player.current.duration;
+      posLabel.innerText = '00:00';
+      totalLabel.innerText = '00:00';
+      title.innerText = 'Not playing anything!';
+    }
+	};
+</script>
+<%- include("partials/footer") %>

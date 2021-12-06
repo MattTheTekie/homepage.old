@@ -219,6 +219,8 @@ module.exports = async (client) => {
 	// Dashboard endpoint.
 	app.get('/dashboard', checkAuth, (req, res) => renderTemplate(res, req, 'dashboard.ejs', { perms: Permissions }));
 
+	app.get('/music', checkAuth, (req, res) => renderTemplate(res, req, 'music.ejs', { perms: Permissions }));
+
 	// Settings endpoint.
 	app.get('/dashboard/:guildID', checkAuth, async (req, res) => {
 		// We validate the request, check if guild exists, member is in guild and if member has minimum permissions, if not, we redirect it back.

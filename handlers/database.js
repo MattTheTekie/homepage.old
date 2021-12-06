@@ -21,6 +21,6 @@ module.exports = async client => {
 
 	client.con.connect(async err => {
 		if (err) throw err;
-		console.log('Connected to databse succesfully');
+		console.log('Connected to MySQL successfully');
 	});
 };
