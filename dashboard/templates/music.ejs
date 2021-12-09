@@ -56,7 +56,7 @@
   const totalLabel = document.getElementById('total');
   const cover = document.getElementById('cover');
   const title = document.getElementById('title');
-  const ws = new WebSocket('ws://66.23.206.245:51225');
+  const ws = new WebSocket('<%=wsurl%>');
 	ws.onopen = function open() {
     ws.send('music info for: <%=user.id%>');
     setInterval(() => ws.send('music info for: <%=user.id%>'), 5000);

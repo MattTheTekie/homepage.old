@@ -219,7 +219,8 @@ module.exports = async (client) => {
 	// Dashboard endpoint.
 	app.get('/dashboard', checkAuth, (req, res) => renderTemplate(res, req, 'dashboard.ejs', { perms: Permissions }));
 
-	app.get('/music', checkAuth, (req, res) => renderTemplate(res, req, 'music.ejs', { perms: Permissions }));
+	const wsurl = config.wsurl;
+	app.get('/music', checkAuth, (req, res) => renderTemplate(res, req, 'music.ejs', { wsurl, perms: Permissions }));
 
 	// Settings endpoint.
 	app.get('/dashboard/:guildID', checkAuth, async (req, res) => {
