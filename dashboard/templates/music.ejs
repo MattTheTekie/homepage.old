@@ -14,10 +14,10 @@
   <h5 id="total" class="centered" style="padding:15px; margin:0;" for="progress"></h5>
 </div>
 <div class="centered" style="margin:1rem;">
-  <button class="fa fa-random" id="shuffle" style="margin:30px;font-size:40px;background:none;border:none;color:#ffffff9f" onclick="shufflequeue()"></button>
-  <button class="fa fa-backward" id="prev" style="margin:30px;font-size:40px;background:none;border:none;color:#ffffff9f" onclick="prevsong()"></button>
+  <button class="fa fa-random mediacontrols" id="shuffle" style="font-size:40px;" onclick="shufflequeue()"></button>
+  <button class="fa fa-backward mediacontrols" id="prev" style="font-size:40px;" onclick="prevsong()"></button>
   <button id="play" style="padding:0; margin:30px" class="button" onclick="toggleplaypause()"></button>
-  <button class="fa fa-forward" id="skip" style="margin:30px;font-size:40px;background:none;border:none;color:#ffffff9f" onclick="skipsong()"></button>
+  <button class="fa fa-forward mediacontrols" id="skip" style="font-size:40px;" onclick="skipsong()"></button>
 </div>
 <div class="centered">
   <h5 class="centered" style="padding:15px; margin:0;" for="volume">🔇</h5>
@@ -79,7 +79,7 @@
         player.queue.forEach(track => {
           document.getElementById('queuecont').innerHTML += `
 <div class="centered" style="margin:15px;">
-  <a href="#" onclick="skipto(${player.queue.indexOf(track)})" style="border-radius:5px; text-decoration:none; color:#fff; width:80%; height:70px; display: flex; flex-wrap: wrap; background-color:${track.color}">
+  <a href="#" class="queueitem" onclick="skipto(${player.queue.indexOf(track)})" style="background-image: linear-gradient(90deg, ${track.color}, ${track.color}55);">
     <img src="${track.img}" style="height:50px; margin:10px; border-radius:5px;"></img>
     <h6 style="height:70px; width:60%; display: flex; flex-wrap: wrap; align-items: center; overflow: hidden;">${track.title}</h6>
   </a>

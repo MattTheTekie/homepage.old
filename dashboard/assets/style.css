@@ -18,6 +18,13 @@
   align-items: center;
 }
 
+.mediacontrols {
+  margin: 30px;
+  background: none;
+  border: none;
+  color: #ffffff9f;
+}
+
 body {
   animation: fadeIn 1s;
   position: relative;
@@ -28,6 +35,16 @@ body {
   color: white;
   text-shadow: 0 0 20px #00000099;
   box-shadow: 0 0 20px #00000099;
+}
+
+.queueitem {
+  border-radius:5px;
+  text-decoration:none;
+  color:#fff;
+  width:80%;
+  height:70px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 a:hover, button:hover {
@@ -169,8 +186,4 @@ input[type=range]:focus::-ms-fill-upper {
 button.paused {
   border-style: double;
   border-width: 0px 0px 0px 35px;
-}
-
-buttonhover {
-  border-color: transparent transparent transparent #ffffff9f;
 }
