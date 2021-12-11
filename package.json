@@ -33,10 +33,5 @@
     "mysql": "^2.18.1",
     "passport": "^0.4.1",
     "passport-discord": "^0.1.4"
-  },
-  "devDependencies": {
-    "chalk": "^2.4.2",
-    "nodemon": "^2.0.12",
-    "string-width": "^4.2.2"
   }
 }

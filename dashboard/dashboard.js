@@ -1,11 +1,7 @@
-/* eslint-disable no-self-assign */
-/* eslint-disable no-inline-comments */
-
 // We import modules.
 const url = require('url');
 const ejs = require('ejs');
 const path = require('path');
-const chalk = require('chalk');
 const express = require('express');
 const config = require('../config');
 const passport = require('passport');
@@ -13,7 +9,6 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const { Permissions } = require('discord.js');
 const Strategy = require('passport-discord').Strategy;
-const { boxConsole } = require('../functions/boxConsole');
 
 // We instantiate express app and the session store.
 const app = express();
@@ -22,8 +17,8 @@ const MemoryStore = require('memorystore')(session);
 // We export the dashboard as a function which we call in ready event.
 module.exports = async (client) => {
 	// We declare absolute paths.
-	const dataDir = path.resolve(`${process.cwd()}${path.sep}dashboard`); // The absolute path of current this directory.
-	const templateDir = path.resolve(`${dataDir}${path.sep}templates`); // Absolute path of ./templates directory.
+	const dataDir = path.resolve(`${process.cwd()}${path.sep}dashboard`);
+	const templateDir = path.resolve(`${dataDir}${path.sep}templates`);
 
 	// Deserializing and serializing users without any additional logic.
 	passport.serializeUser((user, done) => done(null, user));
@@ -59,20 +54,7 @@ module.exports = async (client) => {
 
 	// This line is to inform users where the system will begin redirecting the users.
 	// And can be removed.
-	const msg = `${chalk.red.bold('Info:')} ${chalk.green.italic(
-		'Make sure you have added the Callback URL to the Discord\'s OAuth Redirects section in the developer portal.',
-	)}`;
-	boxConsole([
-		`${chalk.red.bold('Callback URL:')} ${chalk.white.bold.italic.underline(
-			callbackUrl,
-		)}`,
-		`${chalk.red.bold(
-			'Discord Developer Portal:',
-		)} ${chalk.white.bold.italic.underline(
-			`https://discord.com/developers/applications/${config.id}/oauth2`,
-		)}`,
-		msg,
-	]);
+	console.log(`Callback URL: ${callbackUrl}`);
 
 	// We set the passport to use a new discord strategy, we pass in client id, secret, callback url and the scopes.
 	/** Scopes:
@@ -160,10 +142,7 @@ module.exports = async (client) => {
 		'/login',
 		(req, res, next) => {
 			// We determine the returning url.
-			if (req.session.backURL) {
-				req.session.backURL = req.session.backURL;
-			}
-			else if (req.headers.referer) {
+			if (req.headers.referer) {
 				const parsed = url.parse(req.headers.referer);
 				if (parsed.hostname === app.locals.domain) {
 					req.session.backURL = parsed.path;
@@ -182,7 +161,7 @@ module.exports = async (client) => {
 	app.get(
 		'/callback',
 		passport.authenticate('discord', { failureRedirect: '/' }),
-		/* We authenticate the user, if user canceled we redirect him to index. */ (
+		(
 			req,
 			res,
 		) => {
@@ -248,7 +227,6 @@ module.exports = async (client) => {
 			// If there are no settings stored for this guild, we create them and try to retrive them again.
 			client.setSettings(req.params.guildID);
 			storedSettings = await client.getSettings(req.params.guildID);
-			storedSettings = storedSettings;
 		}
 
 		renderTemplate(res, req, 'settings.ejs', {
@@ -297,7 +275,6 @@ module.exports = async (client) => {
 			// If there are no settings stored for this guild, we create them and try to retrive them again.
 			client.setSettings(guild.id);
 			storedSettings = await client.getSettings(req.params.guildID);
-			storedSettings = storedSettings;
 		}
 
 		// We render the template with an alert text which confirms that settings have been saved.

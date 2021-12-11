@@ -2,11 +2,7 @@
   > Index.Js is the entry point of our application.
 */
 
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-shadow-restricted-names */
-
 // We import the modules.
-function sleep(ms) { return new Promise(res => setTimeout(res, ms)); }
 const config = require('./config');
 const fs = require('fs');
 const Dashboard = require('./dashboard/dashboard');
