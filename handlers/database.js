@@ -4,7 +4,7 @@ module.exports = async client => {
 	// Database Functions
 	let amount = 0;
 	readdirSync('./functions').forEach(file => {
-		require(`../functions${file}`)(client);
+		require(`../functions/${file}`)(client);
 		amount = amount + 1;
 	});
 	console.log(`${amount} database functions loaded`);
