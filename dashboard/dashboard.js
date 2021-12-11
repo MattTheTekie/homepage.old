@@ -264,6 +264,7 @@ module.exports = async (client) => {
     supportrole="${setting.supportrole ? setting.supportrole : 'false'}",
     ticketmention="${setting.ticketmention ? setting.ticketmention : 'here'}",
     mutecmd="${setting.mutecmd ? setting.mutecmd : 'false'}",
+    reactions="${setting.reactions ? setting.reactions : 'true'}",
     adminrole="${setting.adminrole ? setting.adminrole : 'permission'}",
     msgshortener="${setting.msgshortener ? setting.msgshortener : '30'}",
     djrole="${setting.djrole ? setting.djrole : 'false'}"

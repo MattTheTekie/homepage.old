@@ -43,6 +43,13 @@
         <option value="false" <% if (settings.bonercmd === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
       </select>
   
+      <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Reactions:</p>
+      <p style="font-style: italic;" class="disabled">Reacts with various reactions on some words</p>
+      <select class="darktextboxes darkselectboxes" name="reactions" value="<%= settings.reactions %>" placeholder="The value">
+        <option value="true" <% if (settings.reactions === 'true') {%> selected <%} else {%> <%} %>>Enabled</option>
+        <option value="false" <% if (settings.reactions === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
+      </select>
+  
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Suggestion Channel:</p>
       <p style="font-style: italic;" class="disabled">The channel where the bot puts suggestions in</p>
       <select class="darktextboxes darkselectboxes" name="suggestionchannel" value="<%= settings.suggestionchannel %>" placeholder="The suggestion channel">
