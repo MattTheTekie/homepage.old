@@ -10,17 +10,17 @@
 </div>
 <div class="centered">
   <h5 id="pos" class="centered" style="padding:15px; margin:0;" for="progress"></h5>
-    <input type="range" id="progress" oninput="seeksong(event);" style="width:65%;">
+    <input type="range" id="progress" oninput="seeksong(event);" style="width:45%;">
   <h5 id="total" class="centered" style="padding:15px; margin:0;" for="progress"></h5>
 </div>
 <div class="centered" style="margin:1rem;">
-  <button class="fa fa-random mediacontrols" id="shuffle" style="font-size:40px;" onclick="shufflequeue()"></button>
+  <button class="fa fa-random mediacontrols" id="shuffle" style="font-size:40px; margin-right:10%;" onclick="shufflequeue()"></button>
   <button id="play" style="padding:0;" class="button" onclick="toggleplaypause()"></button>
-  <button class="fa fa-forward mediacontrols" id="skip" style="font-size:40px;" onclick="skipsong()"></button>
+  <button class="fa fa-forward mediacontrols" id="skip" style="font-size:40px; margin-left:10%;" onclick="skipsong()"></button>
 </div>
 <div class="centered">
   <h5 class="centered" style="padding:15px; margin:0;" for="volume">🔇</h5>
-    <input type="range" id="volume" oninput="changevolume(event);" style="width:60%;" max=100>
+    <input type="range" id="volume" oninput="changevolume(event);" style="width:40%;" max=100>
   <h5 class="centered" style="padding:15px; margin:0;" for="volume">🔊</h5>
 </div>
 <div id="queuecont" style="margin-top:3rem;"></div>
