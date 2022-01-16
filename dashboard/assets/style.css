@@ -32,8 +32,7 @@ body {
   animation: bganim 25s ease infinite;
   background-color: #000000;
   color: white;
-  text-shadow: 0 0 20px #00000099;
-  box-shadow: 0 0 20px #00000099;
+  text-shadow: 0 0 20px #00000040;
 }
 
 .queueitem {
