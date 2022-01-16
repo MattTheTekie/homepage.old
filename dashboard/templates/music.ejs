@@ -3,7 +3,7 @@
 <h1 style="text-align: center; padding:10px">Playing Now</h1>
 <h4 style="text-align: center; word-wrap: break-word;" id="vcname"></h4>
 <div class="centered">
-  <img src="/assets/images/musicplaceholder.png" style="min-width: 10%; max-width: 80%; border-radius: 3%; margin:2rem" id="cover">
+  <img src="/assets/images/musicplaceholder.png" style="min-width: 20%; max-width: 80%; border-radius: 3%; margin:2rem" id="cover">
 </div>
 <div style="margin-bottom:1rem" class="centered">
   <h1 style="text-align: center; width: 80%;" id="title"></h1>
@@ -65,9 +65,10 @@
     document.getElementById('volume').value = player.volume;
     document.getElementById('vcname').innerText = player.voiceChannelName;
     if (player.current) {
+      if (!player.current.color) player.current.color = [Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255)];
       cover.src = player.current.img;
-      body.style.backgroundColor = player.current.color;
-      body.style.backgroundImage = `linear-gradient(315deg, #000000, ${player.current.color}, #000000)`;
+      body.style.backgroundColor = `rgb(${player.current.color.join(', ')})`;
+      body.style.backgroundImage = `linear-gradient(315deg, #000000, rgb(${player.current.color.join(', ')}), #000000)`;
       bar.max = player.current.duration;
       bar.value = player.position;
       posLabel.innerText = convert(bar.value);
@@ -76,11 +77,12 @@
       if (!player.paused) {
         document.getElementById('queuecont').innerHTML = '';
         player.queue.forEach(track => {
+          if (!track.color) track.color = [Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255)];
           document.getElementById('queuecont').innerHTML += `
 <div class="centered" style="margin:15px;">
-  <a href="#" class="queueitem" onclick="skipto(${player.queue.indexOf(track)})" style="background-image: linear-gradient(90deg, ${track.color}, ${track.color}55);">
+  <a href="#" class="queueitem" onclick="skipto(${player.queue.indexOf(track)})" style="background-image: linear-gradient(90deg, rgb(${track.color.join(', ')}), rgba(${track.color.join(', ')}, 0.3));">
     <img src="${track.img}" style="height:50px; margin:10px; border-radius:5px;"></img>
-    <h6 style="height:70px; width:60%; display: flex; flex-wrap: wrap; align-items: center; overflow: hidden;">${track.title}</h6>
+    <h6 style="height:70px; width:60%; display: flex; flex-wrap: wrap; align-items: center; overflow: hidden;">${track.title.replace('\n', '<br>')}</h6>
   </a>
 </div>
 `;
