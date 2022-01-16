@@ -131,8 +131,3 @@ input[type=range]::-moz-range-thumb {
   border-style: solid;
   border-width: 18px 0px 18px 35px;
 }
-
-button.paused {
-  border-style: double;
-  border-width: 0px 0px 0px 35px;
-}

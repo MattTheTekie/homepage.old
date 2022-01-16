@@ -14,14 +14,14 @@
   <h5 id="total" class="centered" style="padding:15px; margin:0;" for="progress"></h5>
 </div>
 <div class="centered" style="margin:1rem;">
-  <button class="fa fa-random mediacontrols" id="shuffle" style="font-size:40px; margin-right:10%;" onclick="shufflequeue()"></button>
-  <button id="play" style="padding:0;" class="button" onclick="toggleplaypause()"></button>
-  <button class="fa fa-forward mediacontrols" id="skip" style="font-size:40px; margin-left:10%;" onclick="skipsong()"></button>
+  <button class="mediacontrols" style="margin-right:10%;" onclick="shufflequeue()"><img id="shuffle" src="/assets/icons/shuffle.svg"></img></button>
+  <button class="mediacontrols" class="button" onclick="toggleplaypause()"><img id="play" src="/assets/icons/play.svg"></img></button>
+  <button class="mediacontrols" style="margin-left:10%;" onclick="skipsong()"><img id="skip" src="/assets/icons/skip-forward.svg"></img></button>
 </div>
 <div class="centered">
-  <h5 class="centered" style="padding:15px; margin:0;" for="volume">🔇</h5>
+  <h5 class="centered" style="padding:15px; margin:0;" for="volume"><img src="/assets/icons/volume-x.svg"></img></h5>
     <input type="range" id="volume" oninput="changevolume(event);" style="width:40%;" max=100>
-  <h5 class="centered" style="padding:15px; margin:0;" for="volume">🔊</h5>
+  <h5 class="centered" style="padding:15px; margin:0;" for="volume"><img src="/assets/icons/volume-2.svg"></img></h5>
 </div>
 <div id="queuecont" style="margin-top:3rem;"></div>
 <script>
@@ -32,7 +32,11 @@
   function skipto(index) { ws.send(`skip to: <%=user.id%> / ${index}`); }
   function shufflequeue() { ws.send('shuffle queue: <%=user.id%>'); }
   function toggleplaypause() {
-    document.getElementById('play').classList.toggle("paused");
+    if (document.getElementById('play').src.includes('play')) {
+      document.getElementById('play').src = '/assets/icons/pause.svg';
+    } else {
+      document.getElementById('play').src = '/assets/icons/play.svg';
+    }
     ws.send(`playpause: <%=user.id%>`);
   };
 	function sleep(ms) { return new Promise(res => setTimeout(res, ms)); }
@@ -87,7 +91,7 @@
 </div>
 `;
         });
-        document.getElementById('play').classList.add("paused");
+        document.getElementById('play').src = '/assets/icons/pause.svg';
         for (let step = 0; step < 5; step++) {
 			    await sleep(1000);
           bar.value = parseInt(bar.value) + 1000;
@@ -96,7 +100,7 @@
 		    }
       }
       else {
-        document.getElementById('play').classList.remove("paused");
+        document.getElementById('play').src = '/assets/icons/play.svg';
       }
     }
     else {
