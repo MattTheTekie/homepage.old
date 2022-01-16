@@ -119,6 +119,16 @@ input[type=range]::-moz-range-thumb {
   border-radius: 14px;
 }
 
+input[type=range][orient=vertical] {
+  writing-mode: bt-lr;
+  -webkit-appearance: slider-vertical;
+  margin: 3%;
+  height: 200px;
+  width: 8px;
+  background: #ffffff;
+  border-radius: 14px;
+}
+
 .button {
   border: 0;
   background: transparent;

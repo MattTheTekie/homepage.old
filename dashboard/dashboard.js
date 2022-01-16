@@ -200,6 +200,8 @@ module.exports = async (client) => {
 
 	const wsurl = config.wsurl;
 	app.get('/music', checkAuth, (req, res) => renderTemplate(res, req, 'music.ejs', { wsurl, perms: Permissions }));
+	app.get('/music/equalizer', checkAuth, (req, res) => renderTemplate(res, req, 'equalizer.ejs', { wsurl, perms: Permissions }));
+	app.get('/music/lyrics', checkAuth, (req, res) => renderTemplate(res, req, 'lyrics.ejs', { wsurl, perms: Permissions }));
 
 	// Settings endpoint.
 	app.get('/dashboard/:guildID', checkAuth, async (req, res) => {
