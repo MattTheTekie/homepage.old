@@ -30,6 +30,9 @@ body {
   background-image: linear-gradient(315deg, #000000, #703c00, #000000);
   background-size: 400% 400%;
   animation: bganim 25s ease infinite;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   background-color: #000000;
   color: white;
   text-shadow: 0 0 20px #00000040;
