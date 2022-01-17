@@ -11,16 +11,30 @@
 <div style="margin-bottom:1rem" class="centered">
   <h4 style="text-align: center; width: 80%;" id="artist">Artist not specified</h4>
 </div>
+
+<div id="lyricsview" style="display: none;">
+  <div class="centered">
+    <div class="centered" style="width: 80%; padding: 15px">
+      <h1 id="lyrics" style="text-align: center;">Lyrics not found.</h1>
+    </div>
+  </div>
+  <div class="centered">
+    <input type="range" value="0" id="scroll" oninput="updatelyric(); document.getElementById('hint').innerText = '';" style="width:45%;">
+  </div>
+  <h7 id="hint" class="centered">Drag the bar above to go through the lyrics</h7>
+  <br>
+</div>
+
 <div class="centered">
   <h5 id="pos" style="padding:15px; margin:0;">0:00</h5>
     <input type="range" id="progress" value="0" oninput="seeksong(event);" style="width:45%;">
   <h5 id="total" style="padding:15px; margin:0;">0:00</h5>
 </div>
 <div class="centered" style="margin:1rem;">
-  <a href="/music/lyrics" class="mediacontrols"><img id="lyrics" src="/assets/icons/mic.svg"></a>
-  <a href="#" class="mediacontrols" onclick="shufflequeue(); "><img id="shuffle" src="/assets/icons/shuffle.svg"></a>
-  <a href="#" class="mediacontrols" onclick="toggleplaypause()"><img id="play" src="/assets/icons/play.svg"></a>
-  <a href="#" class="mediacontrols" onclick="skipsong()"><img id="skip" src="/assets/icons/skip-forward.svg"></a>
+  <a href="#" class="mediacontrols" onclick="togglelyrics();"><img id="mic" src="/assets/icons/mic.svg"></a>
+  <a href="#" class="mediacontrols" onclick="shufflequeue();"><img src="/assets/icons/shuffle.svg"></a>
+  <a href="#" class="mediacontrols" onclick="toggleplaypause();"><img id="play" src="/assets/icons/play.svg"></a>
+  <a href="#" class="mediacontrols" onclick="skipsong();"><img src="/assets/icons/skip-forward.svg"></a>
   <a href="/music/equalizer" class="mediacontrols"><img id="equalizer" src="/assets/icons/sliders.svg"></a>
 </div>
 <div class="centered">
@@ -43,11 +57,8 @@
   function skipto(index) { ws.send(`skip to: <%=user.id%> / ${index}`); getMusicInfo(); }
   function shufflequeue() { ws.send('shuffle queue: <%=user.id%>'); getMusicInfo(); }
   function toggleplaypause() {
-    if (document.getElementById('play').src.includes('play')) {
-      document.getElementById('play').src = '/assets/icons/pause.svg';
-    } else {
-      document.getElementById('play').src = '/assets/icons/play.svg';
-    }
+    if (play.src.includes('play')) play.src = '/assets/icons/pause.svg';
+    else play.src = '/assets/icons/play.svg';
     ws.send(`playpause: <%=user.id%>`);
     getMusicInfo();
   };
@@ -64,6 +75,19 @@
 			return hours + ':' + minutes + ':' + seconds ;
 		}
 	}
+  function updatelyric() {
+    lyrictext.innerText = lyrics[scroll.value];
+    if (!lyrictext.innerText) lyrictext.innerText = '•••';
+  }
+  function togglelyrics() {
+    if (lyricsview.style.display == 'none') {
+      lyricsview.style.display = 'block';
+      document.getElementById('mic').src = '/assets/icons/music.svg';
+    } else {
+      lyricsview.style.display = 'none';
+      document.getElementById('mic').src = '/assets/icons/mic.svg';
+    }
+  }
 
   // variables
   const body = document.getElementsByTagName('body')[0];
@@ -77,7 +101,11 @@
   const play = document.getElementById('play');
   const volume = document.getElementById('volume');
   const queue = document.getElementById('queuecont');
+  const scroll = document.getElementById('scroll');
   const ws = new WebSocket('<%=wsurl%>');
+  const lyricsview = document.getElementById('lyricsview');
+  const lyrictext = document.getElementById('lyrics');
+  let lyrics = ['Lyrics not found.'];
 
   // websocket
 	ws.onopen = function open() {
@@ -94,8 +122,11 @@
   }, 1000);
 
   // data handling
-	ws.onmessage = async function message(data) {
+  ws.onmessage = async function message(data) {
 		const player = data.data instanceof Blob ? null : JSON.parse(data.data);
+    lyrics = player.lyrics.split('\n');
+    scroll.max = lyrics.length - 1;
+    updatelyric();
     volume.value = player ? player.volume : null;
     vcname.innerText = player ? player.voiceChannelName : null;
     if (player && player.current) {
