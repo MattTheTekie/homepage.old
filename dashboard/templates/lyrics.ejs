@@ -1,10 +1,21 @@
 <%- include("partials/header", { bot, user, path, title: "Pup Music Player" }) %>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <h1 style="text-align: center; padding:10px">Lyrics</h1>
-<h4 style="text-align: center; word-wrap: break-word;" id="vcname"></h4>
+<h4 style="text-align: center; word-wrap: break-word;" id="vcname">No voice channel</h4>
+<div class="centered">
+  <img src="/assets/images/musicplaceholder.png" style="min-width: 20%; max-width: 80%; border-radius: 3%; margin:2rem" id="cover">
+</div>
+<div style="margin-bottom:1rem" class="centered">
+  <h1 style="text-align: center; width: 80%;" id="title">Not playing anything!</h1>
+</div>
+<div style="margin-bottom:1rem" class="centered">
+  <h4 style="text-align: center; width: 80%;" id="artist">Artist not specified</h4>
+</div>
+
+
 <div class="centered">
   <div class="centered" style="width: 80%; padding: 15px">
-    <h1 id="lyrics"></h1>
+    <h1 id="lyrics" style="text-align: center;"></h1>
   </div>
 </div>
 <div class="centered">
@@ -12,37 +23,39 @@
 </div>
 <h7 id="hint" class="centered">Drag the bar above to go through the lyrics</h7>
 <br>
+
+
 <div class="centered">
-  <div id="minimized" href="#" class="queueitem" style="width:45%">
-    <img src="/assets/images/musicplaceholder.png" style="height:50px; margin:10px; border-radius:5px;" id="cover" ></img>
-    <h6 style="height:70px; width:60%; display: flex; flex-wrap: wrap; align-items: center; overflow: hidden;" id="title"><br></h6>
-  </div>
-</div>
-<div class="centered">
-  <h5 id="pos" class="centered" style="padding:15px; margin:0;" for="progress"></h5>
-    <input type="range" id="progress" oninput="seeksong(event);" style="width:45%;">
-  <h5 id="total" class="centered" style="padding:15px; margin:0;" for="progress"></h5>
+  <h5 id="pos" style="padding:15px; margin:0;">0:00</h5>
+    <input type="range" id="progress" value="0" oninput="seeksong(event);" style="width:45%;">
+  <h5 id="total" style="padding:15px; margin:0;">0:00</h5>
 </div>
 <div class="centered" style="margin:1rem;">
-  <a href="/music" class="mediacontrols" style="margin-right:3%;"><img id="lyrics" src="/assets/icons/music.svg"></img></a>
-  <button class="mediacontrols" style="margin-right:3%;" onclick="shufflequeue()"><img id="shuffle" src="/assets/icons/shuffle.svg"></img></button>
-  <button class="mediacontrols" class="button" onclick="toggleplaypause()"><img id="play" src="/assets/icons/play.svg"></img></button>
-  <button class="mediacontrols" style="margin-left:3%;" onclick="skipsong()"><img id="skip" src="/assets/icons/skip-forward.svg"></img></button>
-  <a href="/music/equalizer" class="mediacontrols" style="margin-left:3%;"><img id="equalizer" src="/assets/icons/sliders.svg"></img></a>
+  <a href="/music" class="mediacontrols"><img id="lyrics" src="/assets/icons/music.svg"></a>
+  <a href="#" class="mediacontrols" onclick="shufflequeue(); "><img id="shuffle" src="/assets/icons/shuffle.svg"></a>
+  <a href="#" class="mediacontrols" onclick="toggleplaypause()"><img id="play" src="/assets/icons/play.svg"></a>
+  <a href="#" class="mediacontrols" onclick="skipsong()"><img id="skip" src="/assets/icons/skip-forward.svg"></a>
+  <a href="/music/equalizer" class="mediacontrols"><img id="equalizer" src="/assets/icons/sliders.svg"></a>
 </div>
 <div class="centered">
-  <h5 class="centered" style="padding:15px; margin:0;" for="volume"><img src="/assets/icons/volume-x.svg"></img></h5>
+  <h5 style="padding:15px; margin:0;"><img src="/assets/icons/volume-x.svg"></h5>
     <input type="range" id="volume" oninput="changevolume(event);" style="width:40%;" max=100>
-  <h5 class="centered" style="padding:15px; margin:0;" for="volume"><img src="/assets/icons/volume-2.svg"></img></h5>
+  <h5 style="padding:15px; margin:0;"><img src="/assets/icons/volume-2.svg"></h5>
 </div>
 <div id="queuecont" style="margin-top:3rem;"></div>
 <script>
+  // functions
+	function sleep(ms) { return new Promise(res => setTimeout(res, ms)); }
+  async function getMusicInfo() {
+    await sleep(250);
+    ws.send('music info for: <%=user.id%>');
+  }
   function changevolume(event) { ws.send(`volume change: <%=user.id%> / ${event.srcElement.value}`); }
   function seeksong(event) { ws.send(`seek song: <%=user.id%> / ${event.srcElement.value}`); }
-  function skipsong() { ws.send('skip song: <%=user.id%>'); }
-  function prevsong() { ws.send('prev song: <%=user.id%>'); }
-  function skipto(index) { ws.send(`skip to: <%=user.id%> / ${index}`); }
-  function shufflequeue() { ws.send('shuffle queue: <%=user.id%>'); }
+  function skipsong() { ws.send('skip song: <%=user.id%>'); getMusicInfo(); }
+  function prevsong() { ws.send('prev song: <%=user.id%>'); getMusicInfo(); }
+  function skipto(index) { ws.send(`skip to: <%=user.id%> / ${index}`); getMusicInfo(); }
+  function shufflequeue() { ws.send('shuffle queue: <%=user.id%>'); getMusicInfo(); }
   function toggleplaypause() {
     if (document.getElementById('play').src.includes('play')) {
       document.getElementById('play').src = '/assets/icons/pause.svg';
@@ -50,8 +63,8 @@
       document.getElementById('play').src = '/assets/icons/play.svg';
     }
     ws.send(`playpause: <%=user.id%>`);
+    getMusicInfo();
   };
-	function sleep(ms) { return new Promise(res => setTimeout(res, ms)); }
   function convert(duration) {
 		let seconds = parseInt((duration / 1000) % 60);
 		let minutes = parseInt((duration / (1000 * 60)) % 60);
@@ -69,37 +82,62 @@
     document.getElementById('lyrics').innerText = lyrics[scroll.value];
     if (!document.getElementById('lyrics').innerText) document.getElementById('lyrics').innerText = '•••';
   }
+
+  // variables
   const body = document.getElementsByTagName('body')[0];
+  const vcname = document.getElementById('vcname');
+  const cover = document.getElementById('cover');
+  const title = document.getElementById('title');
+  const artist = document.getElementById('artist');
   const bar = document.getElementById('progress');
   const posLabel = document.getElementById('pos');
   const totalLabel = document.getElementById('total');
-  const cover = document.getElementById('cover');
-  const title = document.getElementById('title');
+  const play = document.getElementById('play');
+  const volume = document.getElementById('volume');
+  const queue = document.getElementById('queuecont');
   const scroll = document.getElementById('scroll');
   const ws = new WebSocket('<%=wsurl%>');
   let lyrics = 'Lyrics not found';
+
+  // websocket
 	ws.onopen = function open() {
-    ws.send('music info for: <%=user.id%>');
-    setInterval(() => ws.send('music info for: <%=user.id%>'), 5000);
+    getMusicInfo();
+    setInterval(() => getMusicInfo(), 5000);
   };
-	ws.onmessage = async function message(data) {
-		const player = JSON.parse(data.data);
+
+  setInterval(() => {
+    if (play.src.includes('pause')) {
+      bar.value = parseInt(bar.value) + 1000;
+      posLabel.innerText = convert(bar.value);
+      totalLabel.innerText = convert(bar.max - bar.value);
+    };
+  }, 1000);
+
+  // data handling
+  ws.onmessage = async function message(data) {
+		const player = data.data instanceof Blob ? null : JSON.parse(data.data);
     lyrics = player.lyrics.split('\n');
     scroll.max = lyrics.length - 1;
     updatelyric();
-    document.getElementById('volume').value = player.volume;
-    document.getElementById('vcname').innerText = player.voiceChannelName;
-    if (player.current) {
-      if (!player.current.color) player.current.color = [Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255)];
-      document.getElementById('minimized').style.backgroundColor = `rgb(${player.current.color.join(', ')})`;
-      cover.src = player.current.img;
-      body.style.backgroundColor = `rgb(${player.current.color.join(', ')})`;
-      body.style.backgroundImage = `linear-gradient(315deg, #000000, rgb(${player.current.color.join(', ')}), #000000)`;
-      bar.max = player.current.duration;
-      bar.value = player.position;
+    volume.value = player ? player.volume : null;
+    vcname.innerText = player ? player.voiceChannelName : null;
+    if (player && player.current) {
+      if (cover.src != player.current.img) {
+        cover.src = player.current.img;
+        if (player.current.color) {
+          body.style.backgroundColor = `rgb(${player.current.color.join(', ')})`;
+          body.style.backgroundImage = `linear-gradient(315deg, #000000, rgb(${player.current.color.join(', ')}), #000000)`;
+        }
+        bar.max = player.current.duration;
+        title.innerText = player.current.title.split('\n')[0];
+        artist.innerText = player.current.title.split('\n')[1];
+      }
+      if (bar.value != player.position) {
+        console.log('Encountered position mismatch, updating...');
+        bar.value = player.position;
+      }
       posLabel.innerText = convert(bar.value);
-      totalLabel.innerText = convert(player.current.duration - bar.value);
-      title.innerText = player.current.title;
+      totalLabel.innerText = convert(bar.max - bar.value);
       if (!player.paused) {
         document.getElementById('queuecont').innerHTML = '';
         player.queue.forEach(track => {
@@ -113,25 +151,17 @@
 </div>
 `;
         });
-        document.getElementById('play').src = '/assets/icons/pause.svg';
-        for (let step = 0; step < 5; step++) {
-			    await sleep(1000);
-          bar.value = parseInt(bar.value) + 1000;
-          posLabel.innerText = convert(bar.value);
-          totalLabel.innerText = convert(player.current.duration - bar.value);
-		    }
+        play.src = '/assets/icons/pause.svg';
       }
       else {
-        document.getElementById('play').src = '/assets/icons/play.svg';
+        play.src = '/assets/icons/play.svg';
       }
     }
-    else {
-      document.getElementById('queuecont').innerHTML = '';
+    else if (title.innerText != 'Not playing anything!') {
+      queue.innerHTML = '';
       cover.src = '/assets/images/musicplaceholder.png';
-      body.style.backgroundColor = '#000000';
-      posLabel.innerText = '00:00';
-      totalLabel.innerText = '00:00';
       title.innerText = 'Not playing anything!';
+      artist.innerText = 'Artist not specified';
     }
 	};
 </script>
