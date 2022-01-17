@@ -75,36 +75,48 @@
 <div id="queuecont" style="margin-top:3rem;"></div>
 <script>
   // functions
-	function sleep(ms) { return new Promise(res => setTimeout(res, ms)); }
+  function sleep(ms) { return new Promise(res => setTimeout(res, ms)); }
   async function getMusicInfo() {
     await sleep(250);
     ws.send('music info for: <%=user.id%>');
   }
   function changevolume(event) { ws.send(`volume change: <%=user.id%> / ${event.srcElement.value}`); }
   function seeksong(event) { ws.send(`seek song: <%=user.id%> / ${event.srcElement.value}`); }
-  function skipsong() { ws.send('skip song: <%=user.id%>'); getMusicInfo(); }
-  function prevsong() { ws.send('prev song: <%=user.id%>'); getMusicInfo(); }
-  function skipto(index) { ws.send(`skip to: <%=user.id%> / ${index}`); getMusicInfo(); }
-  function shufflequeue() { ws.send('shuffle queue: <%=user.id%>'); getMusicInfo(); }
+  function skipsong() {
+    ws.send('skip song: <%=user.id%>');
+    getMusicInfo();
+  }
+  function prevsong() {
+    ws.send('prev song: <%=user.id%>');
+    getMusicInfo();
+  }
+  function skipto(index) {
+    ws.send(`skip to: <%=user.id%> / ${index}`);
+    getMusicInfo();
+  }
+  function shufflequeue() {
+    ws.send('shuffle queue: <%=user.id%>');
+    getMusicInfo();
+  }
   function toggleplaypause() {
     if (play.src.includes('play')) play.src = '/assets/icons/pause.svg';
     else play.src = '/assets/icons/play.svg';
-    ws.send(`playpause: <%=user.id%>`);
+    ws.send('playpause: <%=user.id%>');
     getMusicInfo();
-  };
+  }
   function convert(duration) {
-		let seconds = parseInt((duration / 1000) % 60);
-		let minutes = parseInt((duration / (1000 * 60)) % 60);
-		const hours = parseInt((duration / (1000 * 60 * 60)) % 24);
-		seconds = (seconds < 10) ? '0' + seconds : seconds;
-		if (duration < 3600000) {
-			return minutes + ':' + seconds ;
-		}
-		else {
-		  minutes = (minutes < 10) ? '0' + minutes : minutes;
-			return hours + ':' + minutes + ':' + seconds ;
-		}
-	}
+    let seconds = parseInt((duration / 1000) % 60);
+    let minutes = parseInt((duration / (1000 * 60)) % 60);
+    const hours = parseInt((duration / (1000 * 60 * 60)) % 24);
+    seconds = (seconds < 10) ? '0' + seconds : seconds;
+    if (duration < 3600000) {
+      return minutes + ':' + seconds ;
+    }
+    else {
+      minutes = (minutes < 10) ? '0' + minutes : minutes;
+      return hours + ':' + minutes + ':' + seconds ;
+    }
+  }
   function updatelyric() {
     lyrictext.innerText = lyrics[scroll.value];
     if (!lyrictext.innerText) lyrictext.innerText = '•••';
@@ -113,13 +125,14 @@
     if (lyricsview.style.display == 'none') {
       lyricsview.style.display = 'block';
       document.getElementById('mic').src = '/assets/icons/music.svg';
-    } else {
+    }
+    else {
       lyricsview.style.display = 'none';
       document.getElementById('mic').src = '/assets/icons/mic.svg';
     }
   }
   function eq(event) {
-    var bands = [
+    const bands = [
       document.getElementById('band0').value / 100,
       document.getElementById('band1').value / 100,
       document.getElementById('band2').value / 100,
@@ -134,7 +147,7 @@
       document.getElementById('band11').value / 100,
       document.getElementById('band12').value / 100,
       document.getElementById('band13').value / 100,
-      document.getElementById('band14').value / 100
+      document.getElementById('band14').value / 100,
     ];
     ws.send(`eq: <%=user.id%> / ${bands}`);
   }
@@ -144,7 +157,8 @@
       minimized.style.display = '';
       main.style.display = 'none';
       document.getElementById('sliders').src = '/assets/icons/music.svg';
-    } else {
+    }
+    else {
       equalizer.style.display = 'none';
       minimized.style.display = 'none';
       main.style.display = '';
@@ -175,7 +189,7 @@
   let lyrics = ['Lyrics not found.'];
 
   // websocket
-	ws.onopen = function open() {
+  ws.onopen = function open() {
     getMusicInfo();
     setInterval(() => getMusicInfo(), 5000);
   };
@@ -186,13 +200,13 @@
       bar.value = parseInt(bar.value) + 1000;
       posLabel.innerText = convert(bar.value);
       totalLabel.innerText = convert(bar.max - bar.value);
-    };
+    }
   }, 1000);
 
   // data handling
   let balls = false;
   ws.onmessage = async function message(data) {
-		const player = data.data instanceof Blob ? null : JSON.parse(data.data);
+    const player = data.data instanceof Blob ? null : JSON.parse(data.data);
 
     if (!balls) {
       document.getElementById('band0').value = player.bands[0] * 100,
@@ -209,7 +223,7 @@
       document.getElementById('band11').value = player.bands[11] * 100,
       document.getElementById('band12').value = player.bands[12] * 100,
       document.getElementById('band13').value = player.bands[13] * 100,
-      document.getElementById('band14').value = player.bands[14] * 100
+      document.getElementById('band14').value = player.bands[14] * 100;
     }
     balls = true;
 
@@ -265,6 +279,6 @@
       mintitle.innerText = 'Not playing anything!';
       artist.innerText = 'Artist not specified';
     }
-	};
+  };
 </script>
 <%- include("partials/footer") %>
