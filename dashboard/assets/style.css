@@ -125,7 +125,7 @@ input[type=range]::-moz-range-thumb {
 input[type=range][orient=vertical] {
   writing-mode: bt-lr;
   -webkit-appearance: slider-vertical;
-  margin: 3%;
+  margin: 2%;
   height: 200px;
   width: 8px;
   background: #ffffff;

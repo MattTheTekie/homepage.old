@@ -2,14 +2,37 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <h1 style="text-align: center; padding:10px">Playing Now</h1>
 <h4 style="text-align: center; word-wrap: break-word;" id="vcname">No voice channel</h4>
-<div class="centered">
-  <img src="/assets/images/musicplaceholder.png" style="min-width: 20%; max-width: 80%; border-radius: 3%; margin:2rem" id="cover">
+
+<div id="main">
+  <div class="centered">
+    <img src="/assets/images/musicplaceholder.png" style="min-width: 20%; max-width: 80%; border-radius: 3%; margin:2rem" id="cover">
+  </div>
+  <div style="margin-bottom:1rem" class="centered">
+    <h1 style="text-align: center; width: 80%;" id="title">Not playing anything!</h1>
+  </div>
+  <div style="margin-bottom:1rem" class="centered">
+    <h4 style="text-align: center; width: 80%;" id="artist">Artist not specified</h4>
+  </div>  
 </div>
-<div style="margin-bottom:1rem" class="centered">
-  <h1 style="text-align: center; width: 80%;" id="title">Not playing anything!</h1>
-</div>
-<div style="margin-bottom:1rem" class="centered">
-  <h4 style="text-align: center; width: 80%;" id="artist">Artist not specified</h4>
+
+<div id="equalizer" style="display: none;">
+  <div class="centered">
+    <input type="range" min="-100" id="band0" oninput="eq(event);" orient="vertical">
+    <input type="range" min="-100" id="band1" oninput="eq(event);" orient="vertical">
+    <input type="range" min="-100" id="band2" oninput="eq(event);" orient="vertical">
+    <input type="range" min="-100" id="band3" oninput="eq(event);" orient="vertical">
+    <input type="range" min="-100" id="band4" oninput="eq(event);" orient="vertical">
+    <input type="range" min="-100" id="band5" oninput="eq(event);" orient="vertical">
+    <input type="range" min="-100" id="band6" oninput="eq(event);" orient="vertical">
+    <input type="range" min="-100" id="band7" oninput="eq(event);" orient="vertical">
+    <input type="range" min="-100" id="band8" oninput="eq(event);" orient="vertical">
+    <input type="range" min="-100" id="band9" oninput="eq(event);" orient="vertical">
+    <input type="range" min="-100" id="band10" oninput="eq(event);" orient="vertical">
+    <input type="range" min="-100" id="band11" oninput="eq(event);" orient="vertical">
+    <input type="range" min="-100" id="band12" oninput="eq(event);" orient="vertical">
+    <input type="range" min="-100" id="band13" oninput="eq(event);" orient="vertical">
+    <input type="range" min="-100" id="band14" oninput="eq(event);" orient="vertical">  
+  </div>
 </div>
 
 <div id="lyricsview" style="display: none;">
@@ -26,6 +49,13 @@
 </div>
 
 <div class="centered">
+  <div id="minimized" href="#" class="queueitem" style="width:60%; display:none;">
+    <img src="/assets/images/musicplaceholder.png" style="height:50px; margin:10px; border-radius:5px;" id="mincover" ></img>
+    <h6 style="height:70px; width:60%; display: flex; flex-wrap: wrap; align-items: center; overflow: hidden;" id="mintitle">Not playing anything!</h6>
+  </div>
+</div>
+
+<div class="centered">
   <h5 id="pos" style="padding:15px; margin:0;">0:00</h5>
     <input type="range" id="progress" value="0" oninput="seeksong(event);" style="width:45%;">
   <h5 id="total" style="padding:15px; margin:0;">0:00</h5>
@@ -35,7 +65,7 @@
   <a href="#" class="mediacontrols" onclick="shufflequeue();"><img src="/assets/icons/shuffle.svg"></a>
   <a href="#" class="mediacontrols" onclick="toggleplaypause();"><img id="play" src="/assets/icons/play.svg"></a>
   <a href="#" class="mediacontrols" onclick="skipsong();"><img src="/assets/icons/skip-forward.svg"></a>
-  <a href="/music/equalizer" class="mediacontrols"><img id="equalizer" src="/assets/icons/sliders.svg"></a>
+  <a href="#" class="mediacontrols" onclick="toggleeq()"><img id="sliders" src="/assets/icons/sliders.svg"></a>
 </div>
 <div class="centered">
   <h5 style="padding:15px; margin:0;"><img src="/assets/icons/volume-x.svg"></h5>
@@ -88,12 +118,47 @@
       document.getElementById('mic').src = '/assets/icons/mic.svg';
     }
   }
+  function eq(event) {
+    var bands = [
+      document.getElementById('band0').value / 100,
+      document.getElementById('band1').value / 100,
+      document.getElementById('band2').value / 100,
+      document.getElementById('band3').value / 100,
+      document.getElementById('band4').value / 100,
+      document.getElementById('band5').value / 100,
+      document.getElementById('band6').value / 100,
+      document.getElementById('band7').value / 100,
+      document.getElementById('band8').value / 100,
+      document.getElementById('band9').value / 100,
+      document.getElementById('band10').value / 100,
+      document.getElementById('band11').value / 100,
+      document.getElementById('band12').value / 100,
+      document.getElementById('band13').value / 100,
+      document.getElementById('band14').value / 100
+    ];
+    ws.send(`eq: <%=user.id%> / ${bands}`);
+  }
+  function toggleeq() {
+    if (equalizer.style.display == 'none') {
+      equalizer.style.display = '';
+      minimized.style.display = '';
+      main.style.display = 'none';
+      document.getElementById('sliders').src = '/assets/icons/music.svg';
+    } else {
+      equalizer.style.display = 'none';
+      minimized.style.display = 'none';
+      main.style.display = '';
+      document.getElementById('sliders').src = '/assets/icons/sliders.svg';
+    }
+  }
 
   // variables
   const body = document.getElementsByTagName('body')[0];
   const vcname = document.getElementById('vcname');
   const cover = document.getElementById('cover');
+  const mincover = document.getElementById('mincover');
   const title = document.getElementById('title');
+  const mintitle = document.getElementById('mintitle');
   const artist = document.getElementById('artist');
   const bar = document.getElementById('progress');
   const posLabel = document.getElementById('pos');
@@ -105,6 +170,8 @@
   const ws = new WebSocket('<%=wsurl%>');
   const lyricsview = document.getElementById('lyricsview');
   const lyrictext = document.getElementById('lyrics');
+  const main = document.getElementById('main');
+  const minimized = document.getElementById('minimized');
   let lyrics = ['Lyrics not found.'];
 
   // websocket
@@ -113,6 +180,7 @@
     setInterval(() => getMusicInfo(), 5000);
   };
 
+  // update song progress each sec
   setInterval(() => {
     if (play.src.includes('pause')) {
       bar.value = parseInt(bar.value) + 1000;
@@ -122,8 +190,29 @@
   }, 1000);
 
   // data handling
+  let balls = false;
   ws.onmessage = async function message(data) {
 		const player = data.data instanceof Blob ? null : JSON.parse(data.data);
+
+    if (!balls) {
+      document.getElementById('band0').value = player.bands[0] * 100,
+      document.getElementById('band1').value = player.bands[1] * 100,
+      document.getElementById('band2').value = player.bands[2] * 100,
+      document.getElementById('band3').value = player.bands[3] * 100,
+      document.getElementById('band4').value = player.bands[4] * 100,
+      document.getElementById('band5').value = player.bands[5] * 100,
+      document.getElementById('band6').value = player.bands[6] * 100,
+      document.getElementById('band7').value = player.bands[7] * 100,
+      document.getElementById('band8').value = player.bands[8] * 100,
+      document.getElementById('band9').value = player.bands[9] * 100,
+      document.getElementById('band10').value = player.bands[10] * 100,
+      document.getElementById('band11').value = player.bands[11] * 100,
+      document.getElementById('band12').value = player.bands[12] * 100,
+      document.getElementById('band13').value = player.bands[13] * 100,
+      document.getElementById('band14').value = player.bands[14] * 100
+    }
+    balls = true;
+
     lyrics = player.lyrics.split('\n');
     scroll.max = lyrics.length - 1;
     updatelyric();
@@ -132,12 +221,15 @@
     if (player && player.current) {
       if (cover.src != player.current.img) {
         cover.src = player.current.img;
+        mincover.src = player.current.img;
         if (player.current.color) {
           body.style.backgroundColor = `rgb(${player.current.color.join(', ')})`;
           body.style.backgroundImage = `linear-gradient(315deg, #000000, rgb(${player.current.color.join(', ')}), #000000)`;
+          minimized.style.backgroundColor = `rgb(${player.current.color.join(', ')})`;
         }
         bar.max = player.current.duration;
         title.innerText = player.current.title.split('\n')[0];
+        mintitle.innerText = player.current.title;
         artist.innerText = player.current.title.split('\n')[1];
       }
       if (bar.value != player.position) {
@@ -168,7 +260,9 @@
     else if (title.innerText != 'Not playing anything!') {
       queue.innerHTML = '';
       cover.src = '/assets/images/musicplaceholder.png';
+      mincover.src = '/assets/images/musicplaceholder.png';
       title.innerText = 'Not playing anything!';
+      mintitle.innerText = 'Not playing anything!';
       artist.innerText = 'Artist not specified';
     }
 	};
