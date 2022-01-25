@@ -222,12 +222,7 @@ module.exports = async (client) => {
 		}
 
 		// We retrive the settings stored for this guild.
-		let storedSettings = await client.getSettings(req.params.guildID);
-		if (!storedSettings) {
-			// If there are no settings stored for this guild, we create them and try to retrive them again.
-			client.setSettings(req.params.guildID);
-			storedSettings = await client.getSettings(req.params.guildID);
-		}
+		const storedSettings = await client.getData('settings', 'guildId', req.params.guildID);
 
 		renderTemplate(res, req, 'settings.ejs', {
 			guild,
@@ -271,12 +266,7 @@ module.exports = async (client) => {
     WHERE guildId = "${req.params.guildID}"`).catch((e) => client.logger.error(e));
 
 		// We retrive the settings stored for this guild.
-		let storedSettings = await client.getSettings(req.params.guildID);
-		if (!storedSettings) {
-			// If there are no settings stored for this guild, we create them and try to retrive them again.
-			client.setSettings(guild.id);
-			storedSettings = await client.getSettings(req.params.guildID);
-		}
+		const storedSettings = await client.getData('settings', 'guildId', req.params.guildID);
 
 		// We render the template with an alert text which confirms that settings have been saved.
 		renderTemplate(res, req, 'settings.ejs', {
