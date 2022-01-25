@@ -61,11 +61,11 @@
   <h5 id="total" style="padding:15px; margin:0;">0:00</h5>
 </div>
 <div class="centered" style="margin:1rem;">
-  <a href="#" class="mediacontrols" onclick="togglelyrics();"><img id="mic" src="/assets/icons/mic.svg"></a>
-  <a href="#" class="mediacontrols disabled" id="shuffle" onclick="shufflequeue();"><img src="/assets/icons/shuffle.svg"></a>
-  <a href="#" class="mediacontrols disabled" id="playbtn" onclick="toggleplaypause();"><img id="play" src="/assets/icons/play.svg"></a>
-  <a href="#" class="mediacontrols disabled" id="skip" onclick="skipsong();"><img src="/assets/icons/skip-forward.svg"></a>
-  <a href="#" class="mediacontrols disabled" id="eqbtn" onclick="toggleeq()"><img id="sliders" src="/assets/icons/sliders.svg"></a>
+  <a href="javascript:togglelyrics();" class="mediacontrols"><img id="mic" src="/assets/icons/mic.svg"></a>
+  <a href="javascript:shufflequeue();" class="mediacontrols disabled" id="shuffle"><img src="/assets/icons/shuffle.svg"></a>
+  <a href="javascript:toggleplaypause();" class="mediacontrols disabled" id="playbtn"><img id="play" src="/assets/icons/play.svg"></a>
+  <a href="javascript:skipsong();" class="mediacontrols disabled" id="skip"><img src="/assets/icons/skip-forward.svg"></a>
+  <a href="javascript:toggleeq();" class="mediacontrols disabled" id="eqbtn"><img id="sliders" src="/assets/icons/sliders.svg"></a>
 </div>
 <div class="centered disabled" id="volumecontainer">
   <h5 style="padding:15px; margin:0;"><img src="/assets/icons/volume-x.svg"></h5>
@@ -85,25 +85,31 @@
     await sleep(250);
     ws.send('music info for: <%=user.id%>');
   }
-  function changevolume(event) { ws.send(`volume change: <%=user.id%> / ${event.srcElement.value}`); }
-  function seeksong(event) { ws.send(`seek song: <%=user.id%> / ${event.srcElement.value}`); }
+  function changevolume(event) {
+    if (bar.disabled) return;
+    ws.send(`volume change: <%=user.id%> / ${event.srcElement.value}`);
+  }
+  function seeksong(event) {
+    if (bar.disabled) return;
+    ws.send(`seek song: <%=user.id%> / ${event.srcElement.value}`);
+  }
   function skipsong() {
+    if (bar.disabled) return;
     ws.send('skip song: <%=user.id%>');
     getMusicInfo();
   }
-  function prevsong() {
-    ws.send('prev song: <%=user.id%>');
-    getMusicInfo();
-  }
   function skipto(index) {
+    if (bar.disabled) return;
     ws.send(`skip to: <%=user.id%> / ${index}`);
     getMusicInfo();
   }
   function shufflequeue() {
+    if (bar.disabled) return;
     ws.send('shuffle queue: <%=user.id%>');
     getMusicInfo();
   }
   function toggleplaypause() {
+    if (bar.disabled) return;
     if (play.src.includes('play')) play.src = '/assets/icons/pause.svg';
     else play.src = '/assets/icons/play.svg';
     ws.send('playpause: <%=user.id%>');
@@ -137,6 +143,7 @@
     }
   }
   function eq(event) {
+    if (bar.disabled) return;
     const bands = [
       document.getElementById('band0').value / 100,
       document.getElementById('band1').value / 100,
@@ -289,7 +296,7 @@
           if (!track.color) track.color = [Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255)];
           document.getElementById('queuecont').innerHTML += `
 <div class="centered" style="margin:15px;">
-  <a href="#" class="queueitem" onclick="skipto(${player.queue.indexOf(track)})" style="background-image: linear-gradient(90deg, rgb(${track.color.join(', ')}), rgba(${track.color.join(', ')}, 0.3));">
+  <a href="javascript:skipto(${player.queue.indexOf(track)});" class="queueitem" style="background-image: linear-gradient(90deg, rgb(${track.color.join(', ')}), rgba(${track.color.join(', ')}, 0.3));">
     <img src="${track.img}" style="height:50px; margin:10px; border-radius:5px;"></img>
     <h6 style="height:70px; width:60%; display: flex; flex-wrap: wrap; align-items: center; overflow: hidden;">${track.title.replace('\n', '<br>')}</h6>
   </a>
