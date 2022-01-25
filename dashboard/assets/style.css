@@ -60,6 +60,18 @@ a {
   transition: 0.2s ease-in-out;
 }
 
+.servericon {
+  width: 12rem;
+  margin: 3rem;
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
+}
+
+.servericon:hover {
+  border-radius: 20%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 @keyframes bganim {
   0% {
       background-position: 0% 0%
