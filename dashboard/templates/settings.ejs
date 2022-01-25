@@ -118,9 +118,10 @@
       </select>
   
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Mute Command:</p>
-      <p style="font-style: italic;" class="disabled">Toggles the mute command / use a mute role</p>
+      <p style="font-style: italic;" class="disabled">Toggles the mute/timeout command / use a mute role</p>
       <select class="darktextboxes darkselectboxes" name="mutecmd" value="<%= settings.mutecmd %>" placeholder="Whether or not to use a mute role">
         <option value="false" <% if (settings.mutecmd === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
+        <option value="timeout" <% if (settings.mutecmd === 'timeout') {%> selected <%} else {%> <%} %>>Timeout</option>
         <% guild.roles.cache.forEach(role => { %>
           <option value="<%= role.id %>" <% if (role.id === settings.mutecmd) {%> selected <%} else {%> <% } %> > <%= `@${role.name}` %></option>
         <% }) %>
@@ -138,7 +139,7 @@
       <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">DJ Role:</p>
       <p style="font-style: italic;" class="disabled">The DJ feature of the bot that limits the skip/etc commands</p>
       <select class="darktextboxes darkselectboxes" name="djrole" value="<%= settings.djrole %>" placeholder="The DJ Role">
-        <option value="permission" <% if (settings.djrole === 'permission') {%> selected <%} else {%> <%} %>>Disabled</option>
+        <option value="false" <% if (settings.djrole === 'false') {%> selected <%} else {%> <%} %>>Disabled</option>
         <% guild.roles.cache.forEach(role => { %>
           <option value="<%= role.id %>" <% if (role.id === settings.djrole) {%> selected <%} else {%> <% } %> > <%= `@${role.name}` %></option>
         <% }) %>
