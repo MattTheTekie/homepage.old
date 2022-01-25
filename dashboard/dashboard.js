@@ -39,7 +39,7 @@ module.exports = async (client) => {
 		};
 	}
 	catch (e) {
-		console.log(e);
+		client.logger.error(e);
 		throw new TypeError('Invalid domain specific in the config file.');
 	}
 
@@ -54,7 +54,7 @@ module.exports = async (client) => {
 
 	// This line is to inform users where the system will begin redirecting the users.
 	// And can be removed.
-	console.log(`Callback URL: ${callbackUrl}`);
+	client.logger.info(`Callback URL: ${callbackUrl}`);
 
 	// We set the passport to use a new discord strategy, we pass in client id, secret, callback url and the scopes.
 	/** Scopes:
@@ -64,7 +64,7 @@ module.exports = async (client) => {
 	passport.use(
 		new Strategy(
 			{
-				clientID: config.id,
+				clientID: client.user.id,
 				clientSecret: config.clientSecret,
 				callbackURL: callbackUrl,
 				scope: ['identify', 'guilds'],
@@ -166,7 +166,7 @@ module.exports = async (client) => {
 			res,
 		) => {
 			// log when a user logs in
-			client.guilds.cache.get('811354612547190794').channels.cache.get('931846246820380683').send(`User logged in: ${req.user.username + '#' + req.user.discriminator}`);
+			client.logger.info(`User logged in: ${req.user.username + '#' + req.user.discriminator}`);
 			// If user had set a returning url, we redirect him there, otherwise we redirect him to index.
 			if (req.session.backURL) {
 				const backURL = req.session.backURL;
@@ -213,7 +213,7 @@ module.exports = async (client) => {
 				member = guild.members.cache.get(req.user.id);
 			}
 			catch (err) {
-				console.error(`Couldn't fetch the members of ${guild.id}: ${err}`);
+				client.logger.error(`Couldn't fetch the members of ${guild.id}: ${err}`);
 			}
 		}
 		if (!member) return res.redirect('/dashboard');
@@ -268,7 +268,7 @@ module.exports = async (client) => {
     adminrole="${setting.adminrole ? setting.adminrole : 'permission'}",
     msgshortener="${setting.msgshortener ? setting.msgshortener : '30'}",
     djrole="${setting.djrole ? setting.djrole : 'false'}"
-    WHERE guildId = "${req.params.guildID}"`).catch((e) => console.log(e));
+    WHERE guildId = "${req.params.guildID}"`).catch((e) => client.logger.error(e));
 
 		// We retrive the settings stored for this guild.
 		let storedSettings = await client.getSettings(req.params.guildID);
@@ -286,7 +286,9 @@ module.exports = async (client) => {
 		});
 	});
 
-	app.listen(config.port, null, null, () =>
-		console.log(`Dashboard is up and running on port ${config.port}.`),
-	);
+	app.listen(config.port, null, null, () => {
+		client.logger.info(`Dashboard running on port ${config.port}.`);
+		const timer = (Date.now() - client.startTimestamp) / 1000;
+		client.logger.info(`Done (${timer}s)! I am running!`);
+	});
 };

@@ -1,0 +1,1 @@
+module.exports = client => client.on('warn', client.logger.warn);
