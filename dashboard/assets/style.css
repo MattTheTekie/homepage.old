@@ -26,15 +26,14 @@
   margin-right: 4%;
 }
 
+.disabled {
+  filter: brightness(60%);
+}
+
 body {
   animation: fadeIn 1s;
   position: relative;
-  background-image: linear-gradient(315deg, #000000, #703c00, #000000);
-  background-size: 400% 400%;
-  animation: bganim 25s ease infinite;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: linear-gradient(315deg, #703c00, #000000);
   background-color: #000000;
   color: white;
   text-shadow: 0 0 20px #00000040;
@@ -70,18 +69,6 @@ a {
 .servericon:hover {
   border-radius: 20%;
   background-color: rgba(0, 0, 0, 0.5);
-}
-
-@keyframes bganim {
-  0% {
-      background-position: 0% 0%
-  }
-  50% {
-      background-position: 100% 100%
-  }
-  100% {
-      background-position: 0% 0%
-  }
 }
 
 .darktextboxes, option {

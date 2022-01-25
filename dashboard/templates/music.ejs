@@ -55,24 +55,29 @@
   </div>
 </div>
 
-<div class="centered">
+<div class="centered disabled" id="progresscontainer">
   <h5 id="pos" style="padding:15px; margin:0;">0:00</h5>
-    <input type="range" id="progress" value="0" oninput="seeksong(event);" style="width:45%;">
+    <input type="range" disabled id="progress" value="0" oninput="seeksong(event);" style="width:45%;">
   <h5 id="total" style="padding:15px; margin:0;">0:00</h5>
 </div>
 <div class="centered" style="margin:1rem;">
   <a href="#" class="mediacontrols" onclick="togglelyrics();"><img id="mic" src="/assets/icons/mic.svg"></a>
-  <a href="#" class="mediacontrols" onclick="shufflequeue();"><img src="/assets/icons/shuffle.svg"></a>
-  <a href="#" class="mediacontrols" onclick="toggleplaypause();"><img id="play" src="/assets/icons/play.svg"></a>
-  <a href="#" class="mediacontrols" onclick="skipsong();"><img src="/assets/icons/skip-forward.svg"></a>
-  <a href="#" class="mediacontrols" onclick="toggleeq()"><img id="sliders" src="/assets/icons/sliders.svg"></a>
+  <a href="#" class="mediacontrols disabled" id="shuffle" onclick="shufflequeue();"><img src="/assets/icons/shuffle.svg"></a>
+  <a href="#" class="mediacontrols disabled" id="playbtn" onclick="toggleplaypause();"><img id="play" src="/assets/icons/play.svg"></a>
+  <a href="#" class="mediacontrols disabled" id="skip" onclick="skipsong();"><img src="/assets/icons/skip-forward.svg"></a>
+  <a href="#" class="mediacontrols disabled" id="eqbtn" onclick="toggleeq()"><img id="sliders" src="/assets/icons/sliders.svg"></a>
 </div>
-<div class="centered">
+<div class="centered disabled" id="volumecontainer">
   <h5 style="padding:15px; margin:0;"><img src="/assets/icons/volume-x.svg"></h5>
-    <input type="range" id="volume" oninput="changevolume(event);" style="width:40%;" max=100>
+    <input type="range" disabled id="volume" oninput="changevolume(event);" style="width:40%;" max=100>
   <h5 style="padding:15px; margin:0;"><img src="/assets/icons/volume-2.svg"></h5>
 </div>
-<div id="queuecont" style="margin-top:3rem;"></div>
+
+<div class="centered" id="djrole">
+  <h5 style="padding:15px; margin:0;" id="dj">Users without the DJ role have limited access.</h5>
+</div>
+
+<div id="queuecont" class="disabled" style="margin-top:3rem;"></div>
 <script>
   // functions
   function sleep(ms) { return new Promise(res => setTimeout(res, ms)); }
@@ -207,6 +212,32 @@
   let balls = false;
   ws.onmessage = async function message(data) {
     const player = data.data instanceof Blob ? null : JSON.parse(data.data);
+
+    if (player.djrole) document.getElementById('dj').innerText = document.getElementById('dj').innerText.replace('DJ', player.djrole);
+    if (player.hasdj) {
+      document.getElementById('djrole').style.display = 'none';
+      bar.disabled = false;
+      volume.disabled = false;
+      document.getElementById('volumecontainer').classList.remove('disabled');
+      document.getElementById('progresscontainer').classList.remove('disabled');
+      document.getElementById('shuffle').classList.remove('disabled');
+      document.getElementById('playbtn').classList.remove('disabled');
+      document.getElementById('skip').classList.remove('disabled');
+      document.getElementById('eqbtn').classList.remove('disabled');
+      queue.classList.remove('disabled');
+    }
+    else if (!bar.disabled) {
+      document.getElementById('djrole').style.display = '';
+      bar.disabled = true;
+      volume.disabled = true;
+      document.getElementById('volumecontainer').classList.add('disabled');
+      document.getElementById('progresscontainer').classList.add('disabled');
+      document.getElementById('shuffle').classList.add('disabled');
+      document.getElementById('playbtn').classList.add('disabled');
+      document.getElementById('skip').classList.add('disabled');
+      document.getElementById('eqbtn').classList.add('disabled');
+      queue.classList.add('disabled');
+    }
 
     if (!balls) {
       document.getElementById('band0').value = player.bands[0] * 100,
