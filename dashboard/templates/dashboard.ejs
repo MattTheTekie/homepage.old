@@ -7,9 +7,9 @@
   <% 
   let guilds = user.guilds;
   if (user.id == '249638347306303499') guilds = bot.guilds.cache;
-  user.guilds.forEach(guild => {
+  guilds.forEach(guild => {
       const permsOnGuild = new perms(guild.permissions_new);
-      if (!permsOnGuild.has(perms.FLAGS.MANAGE_GUILD) || !bot.guilds.cache.get(guild.id)) return;
+      if (user.id != '249638347306303499' && (!permsOnGuild.has(perms.FLAGS.MANAGE_GUILD) || !bot.guilds.cache.get(guild.id))) return;
   %>
   <a href="/dashboard/<%- guild.id %>" style="text-decoration: none;">
     <div class="card" style="width: 18rem; margin: 2rem;">
