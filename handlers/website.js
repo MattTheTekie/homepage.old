@@ -1,21 +1,21 @@
-// We import modules.
+// import modules.
 const ejs = require('ejs');
 const path = require('path');
 const express = require('express');
 const config = require('../config');
 const session = require('express-session');
 
-// We instantiate express app and the session store.
+// instantiate express app and the session store.
 const app = express();
 const MemoryStore = require('memorystore')(session);
 
-// We export the dashboard as a function which we call in ready event.
+// export the dashboard as a function which call in ready event.
 module.exports = async (client) => {
-	// We declare absolute paths.
+	// declare absolute paths.
 	const dataDir = path.resolve(`${process.cwd()}${path.sep}smhsmh.club`);
 	const templateDir = path.resolve(`${dataDir}${path.sep}templates`);
 
-	// We initialize the memorystore middleware with our express app.
+	// initialize the memorystore middleware with our express app.
 	app.use(
 		session({
 			store: new MemoryStore({ checkPeriod: 86400000 }),
@@ -25,27 +25,27 @@ module.exports = async (client) => {
 		}),
 	);
 
-	// We bind the domain.
+	// bind the domain.
 	app.locals.domain = config.domain.split('//')[1];
 
-	// We set out templating engine.
+	// set out templating engine.
 	app.engine('ejs', ejs.renderFile);
 	app.set('view engine', 'ejs');
 
-	// We host all of the files in the assets using their name in the root address.
+	// host all of the files in the assets using their name in the root address.
 	// A style.css file will be located at http://<your url>/style.css
 	// You can link it in any template using src="/assets/filename.extension"
 	app.use('/', express.static(path.resolve(`${dataDir}${path.sep}static`), {
 		extensions: ['html'],
 	}));
 
-	// We declare a renderTemplate function to make rendering of a template in a route as easy as possible.
+	// declare a renderTemplate function to make rendering of a template in a route as easy as possible.
 	const renderTemplate = (res, req, template, data = {}) => {
 		// Default base data which passed to the ejs template by default.
 		const baseData = {
 			path: req.path,
 		};
-		// We render template using the absolute path of the template and the merged default data with the additional data provided.
+		// render template using the absolute path of the template and the merged default data with the additional data provided.
 		res.render(
 			path.resolve(`${templateDir}${path.sep}${template}`),
 			Object.assign(baseData, data),
