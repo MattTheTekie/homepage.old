@@ -39,6 +39,13 @@ module.exports = async (client) => {
 		extensions: ['html'],
 	}));
 
+	app.use('/forks', (req, res) => {
+		res.set('Cache-Control', 'no-cache');
+		express.static(path.resolve(`${dataDir}${path.sep}static/forks.html`), {
+			extensions: ['html'],
+		});
+	});
+
 	// declare a renderTemplate function to make rendering of a template in a route as easy as possible.
 	const renderTemplate = (res, req, template, data = {}) => {
 		// Default base data which passed to the ejs template by default.
