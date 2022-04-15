@@ -1,0 +1,19 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>this is a porn site</title>
+    <meta content="smhsmh" property="og:title" />
+    <meta content="cactie uploads porn here" property="og:description" />
+    <link rel="stylesheet" href="/font.css">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div>
+        <a href="/">This is where Cactie Bot uploads porn, to go back to the main files, click here</a>
+   <% files.forEach(file => { %>
+        <a href="/pup/<%= file %>"><img src="/pup/<%= file %>" alt="<%= file %>"></img> <%= file %></a><br>
+   <% }); %>
+    </div>
+  </body>
+</html>

@@ -117,6 +117,9 @@ dist
 
 config/
 data/
+transcript/
+files/
+pup/
 .DS_Store
 package-lock.json
 config.js

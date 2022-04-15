@@ -1,0 +1,24 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>smhsmh files yes</title>
+    <meta content="smhsmh" property="og:title" />
+    <meta content="what are you doing in my files stepbro" property="og:description" />
+    <link rel="stylesheet" href="/font.css">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div oncopy="false" oncut="false" onpaste="false">
+      <form action="/uploadfile" method="post" enctype="multipart/form-data">
+        <input type="file"><br>
+        <button type="submit">Upload</button><br>
+      </form>
+    </div>
+    <div>
+   <% files.forEach(file => { %>
+        <a href="/files/<%= file %>"><img src="/files/<%= file %>" alt="<%= file %>"></img> <%= file %></a><br>
+   <% }); %>
+    </div>
+  </body>
+</html>
