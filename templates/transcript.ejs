@@ -48,7 +48,7 @@
                <% if (embed.author) { %>
                   <div class="embed-author">
                  <% if (embed.author.iconURL) { %> <img class="embed-author-icon" src="<%= embed.author.iconURL %>"> <% }; %>
-                 <% if (embed.author.name) { %> <a <% if (embed.author.url) { %> href="<%= embed.author.url %>" <% } %>><%= embed.author.name %></a> <% }; %>
+                 <% if (embed.author.name) { %> <a class="embed-author-name" <% if (embed.author.url) { %> href="<%= embed.author.url %>" <% } %>><%= embed.author.name %></a> <% }; %>
                   </div>
                <% }; %>
                <% if (embed.title) { %> <p class="embed-title"><%= embed.title %></p> <% }; %>
