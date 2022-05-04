@@ -3,17 +3,19 @@
 }
 
 body {
-    background: rgb(54, 57, 63);
+    background: #36393f;
 }
 
 .message-box {
     display: flex;
     flex-direction: row;
     width: 100%;
+    margin: 10px 0 10px 0;
+    background-color: #00000000;
 }
 
 .message-box:hover {
-    background-color: #32353b;
+    background-color: #00000015;
 }
 
 .mention {
@@ -78,7 +80,8 @@ body {
     display: flex;
     padding: 8px 10px;
     color: rgba(255, 255, 255, 0.6);
-    font-size: 14px;
+    font-size: 0.875rem;
+    margin: 10px 0 10px 0;
 }
 
 .embed .card-block {
@@ -119,6 +122,8 @@ body {
 
 .embed .embed-inner .embed-title {
     color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .embed .embed-inner .embed-author {
@@ -129,6 +134,8 @@ body {
     -ms-flex-align: center;
     align-items: center;
     margin-bottom: 5px;
+    font-size: 0.875rem;
+    font-weight: 600;
 }
 
 .embed .embed-inner .embed-author img.embed-author-icon {
@@ -205,4 +212,8 @@ body {
     padding: 5px 0 5px 10px;
     max-width: 80%;
     font-family: 'Consolas';
+}
+
+p {
+    margin: 0
 }

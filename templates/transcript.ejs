@@ -1,5 +1,8 @@
 <html lang="en">
-  <% const logs = JSON.parse(fs.readFileSync(`./transcript/${req.params.file}.json`).toString()) %>
+  <%
+  const logs = JSON.parse(fs.readFileSync(`./transcript/${req.params.file}.json`).toString());
+  let lastmsgname = '';
+  %>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
@@ -23,19 +26,32 @@
       <div style="height: 80px;"></div>
    <% logs.logs.forEach(msg => { %>
       <div class="message-box">
+     <% if (lastmsgname != msg.author.name) { %>
         <img src="<%= msg.author.avatar %>" style="width: 38px; height: 38px; border-radius: 50%; margin: 0px 18px 0px 18px;">
+     <% } else { %>
+        <p style="width: 74px;"></p>
+     <% } %>
         <div>
+       <% if (lastmsgname != msg.author.name) { %>
           <div>
             <span style="font-size: 16px; font-weight: 600; color: <%= msg.author.color %>"><%= msg.author.name %></span>
             <span style="opacity: 0.6; font-size: 10px"><%= msg.time %></span>
           </div>
+       <% } %>
+       <% if (msg.content) { %>
           <p style="white-space: pre-line;"><%= msg.content %></p>
+       <% } %>
        <% if (msg.embeds) {
             msg.embeds.forEach(embed => { %>
               <div class="embed" style="border-left: 5px solid #<%= embed.color ? embed.color : msg.author.color %>">
                 <div class="embed-inner">
-               <% if (embed.author) { %> <p class="embed-author"><%= embed.author %></p> <% }; %>
-               <% if (embed.title) { %> <h5 class="embed-title"><%= embed.title %></h5> <% }; %>
+               <% if (embed.author) { %>
+                  <div class="embed-author">
+                 <% if (embed.author.icon) { %> <img class="embed-author-icon" src="<%= embed.author.icon %>"> <% }; %>
+                 <% if (embed.author.name) { %> <p><%= embed.author.name %></p> <% }; %>
+                  </div>
+               <% }; %>
+               <% if (embed.title) { %> <p class="embed-title"><%= embed.title %></p> <% }; %>
                <% if (embed.description) { %> <p style="white-space: pre-line;"><%= embed.description %></p> <% }; %>
                <% if (embed.fields) { %>
                     <div class="fields">
@@ -56,7 +72,8 @@
           } %>
         </div>
       </div>
-   <% }); %>
+   <% lastmsgname = msg.author.name;
+      }); %>
     </div>
   </body>
 </html>
