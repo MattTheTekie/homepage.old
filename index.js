@@ -26,6 +26,9 @@ const path = require('path');
 const express = require('express');
 const config = require('./config');
 const session = require('express-session');
+const showdown = require('showdown');
+const converter = new showdown.Converter();
+const parseMentions = require('./assets/parseMentions.js');
 
 // We instantiate express app and the session store.
 const app = express();
@@ -140,7 +143,7 @@ app.use('/files/', express.static(path.resolve('files')));
 const renderTemplate = (res, req, template, files) => {
 	res.render(
 		path.resolve(`templates/${template}`),
-		Object.assign({ files: files ? fs.readdirSync(`./${files}`) : null, fs, req }),
+		Object.assign({ files: files ? fs.readdirSync(`./${files}`) : null, fs, req, converter }),
 	);
 };
 

@@ -39,7 +39,7 @@
           </div>
        <% } %>
        <% if (msg.content) { %>
-          <p style="white-space: pre-line;"><%= msg.content %></p>
+          <%- converter.makeHtml(msg.content) %>
        <% } %>
        <% if (msg.embeds) {
             msg.embeds.forEach(embed => { %>
@@ -52,13 +52,13 @@
                   </div>
                <% }; %>
                <% if (embed.title) { %> <p class="embed-title"><%= embed.title %></p> <% }; %>
-               <% if (embed.description) { %> <p style="white-space: pre-line;"><%= embed.description %></p> <% }; %>
+               <% if (embed.description) { %> <%- converter.makeHtml(embed.description) %> <% }; %>
                <% if (embed.fields) { %>
                     <div class="fields">
                    <% embed.fields.forEach(field => { %>
                         <div class="field <%= field.inline ? 'inline' : '' %>">
-                          <p class="field-name"><%= field.name %></p>
-                          <p class="field-value"><%= field.value %></p>
+                          <p class="field-name"><%- converter.makeHtml(field.name) %></p>
+                          <p class="field-value"><%- converter.makeHtml(field.value) %></p>
                         </div>
                    <% }); %>
                     </div>
