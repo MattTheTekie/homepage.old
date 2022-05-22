@@ -52,34 +52,7 @@ app.set('view engine', 'ejs');
 
 const formidable = require('formidable');
 
-// Post endpoint for pup to upload files
-app.post('/pupupload', upload_pup);
-function upload_pup(req, res) {
-	if (req.method == 'POST') {
-		// create an incoming form object
-		const form = new formidable.IncomingForm();
-		// store all uploads in the /uploads directory
-		form.uploadDir = path.basename(path.dirname('/pup/json_files/'));
-		// every time a file has been uploaded successfully,
-		// rename it to it's orignal name
-		form.on('file', function(field, file) {
-			fs.renameSync(`./pup/${file.newFilename}`, `./pup/${file.originalFilename}`);
-		});
-		// log any errors that occur
-		form.on('error', function(err) { logger.error(err); });
-		// once all the files have been uploaded, send a response to the client
-		form.on('end', function() {
-			// res.end('success');
-			res.statusMessage = 'Process cashabck initiated';
-			res.statusCode = 200;
-			res.end();
-		});
-		// parse the incoming request containing the form data
-		form.parse(req);
-	}
-}
-
-// Post endpoint for pup to upload files
+// Post endpoint for uploading files
 app.post('/fileupload', upload_file);
 function upload_file(req, res) {
 	if (req.method == 'POST') {
@@ -129,13 +102,10 @@ function parseTranscript(req, res) {
 	}
 }
 
-// Host pup files
-app.use('/pup/', express.static(path.resolve('pup')));
-
-// Host pup files
+// Host root endpoint.
 app.use('/', express.static(path.resolve('assets'), { extensions: ['html'] }));
 
-// Host files
+// Host files.
 app.use('/files/', express.static(path.resolve('files')));
 
 // renderTemplate function
@@ -149,12 +119,7 @@ const renderTemplate = (res, req, template, files) => {
 // All files
 app.get('/files', (req, res) => renderTemplate(res, req, 'index.ejs', 'files'));
 
-// Pup's files
-app.get('/pup', (req, res) => renderTemplate(res, req, 'pup.ejs', 'pup'));
-
-app.get('/transcript/:file', (req, res) => {
-	renderTemplate(res, req, 'transcript.ejs', 'transcript');
-});
+app.get('/transcript/:file', (req, res) => renderTemplate(res, req, 'transcript.ejs', 'transcript'));
 
 // Listen on port
 app.listen(config.port, null, null, () => {
