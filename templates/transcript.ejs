@@ -19,7 +19,7 @@
       </svg>
       <span style="margin-left: 12px; font-weight: 600;"><%= logs.channel %></span>
       <div style="display: flex; align-items: center; margin-left: 13px; padding-left: 13px; border-left: 2px solid rgb(255, 255, 255, 0.1);">
-        <span><%= new Date(logs.time).toLocaleString('default', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true }) %></span>
+        <span><%= new Date(logs.time).toLocaleString('default', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true }) %></span>
       </div>
     </div>
     <div>
