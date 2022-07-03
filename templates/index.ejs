@@ -67,33 +67,27 @@
 
             <% files.forEach(file => { %>
               <a class="panel-block" href="/files/<%= file %>" style="background-color: #303030">
-                <span class="panel-icon">
-                  <img src="/files/<%= file %>">
-                </span>
                 <%= file %>
               </a>
             <% }); %>
 
-            <a class="panel-block" style="background-color: #303030; padding: 20px">
-              <form action="/fileupload" method="post" enctype="multipart/form-data">
-                <div id="file-upload" class="file has-name">
-                  <label class="file-label">
-                    <input class="file-input" type="file">
-                    <span class="file-cta">
-                      <span class="file-label">
-                        Upload a file
-                      </span>
-                    </span>
-                    <span class="file-name">
-                      No file uploaded
-                    </span>
-                  </label>
-                  <button class="button is-black" type="submit">Upload</button>
-                </div>
-              </form>
-            </a>
-
           </nav>
+          <form action="/fileupload" method="post" enctype="multipart/form-data">
+            <div id="file-upload" class="file has-name">
+              <label class="file-label">
+                <input class="file-input" type="file">
+                <span class="file-cta">
+                  <span class="file-label">
+                    Upload a file
+                  </span>
+                </span>
+                <span class="file-name">
+                  No file uploaded
+                </span>
+              </label>
+            </div>
+            <button class="button is-black" type="submit">Upload</button>
+          </form>
         </div>
       </div>
     </section>
