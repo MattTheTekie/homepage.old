@@ -1,24 +1,113 @@
 <html lang="en">
+
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>smhsmh files yes</title>
-    <meta content="smhsmh" property="og:title" />
-    <meta content="what are you doing in my files stepbro" property="og:description" />
-    <link rel="stylesheet" href="/font.css">
-    <link rel="stylesheet" href="/styles.css">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Home</title>
+      <link rel="stylesheet prefetch" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+      <meta content="smhsmh" property="og:title" />
+      <meta content="what are you doing in my files stepbro" property="og:description" />
+      <meta content="https://smhsmh.club" property="og:url" />
+      <meta content="#000000" data-react-helmet="true" name="theme-color" />
   </head>
+
   <body>
-    <div oncopy="false" oncut="false" onpaste="false">
-      <form action="/fileupload" method="post" enctype="multipart/form-data">
-        <input type="file"><br>
-        <button type="submit">Upload</button><br>
-      </form>
-    </div>
-    <div>
-   <% files.forEach(file => { %>
-        <a href="/files/<%= file %>"><img src="/files/<%= file %>" alt="<%= file %>"></img> <%= file %></a><br>
-   <% }); %>
-    </div>
+
+    <nav class="navbar is-black is-spaced" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          smhsmh
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navbar" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="/forks">
+            <img src="/icons/git-branch.svg" style="margin-right: 15px">
+            Fork Graph
+          </a>
+          <a class="navbar-item" href="/github">
+            <img src="/icons/github.svg" style="margin-right: 15px">
+            GitHub
+          </a>
+          <a class="navbar-item">
+            <img src="/icons/folder.svg" style="margin-right: 15px">
+            Files
+          </a>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-warning" href="https://cactie.smhsmh.club">
+                <img src="https://cactie.smhsmh.club/assets/images/CactieEmpty.png" style="margin-right: 15px">
+                Cactie Bot
+              </a>
+              <a class="button is-danger" href="https://netherdepths.com">
+                <img src="https://raw.githubusercontent.com/saboooor/Nether-Depths/main/Branding/nd.png" style="margin-right: 15px">
+                Nether Depths
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero is-black is-fullheight-with-navbar">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <nav class="panel is-dark">
+
+            <p class="panel-heading">
+              Files
+            </p>
+
+            <% files.forEach(file => { %>
+              <a class="panel-block" href="/files/<%= file %>" style="background-color: #303030">
+                <span class="panel-icon">
+                  <img src="/files/<%= file %>">
+                </span>
+                <%= file %>
+              </a>
+            <% }); %>
+
+            <a class="panel-block" style="background-color: #303030; padding: 20px">
+              <form action="/fileupload" method="post" enctype="multipart/form-data">
+                <div id="file-upload" class="file has-name">
+                  <label class="file-label">
+                    <input class="file-input" type="file">
+                    <span class="file-cta">
+                      <span class="file-label">
+                        Upload a file
+                      </span>
+                    </span>
+                    <span class="file-name">
+                      No file uploaded
+                    </span>
+                  </label>
+                  <button class="button is-black" type="submit">Upload</button>
+                </div>
+              </form>
+            </a>
+
+          </nav>
+        </div>
+      </div>
+    </section>
+
   </body>
+
 </html>
+<script src="/bulma.min.js"></script>
+<script>
+  const fileInput = document.querySelector('#file-upload input[type=file]');
+  fileInput.onchange = () => {
+    if (fileInput.files.length > 0) {
+      const fileName = document.querySelector('#file-upload .file-name');
+      fileName.textContent = fileInput.files[0].name;
+    }
+  }
+</script>
