@@ -1,0 +1,26 @@
+<%- include("partials/header", { title: 'sab\'s personal file host', description: 'what are you doing in my files stepbro' }) %>
+
+    <section class="hero is-black is-fullheight-with-navbar">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <nav class="panel is-dark">
+
+            <p class="panel-heading">
+              Files
+            </p>
+
+            <% files.forEach(file => { %>
+              <a class="panel-block" href="/files/<%= file %>" style="background-color: #303030">
+                <%= file %>
+              </a>
+            <% }); %>
+
+          </nav>
+        </div>
+      </div>
+    </section>
+
+  </body>
+
+</html>
+<script src="/bulma.min.js"></script>

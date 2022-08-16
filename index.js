@@ -117,13 +117,16 @@ const renderTemplate = (res, req, template, files) => {
 };
 
 // All files
-app.get('/files', (req, res) => renderTemplate(res, req, 'index.ejs', 'files'));
+app.get('/', (req, res) => renderTemplate(res, req, 'index.ejs'));
+app.get('/files', (req, res) => renderTemplate(res, req, 'files.ejs', 'files'));
+app.get('/forks', (req, res) => renderTemplate(res, req, 'forks.ejs'));
 
 app.get('/transcript/:file', (req, res) => renderTemplate(res, req, 'transcript.ejs', 'transcript'));
 
 // Listen on port
 app.listen(config.port, null, null, () => {
-	logger.info(`File host running on port ${config.port}.`);
+	logger.info(`Website running on port ${config.port}.`);
+	logger.info(config.domain);
 	const timer = (Date.now() - rn) / 1000;
 	logger.info(`Done (${timer}s)! I am running!`);
 });
