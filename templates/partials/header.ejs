@@ -1,22 +1,24 @@
 <html lang="en">
 
   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title><%= title %></title>
-      <meta content="<%= title %>" property="og:title" />
-      <meta content="<%= description %>" property="og:description" />
-      <link rel="stylesheet prefetch" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-      <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
-      <meta content="https://smhsmh.club" property="og:url" />
-      <meta content="#000000" data-react-helmet="true" name="theme-color" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <meta content="<%= title %>" property="og:title" />
+    <meta content="<%= description %>" property="og:description" />
+    <link rel="stylesheet prefetch" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
+    <meta content="https://smhsmh.club" property="og:url" />
+    <meta content="#000000" data-react-helmet="true" name="theme-color" />
   </head>
 
   <body class="has-navbar-fixed-top">
-
     <nav class="navbar is-black is-spaced is-fixed-top" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
+          <figure class="image" style="margin-right: 10px;">
+            <img class="is-rounded" src="https://avatars.githubusercontent.com/u/42164502">
+          </figure>
           <%= title %>
         </a>
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
@@ -44,12 +46,28 @@
           <div class="navbar-item">
             <div class="buttons">
               <a class="button" href="https://cactie.smhsmh.club">
-                <img src="https://cactie.smhsmh.club/assets/images/Cactie.webp" style="margin-right: 15px">
+                <figure class="image" style="margin-right: 10px;">
+                  <img class="is-rounded" src="https://cactie.smhsmh.club/assets/images/Cactie.webp">
+                </figure>
                 Cactie Bot
               </a>
               <a class="button" href="https://netherdepths.com">
-                <img src="https://raw.githubusercontent.com/saboooor/Nether-Depths/main/Branding/nd.png" style="margin-right: 15px">
+                <figure class="image" style="margin-right: 10px;">
+                  <img class="is-rounded" src="https://raw.githubusercontent.com/saboooor/Nether-Depths/main/Branding/nd.png">
+                </figure>
                 Nether Depths
+              </a>
+              <a class="button" href="https://github.com/pemigrade/botflop">
+                <figure class="image" style="margin-right: 10px;">
+                  <img class="is-rounded" src="https://lh5.googleusercontent.com/oEc0x6zOGzMeybDFqOMqqALB1erFQPSrUti4WPtYhPtsWwAmtFr79kTBCiryWREnEmSjIOjCOBSC4JRr1uLzB48=w16383">
+                </figure>
+                Botflop
+              </a>
+              <a class="button" href="https://github.com/saboooor/guilded-discord-bridge">
+                <figure class="image" style="margin-right: 10px;">
+                  <img class="is-rounded" src="https://cdn.discordapp.com/avatars/875133848831279124/8529004a528e8701eb486fa458d1bf8d.webp">
+                </figure>
+                Guilded-Discord Bridge
               </a>
             </div>
           </div>
