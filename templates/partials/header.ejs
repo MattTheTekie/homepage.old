@@ -6,10 +6,14 @@
     <title><%= title %></title>
     <meta content="<%= title %>" property="og:title" />
     <meta content="<%= description %>" property="og:description" />
-    <link rel="stylesheet prefetch" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
     <meta content="https://smhsmh.club" property="og:url" />
     <meta content="#000000" data-react-helmet="true" name="theme-color" />
+    <% if (image) { %>
+      <% if (image.big) { %> <meta name="twitter:card" content="summary_large_image"/> <% } %>
+      <meta content="<%= image.url %>" property="og:image"/>
+    <% } %>
+    <link rel="stylesheet prefetch" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma-prefers-dark" />
   </head>
 
   <body class="has-navbar-fixed-top">
