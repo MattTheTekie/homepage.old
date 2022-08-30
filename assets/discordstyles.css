@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: row;
     width: 100%;
-    margin: 10px 0 10px 0;
+    margin: 10px 0;
     background-color: #00000000;
 }
 
@@ -21,7 +21,7 @@ body {
 .mention {
     border-radius: 4px;
     background: rgba(83, 96, 221, 0.5);
-    padding: 1px 3px 2px 3px;
+    padding: 1px 3px 2px;
 }
 
 .mention:hover {
@@ -81,7 +81,7 @@ body {
     padding: 8px 10px;
     color: rgba(255, 255, 255, 0.6);
     font-size: 0.875rem;
-    margin: 10px 0 10px 0;
+    margin: 10px 0;
 }
 
 .embed .card-block {
