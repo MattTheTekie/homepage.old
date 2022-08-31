@@ -2,8 +2,12 @@
 
 <%- include("partials/header", { title: 'Last updated August 30, 2022', description: 'Go to github.com/saboooor/fork-graph to propose any changes', image: { url: img, big: true } }) %>
 
-    <section class="section is-fullheight-with-navbar">
-      <img src="<%= img %>" style="width: 100%; border-radius: 10px"></iframe>
+    <section class="hero is-dark is-fullheight-with-navbar has-text-centered">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <img src="<%= img %>" style="max-height: calc(100vh - 220px); border-radius: 10px;"></iframe>
+        </div>
+      </div>
     </section>
   </body>
 
