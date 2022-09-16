@@ -22,8 +22,19 @@ html {
 .navbar .navbar-link, .navbar a.navbar-item {
     color: white;
     border-radius: 4px;
-    padding: 10px 15px;
-    margin: 5px;
+}
+
+.navbar-dropdown {
+    background-color: #222;
+    border-top: none;
+}
+
+.navbar-dropdown .navbar-item:hover {
+    background-color: #222;
+}
+
+.navbar-divider {
+    background-color: #ffffff60;
 }
 
 @media screen and (max-width: 1023px) {
