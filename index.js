@@ -24,10 +24,20 @@ logger.info('Logger started');
 const ejs = require('ejs');
 const path = require('path');
 const express = require('express');
-const config = require('./config');
+const config = require('./config.json');
 const session = require('express-session');
 const showdown = require('showdown');
 const converter = new showdown.Converter();
+converter.setOption('omitExtraWLInCodeBlocks', true);
+converter.setOption('noHeaderId', true);
+converter.setOption('simplifiedAutoLink', true);
+converter.setOption('excludeTrailingPunctuationFromURLs', true);
+converter.setOption('strikethrough', true);
+converter.setOption('simpleLineBreaks', true);
+converter.setOption('requireSpaceBeforeHeadingText', true);
+converter.setOption('openLinksInNewWindow', true);
+converter.setOption('emoji', true);
+converter.setOption('underline', true);
 
 // We instantiate express app and the session store.
 const app = express();

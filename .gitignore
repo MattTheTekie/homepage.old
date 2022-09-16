@@ -121,4 +121,4 @@ transcript/
 files/
 .DS_Store
 package-lock.json
-config.js
+config.json
