@@ -104,9 +104,9 @@ function parseTranscript(req, res) {
 		const url = suffix();
 		fs.writeFile(`transcript/${url}.json`, JSON.stringify(req.body), function(err) {
 			if (err) throw err;
-			console.log('File is created successfully.');
+			logger.info(`File is created successfully. (${config.domain}/transcript/${url})`);
 		});
-		res.statusMessage = `https://smhsmh.club/transcript/${url}`;
+		res.statusMessage = `${config.domain}/transcript/${url}`;
 		res.statusCode = 200;
 		res.end();
 	}
