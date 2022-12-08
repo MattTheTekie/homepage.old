@@ -16,7 +16,7 @@ export default component$(() => {
                     return (
                         <>
                             <hr class="border-gray-900"/>
-                            <a href={`/file/${file}`}>
+                            <a href={`/files/${file}`}>
                                 <div class="w-full flex items-center text-xl p-3 hover:bg-gray-700 rounded-xl">
                                     {file}
                                 </div>
