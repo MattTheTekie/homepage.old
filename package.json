@@ -1,21 +1,46 @@
 {
-  "name": "smhsmh.club",
-  "version": "2.0.0",
-  "description": "sab's hellhole of a website",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/saboooor/smhsmh.club.git"
+  "name": "my-qwik-basic-starter",
+  "description": "App with Routing built-in (recommended)",
+  "engines": {
+    "node": ">=15.0.0"
   },
-  "main": "index.js",
-  "license": "MIT",
+  "scripts": {
+    "build": "qwik build",
+    "build.client": "vite build",
+    "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.types": "tsc --incremental --noEmit",
+    "dev": "vite --mode ssr",
+    "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
+    "lint": "eslint \"src/**/*.ts*\"",
+    "preview": "qwik build preview && vite preview --open & node express",
+    "start": "vite --open --mode ssr & node express",
+    "start:express": "node express",
+    "start:vite": "vite --open --mode ssr",
+    "qwik": "qwik"
+  },
+  "devDependencies": {
+    "@builder.io/qwik": "0.15.2",
+    "@builder.io/qwik-city": "0.0.128",
+    "@types/eslint": "8.4.10",
+    "@types/node": "latest",
+    "@typescript-eslint/eslint-plugin": "5.45.1",
+    "@typescript-eslint/parser": "5.45.1",
+    "autoprefixer": "10.4.11",
+    "eslint": "8.29.0",
+    "eslint-plugin-qwik": "0.15.2",
+    "node-fetch": "3.3.0",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8",
+    "typescript": "4.9.3",
+    "vite": "3.2.5",
+    "vite-tsconfig-paths": "4.0.0"
+  },
   "dependencies": {
-    "ejs": "^3.1.8",
-    "eslint": "^8.22.0",
-    "express": "^4.18.1",
-    "express-session": "^1.17.3",
-    "formidable": "^2.0.1",
-    "memorystore": "^1.6.7",
-    "showdown": "^2.1.0",
-    "winston": "^3.8.1"
+    "@types/compression": "^1.7.2",
+    "@types/express": "^4.17.14",
+    "compression": "^1.7.4",
+    "express": "^4.18.2",
+    "path": "^0.12.7",
+    "showdown": "^2.1.0"
   }
 }
