@@ -11,7 +11,6 @@ export default defineConfig(() => {
     build: {
         target: "es2022"
     },
-    publicDir: 'files',
     optimizeDeps: {
         esbuildOptions: {
             target: "es2022"
