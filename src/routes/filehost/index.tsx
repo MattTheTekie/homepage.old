@@ -31,11 +31,19 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'Home',
+  title: 'what are you doing in my files stepbro',
   meta: [
     {
       name: 'description',
       content: 'smhsmh.club'
+    },
+    {
+      property: 'og:description',
+      content: 'smhsmh.club'
+    },
+    {
+      name: 'og:image',
+      content: 'https://avatars.githubusercontent.com/u/42164502'
     }
   ]
 }

@@ -12,11 +12,23 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'Home',
+  title: 'Last updated August 30, 2022',
   meta: [
-    {
-      name: 'description',
-      content: 'smhsmh.club'
-    }
+      {
+          name: 'description',
+          content: 'A fork graph that aims to inform people of the recent forks and patches that have been added to each fork of a fork of a fork while also being as chaotic as possible'
+      },
+      {
+          property: 'og:description',
+          content: 'A fork graph that aims to inform people of the recent forks and patches that have been added to each fork of a fork of a fork while also being as chaotic as possible'
+      },
+      {
+          name: 'twitter:card',
+          content: 'summary_large_image'
+      },
+      {
+          property: 'og:image',
+          content: 'https://raw.githubusercontent.com/saboooor/fork-graph/main/img.png?v=5'
+      },
   ]
 }

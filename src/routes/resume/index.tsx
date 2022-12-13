@@ -77,11 +77,19 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'Home',
+  title: 'Resume',
   meta: [
-    {
-      name: 'description',
-      content: 'smhsmh.club'
-    }
+      {
+          name: 'description',
+          content: 'This is my resume, you can find all my experience here'
+      },
+      {
+          property: 'og:description',
+          content: 'This is my resume, you can find all my experience here'
+      },
+      {
+        name: 'og:image',
+        content: 'https://avatars.githubusercontent.com/u/42164502'
+      }
   ]
 }
