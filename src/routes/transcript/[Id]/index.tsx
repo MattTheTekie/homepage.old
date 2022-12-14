@@ -193,12 +193,14 @@ export default component$(() => {
           onResolved={({ logs }) => {
             return (
               <>
-                {logs.map((log: any) => {
+                {logs.map((log: any, i: number) => {
+                  const sameuser = !(!logs[i - 1] || logs[i - 1]?.author.avatar != log.author.avatar);
                   return (
-                    <div class="flex m-2 p-2 hover:bg-discord-700">
-                      <img class="w-10 h-10 mr-5 rounded-full" src={log.author.avatar} />
+                    <div class={`flex ${sameuser ? 'p-1 group' : 'mt-2 ml-2 pt-2 pl-2'} hover:bg-discord-700`}>
+                      {!sameuser && <img class="w-10 h-10 mr-5 rounded-full" src={log.author.avatar} />}
+                      {sameuser && <p class="w-2 mr-16 text-gray-500 font-normal text-sm pl-1"><span class="hidden group-hover:flex">{log.time.split('at')[1].split(' ')[1]}</span></p>}
                       <div>
-                        <h3 class="text-lg font-bold" style={{ color: `#${log.author.color}` }}>{log.author.name}</h3>
+                        {!sameuser && <h3 class="text-lg font-bold" style={{ color: `#${log.author.color}` }}>{log.author.name} <span class="text-gray-500 font-normal text-sm pl-1">{log.time}</span></h3>}
                         {log.content && <p dangerouslySetInnerHTML={converter.makeHtml(log.content)}></p>}
                         {log.embeds && log.embeds.map((embed: any) => {
                           return (
