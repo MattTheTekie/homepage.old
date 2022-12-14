@@ -197,7 +197,7 @@ export default component$(() => {
                   const sameuser = !(!logs[i - 1] || logs[i - 1]?.author.avatar != log.author.avatar);
                   return (
                     <div class={`flex ${sameuser ? 'p-1 group' : 'mt-2 ml-2 pt-2 pl-2'} hover:bg-discord-700`}>
-                      {!sameuser && <img class="w-10 h-10 mr-5 rounded-full" src={log.author.avatar} />}
+                      {!sameuser && <img class="w-10 h-10 mr-5 rounded-full" src={log.author.avatar} alt={log.author.name} />}
                       {sameuser && <p class="w-2 mr-16 text-gray-500 font-normal text-sm pl-1"><span class="hidden group-hover:flex">{log.time.split('at')[1].split(' ')[1]}</span></p>}
                       <div>
                         {!sameuser && <h3 class="text-lg font-bold" style={{ color: `#${log.author.color}` }}>{log.author.name} <span class="text-gray-500 font-normal text-sm pl-1">{log.time}</span></h3>}
