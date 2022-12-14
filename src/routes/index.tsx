@@ -6,7 +6,7 @@ export default component$(() => {
     <section class="flex mx-auto max-w-6xl px-6 items-center" style={{ minHeight: 'calc(100dvh - 64px)' }}>
       <div class="text-center sm:text-left justify-start">
         <div class="flex sm:hidden relative justify-center align-center sm:ml-auto mb-10" style="width: 100%;">
-          <img class="rounded-full ease-in-out filter drop-shadow-2xl" src={`https://avatars.githubusercontent.com/u/42164502`} style={{ maxWidth: '40%', filter: 'drop-shadow(0 5rem 10rem rgb(251 146 60))'  }} alt="sab's pfp" />
+          <img class="rounded-full ease-in-out filter drop-shadow-2xl" src={`https://avatars.githubusercontent.com/u/42164502`} style={{ maxWidth: '40%' }} alt="sab's pfp" />
         </div>
         <h1 class="font-bold tracking-tight text-white text-5xl">
           smhsmh
