@@ -14,7 +14,7 @@
     "start": "vite --mode ssr & node express",
     "start:express": "node express",
     "start:vite": "vite --mode ssr",
-    "start:vite.debug": "vite --mode ssr",
+    "start:vite.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --forcenode --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "qwik": "qwik"
   },
   "devDependencies": {
