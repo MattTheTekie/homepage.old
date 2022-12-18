@@ -16,14 +16,20 @@ export default component$(() => {
             <div class="flex-1 items-center hidden justify-center md:flex">
               <div class="md:ml-6 md:block">
                 <div class="pointer-events-auto flex space-x-4">
-                  <Link href="/forks" class="transition duration-200 text-gray-300 bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-full text-sm font-medium">
+                  <Link href="/forks" class="transition duration-200 text-gray-300 bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap">
                     Fork Graph
                   </Link>
                   <Link href="/resume" class="transition duration-200 text-gray-300 bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-full text-sm font-medium">
                     Resume
                   </Link>
+                  <a href="/filehost" class="transition duration-200 text-gray-300 bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-full text-sm font-medium">
+                    Files
+                  </a>
                   <a href="https://github.com/saboooor" class="transition duration-200 text-gray-300 bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-full text-sm font-medium">
                     GitHub
+                  </a>
+                  <a href="https://paypal.me/youhavebeenyoted" class="transition duration-200 text-gray-300 bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-full text-sm font-medium">
+                    PayPal
                   </a>
                 </div>
               </div>
@@ -33,7 +39,7 @@ export default component$(() => {
                 <div class="pointer-events-auto flex space-x-4">
                   <a href="https://cactie.smhsmh.club" class="transition duration-200 group text-gray-300 bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-full text-sm font-medium flex items-center whitespace-nowrap">
                     <img class="h-8 w-8 group-hover:mr-3 rounded-full" src={`https://cactie.smhsmh.club/assets/images/Cactie.webp`} alt="Cactie Bot" />
-                    <span class="hidden group-hover:flex">Cactie Bot</span>
+                    <span class="hidden group-hover:flex">Cactie</span>
                   </a>
                   <a href="https://netherdepths.com" class="transition duration-200 group text-gray-300 bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-full text-sm font-medium flex items-center whitespace-nowrap">
                     <img class="h-8 w-8 group-hover:mr-3 rounded-full" src={`https://raw.githubusercontent.com/saboooor/Nether-Depths/main/Branding/nd.png`} alt="Nether Depths" />
@@ -72,12 +78,18 @@ export default component$(() => {
             <Link href="/resume" class="text-gray-300 hover:bg-gray-700 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
               Resume
             </Link>
+            <a href="/filehost" class="text-gray-300 hover:bg-gray-700 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
+              Files
+            </a>
             <a href="https://github.com/saboooor" class="text-gray-300 hover:bg-gray-700 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
               GitHub
             </a>
+            <a href="https://paypal.me/youhavebeenyoted" class="text-gray-300 hover:bg-gray-700 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
+              PayPal
+            </a>
             <a href="https://cactie.smhsmh.club" class="text-gray-300 hover:bg-gray-700 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
               <img class="h-6 w-6 mr-3 rounded-full" src={`https://cactie.smhsmh.club/assets/images/Cactie.webp`} alt="Cactie Bot" />
-              Cactie Bot
+              Cactie
             </a>
             <a href="https://netherdepths.com" class="text-gray-300 hover:bg-gray-700 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
               <img class="h-6 w-6 mr-3 rounded-full" src={`https://raw.githubusercontent.com/saboooor/Nether-Depths/main/Branding/nd.png`} alt="Nether Depths" />
