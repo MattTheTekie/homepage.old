@@ -12,7 +12,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'Last updated August 30, 2022',
+  title: 'Last updated December 17, 2022',
   meta: [
       {
           name: 'description',
@@ -28,7 +28,7 @@ export const head: DocumentHead = {
       },
       {
           property: 'og:image',
-          content: 'https://raw.githubusercontent.com/saboooor/fork-graph/main/img.png?v=5'
+          content: 'https://raw.githubusercontent.com/saboooor/fork-graph/main/img.png?v=6'
       },
   ]
 }
