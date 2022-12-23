@@ -2,19 +2,27 @@ import { component$, useStore, useClientEffect$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 
 export default component$(() => {
-    const now = new Date();
     const store = useStore({
-        hour: now.getHours(),
-        minute: now.getMinutes(),
-        second: now.getSeconds(),
-        millisecond: now.getMilliseconds(),
-        hour2: now.getHours() * 0.666666666,
-        minute2: now.getMinutes() * 1.666666666,
-        second2: now.getSeconds() * 1.666666666,
-        millisecond2: now.getMilliseconds() * 14.4,
+        hour: 0,
+        minute: 0,
+        second: 0,
+        millisecond: 0,
+        hour2: 0,
+        minute2: 0,
+        second2: 0,
+        millisecond2: 0,
     });
 
     useClientEffect$(() => {
+        const now = new Date();
+        store.hour = now.getHours();
+        store.minute = now.getMinutes();
+        store.second = now.getSeconds();
+        store.millisecond = now.getMilliseconds();
+        store.hour2 = now.getHours() * 0.666666666;
+        store.minute2 = now.getMinutes() * 1.666666666;
+        store.second2 = now.getSeconds() * 1.666666666;
+        store.millisecond2 = now.getMilliseconds() * 14.4;
         const update = () => {
             store.millisecond += 10;
             store.millisecond2 += 16;
@@ -27,7 +35,6 @@ export default component$(() => {
             if (store.hour >= 24) { store.hour = 0; }
             if (store.hour2 >= 15.9) { store.hour2 = 0; }
         };
-        update();
         const tmrId = setInterval(update, 10);
         return () => clearInterval(tmrId);
     });
