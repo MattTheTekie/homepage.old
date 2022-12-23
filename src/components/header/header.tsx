@@ -84,6 +84,9 @@ export default component$(() => {
             <a href="/filehost" class="text-gray-300 hover:bg-gray-700 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
               Files
             </a>
+            <Link href="/zoo" class="text-gray-300 hover:bg-gray-700 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
+              Zoo
+            </Link>
             <a href="https://github.com/saboooor" class="text-gray-300 hover:bg-gray-700 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
               GitHub
             </a>
