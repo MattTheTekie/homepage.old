@@ -24,8 +24,8 @@ export default component$(() => {
         store.second2 = now.getSeconds() * 1.666666666;
         store.millisecond2 = now.getMilliseconds() * 14.4;
         const update = () => {
-            store.millisecond += 10;
-            store.millisecond2 += 16;
+            store.millisecond += 20;
+            store.millisecond2 += 42;
             if (store.millisecond >= 1000) { store.millisecond = 0; store.second += 1; }
             if (store.millisecond2 >= 1000) { store.millisecond2 = 0; store.second2 += 1; }
             if (store.second >= 60) { store.second = 0; store.minute += 1; }
@@ -35,7 +35,7 @@ export default component$(() => {
             if (store.hour >= 24) { store.hour = 0; }
             if (store.hour2 >= 15.9) { store.hour2 = 0; }
         };
-        const tmrId = setInterval(update, 10);
+        const tmrId = setInterval(update, 20);
         return () => clearInterval(tmrId);
     });
 
