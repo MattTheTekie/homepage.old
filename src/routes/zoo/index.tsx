@@ -41,8 +41,8 @@ export default component$(() => {
                 If time used multiples of 100 instead of 60
             </h1>
             <p class="w-full text-xl">
-                {Math.round(store.hour)}:{Math.round(store.minute)}:{Math.round(store.second)}:{Math.round(store.millisecond)}<br/>
-                {Math.round(store.hour2)}:{Math.round(store.minute2)}:{Math.ceil(store.second2)}:{Math.round(store.millisecond2)}
+                {("0" + Math.round(store.hour)).slice(-2)}:{("0" + Math.round(store.minute)).slice(-2)}:{("0" + Math.round(store.second)).slice(-2)}:{Math.round(store.millisecond)}<br/>
+                {("0" + Math.round(store.hour2)).slice(-2)}:{("0" + Math.round(store.minute2)).slice(-2)}:{("0" + Math.round(store.second2)).slice(-2)}:{Math.round(store.millisecond2)}
             </p>
         </section>
     );
