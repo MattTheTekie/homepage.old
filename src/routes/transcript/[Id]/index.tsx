@@ -1,6 +1,6 @@
 import { Resource, component$ } from '@builder.io/qwik';
 import type { DocumentHead, RequestHandler } from '@builder.io/qwik-city';
-import { useEndpoint } from "@builder.io/qwik-city";
+import { useEndpoint, Link } from "@builder.io/qwik-city";
 
 import fs from 'fs';
 
@@ -77,22 +77,22 @@ export default component$(() => {
 
               <div class="hidden md:flex flex-1 items-center justify-end">
                 <div class="flex space-x-4">
-                  <a href="https://cactie.smhsmh.club" class="transition duration-200 group text-gray-300 hover:text-white hover:drop-shadow-2xl hover:px-3 hover:py-2 hover:bg-discord-900 rounded-full text-sm font-medium flex items-center whitespace-nowrap">
+                  <Link href="https://cactie.smhsmh.club" class="transition duration-200 group text-gray-300 hover:text-white hover:drop-shadow-2xl hover:px-3 hover:py-2 hover:bg-discord-900 rounded-full text-sm font-medium flex items-center whitespace-nowrap">
                     <img class="h-6 w-6 group-hover:mr-3 rounded-full" src={`https://cactie.smhsmh.club/assets/images/Cactie.webp`} alt="Cactie Bot" />
                     <span class="hidden group-hover:flex">Cactie Bot</span>
-                  </a>
-                  <a href="https://netherdepths.com" class="transition duration-200 group text-gray-300 hover:text-white hover:drop-shadow-2xl hover:px-3 hover:py-2 hover:bg-discord-900 rounded-full text-sm font-medium flex items-center whitespace-nowrap">
+                  </Link>
+                  <Link href="https://netherdepths.com" class="transition duration-200 group text-gray-300 hover:text-white hover:drop-shadow-2xl hover:px-3 hover:py-2 hover:bg-discord-900 rounded-full text-sm font-medium flex items-center whitespace-nowrap">
                     <img class="h-6 w-6 group-hover:mr-3 rounded-full" src={`https://raw.githubusercontent.com/saboooor/Nether-Depths/main/Branding/nd.png`} alt="Nether Depths" />
                     <span class="hidden group-hover:flex">Nether Depths</span>
-                  </a>
-                  <a href="https://simplymc.art" class="transition duration-200 group text-gray-300 hover:text-white hover:drop-shadow-2xl hover:px-3 hover:py-2 hover:bg-discord-900 rounded-full text-sm font-medium flex items-center whitespace-nowrap">
+                  </Link>
+                  <Link href="https://simplymc.art" class="transition duration-200 group text-gray-300 hover:text-white hover:drop-shadow-2xl hover:px-3 hover:py-2 hover:bg-discord-900 rounded-full text-sm font-medium flex items-center whitespace-nowrap">
                     <img class="h-6 w-6 group-hover:mr-3 rounded-full" src={`https://www.simplymc.art/images/icon.png`} alt="SimplyMC" />
                     <span class="hidden group-hover:flex">SimplyMC</span>
-                  </a>
-                  <a href="https://github.com/pemigrade/botflop" class="transition duration-200 group text-gray-300 hover:text-white hover:drop-shadow-2xl hover:px-3 hover:bg-discord-900 hover:py-2 rounded-full text-sm font-medium flex items-center whitespace-nowrap">
+                  </Link>
+                  <Link href="https://github.com/pemigrade/botflop" class="transition duration-200 group text-gray-300 hover:text-white hover:drop-shadow-2xl hover:px-3 hover:bg-discord-900 hover:py-2 rounded-full text-sm font-medium flex items-center whitespace-nowrap">
                     <img class="h-6 w-6 group-hover:mr-3 rounded-full" src={`https://i.imgur.com/deE1oID.png`} alt="Botflop" />
                     <span class="hidden group-hover:flex">Botflop</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -165,22 +165,22 @@ export default component$(() => {
               <div class="text-gray-300 px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
                 Other Projects
               </div>
-              <a href="https://cactie.smhsmh.club" class="text-gray-300 hover:bg-discord-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
+              <Link href="https://cactie.smhsmh.club" class="text-gray-300 hover:bg-discord-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
                 <img class="h-6 w-6 mr-3 rounded-full" src={`https://cactie.smhsmh.club/assets/images/Cactie.webp`} alt="Cactie Bot" />
                 Cactie Bot
-              </a>
-              <a href="https://netherdepths.com" class="text-gray-300 hover:bg-discord-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
+              </Link>
+              <Link href="https://netherdepths.com" class="text-gray-300 hover:bg-discord-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
                 <img class="h-6 w-6 mr-3 rounded-full" src={`https://raw.githubusercontent.com/saboooor/Nether-Depths/main/Branding/nd.png`} alt="Nether Depths" />
                 Nether Depths
-              </a>
-              <a href="https://simplymc.art" class="text-gray-300 hover:bg-discord-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
+              </Link>
+              <Link href="https://simplymc.art" class="text-gray-300 hover:bg-discord-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
                 <img class="h-6 w-6 mr-3 rounded-full" src={`https://www.simplymc.art/images/icon.png`} alt="SimplyMC" />
                 SimplyMC
-              </a>
-              <a href="https://github.com/pemigrade/botflop" class="text-gray-300 hover:bg-discord-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
+              </Link>
+              <Link href="https://github.com/pemigrade/botflop" class="text-gray-300 hover:bg-discord-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
                 <img class="h-6 w-6 mr-3 rounded-full" src={`https://i.imgur.com/deE1oID.png`} alt="Botflop" />
                 Botflop
-              </a>
+              </Link>
             </div>
           </div>
         </nav>

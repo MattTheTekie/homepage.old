@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik';
-import type { DocumentHead } from '@builder.io/qwik-city';
+import { DocumentHead, Link } from '@builder.io/qwik-city';
 
 export default component$(() => {
   return (
@@ -18,7 +18,7 @@ export default component$(() => {
           EXPERIENCE
         </h1>
         <p class="mt-5 text-lg text-gray-400">
-          <span class="font-bold">Website Developer</span> — <a href="https://burgersonfleek.ca">burgersonfleek.ca</a><br/>
+          <span class="font-bold">Website Developer</span> — <Link href="https://burgersonfleek.ca">burgersonfleek.ca</Link><br/>
           Nov 2020 - Present
         </p>
         <p class="mt-5 text-lg text-gray-400">
