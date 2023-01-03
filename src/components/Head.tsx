@@ -12,7 +12,7 @@ export const RouterHead = component$(() => {
     <>
       <title>{head.title}</title>
       <meta content={head.title} property="og:title"/>
-      <meta content="#c37f0c" name="theme-color"/>
+      <meta content="#0D0D0D" name="theme-color"/>
 
       <link rel="canonical" href={loc.href} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
