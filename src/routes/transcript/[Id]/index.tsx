@@ -1,6 +1,6 @@
 import { Resource, component$ } from '@builder.io/qwik';
-import type { DocumentHead, RequestHandler } from '@builder.io/qwik-city';
-import { useEndpoint, Link } from "@builder.io/qwik-city";
+import type { DocumentHead } from '@builder.io/qwik-city';
+import { loader$, Link } from "@builder.io/qwik-city";
 
 import fs from 'fs';
 
@@ -17,14 +17,14 @@ converter.setOption('openLinksInNewWindow', true);
 converter.setOption('emoji', true);
 converter.setOption('underline', true);
 
-export const onGet: RequestHandler<any> = async ({ params }) => {
+export const useTranscript = loader$(({ params }) => {
   const logs = JSON.parse(fs.readFileSync(`./transcript/${params.Id}.json`).toString());
   console.log(`Transcript ${params.Id} was accessed`);
   return logs;
-};
+});
 
 export default component$(() => {
-  const logData = useEndpoint<typeof onGet>();
+  const logData = useTranscript();
   return (
     <>
       <header>
@@ -257,7 +257,8 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead<typeof onGet> = ({ data: { channel, time, logs }}) => {
+export const head: DocumentHead = ({ resolveValue }) => {
+  const { channel, logs, time } = resolveValue(useTranscript);
   return {
       title: `Transcript of # ${channel}`,
       meta: [
