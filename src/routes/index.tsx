@@ -11,7 +11,7 @@ export default component$(() => {
           <img class="rounded-2xl ease-in-out filter drop-shadow-2xl" src={`https://avatars.githubusercontent.com/u/42164502`} style={{ maxWidth: '50%' }} alt="sab's pfp" />
         </div>
         <h1 class="font-bold tracking-tight text-white text-2xl sm:text-5xl">
-          Welcome to sab's hellhole
+          Welcome to sab's website idk
         </h1>
         <p class="text-lg sm:text-2xl text-gray-400">
           I'm a Culinary student with a passion for cooking various foods and working in fast paced environments and self-taught full-stack software developer with an equal passion for technology.
@@ -37,11 +37,11 @@ export const head: DocumentHead = {
   meta: [
     {
       name: 'description',
-      content: 'Welcome to sab\'s hellhole'
+      content: 'Welcome to sab\'s website idk'
     },
     {
       name: 'og:description',
-      content: 'Welcome to sab\'s hellhole'
+      content: 'Welcome to sab\'s website idk'
     },
     {
       name: 'og:image',
