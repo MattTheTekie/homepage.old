@@ -1,9 +1,8 @@
-import type { RequestHandler } from '@builder.io/qwik-city';
 import fs from 'fs';
 import crypto from 'crypto';
 function suffix() { return crypto.randomBytes(5).toString('hex'); }
 
-export const onPost: RequestHandler<any> = async ({ request }) => {
+export const onPost: any = async ({ request }: any) => {
     const url = suffix();
     fs.writeFile(`transcript/${url}.json`, JSON.stringify(await request.json()), function(err) {
         if (err) throw err;
