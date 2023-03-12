@@ -1,23 +1,45 @@
 import { Resource, component$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
-import { loader$, Link } from "@builder.io/qwik-city";
+import { routeLoader$, Link } from "@builder.io/qwik-city";
 
 import fs from 'fs';
 
-import showdown from 'showdown';
-export const converter = new showdown.Converter();
-converter.setOption('omitExtraWLInCodeBlocks', true);
-converter.setOption('noHeaderId', true);
-converter.setOption('simplifiedAutoLink', true);
-converter.setOption('excludeTrailingPunctuationFromURLs', true);
-converter.setOption('strikethrough', true);
-converter.setOption('simpleLineBreaks', true);
-converter.setOption('requireSpaceBeforeHeadingText', true);
-converter.setOption('openLinksInNewWindow', true);
-converter.setOption('emoji', true);
-converter.setOption('underline', true);
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkGfm from 'remark-gfm';
+import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
 
-export const useTranscript = loader$(({ params }) => {
+export function disable(this: any, disable: string[] = []) {
+  const data = this.data();
+  const list = data.micromarkExtensions || (data.micromarkExtensions = []);
+  list.push({disable: {null: disable}});
+}
+
+export const Markdown = component$<any>(({ mdContent, className }) => (
+  <>
+    {unified()
+      .use(remarkParse)
+      .use(disable, ['list', 'blockQuote'])
+      .use(remarkGfm)
+      .use(remarkRehype)
+      .use(rehypeStringify)
+      .process(mdContent)
+      .then((file: any) => {
+        let str = String(file);
+        str.match(/&#x3C;(a?):(\w+):(\d+)>/g)?.forEach((match: string) => {
+          const emoji = match.match(/&#x3C;(a?):\w+:(\d+)>/)!;
+          const animated = emoji[1] == 'a';
+          const id = emoji[2];
+          str = str.replace(match, `<img src="https://cdn.discordapp.com/emojis/${id}.${animated ? 'gif' : 'png'}" class="inline h-5" />`);
+        });
+        return <div dangerouslySetInnerHTML={str} class={`whitespace-pre-line [&>p>a]:text-blue-400 [&>p>a]:hover:underline ${className}`} />
+      }
+    )}
+  </>
+));
+
+export const useTranscript = routeLoader$(({ params }) => {
   const logs = JSON.parse(fs.readFileSync(`./transcript/${params.Id}.json`).toString());
   console.log(`Transcript ${params.Id} was accessed`);
   return logs;
@@ -51,7 +73,7 @@ export default component$(() => {
                   onRejected={() => <span class="flex-1 ml-3">Error</span>}
                   onResolved={({ channel }) => {
                     return (
-                      <span class="ml-3 font-bold">
+                      <span class="ml-3 font-bold text-gray-100">
                         {channel ?? 'Unknown Channel'}
                       </span>
                     )
@@ -99,7 +121,7 @@ export default component$(() => {
             </div>
           </div>
 
-          <div class="hidden px-6 mx-auto max-w-7xl" id="mobile-menu">
+          <div class="px-6 py-2 mx-auto max-w-7xl" id="mobile-menu">
             <Resource
               value={logData}
               onPending={() => <span class="flex-1 ml-3">Loading...</span>}
@@ -125,18 +147,16 @@ export default component$(() => {
               onRejected={() => <span class="flex-1 ml-3">Error</span>}
               onResolved={({ time }) => {
                 return (
-                  <div class="space-y-1 my-3 py-3 px-3 justify-center items-center bg-discord-900 rounded-2xl">
-                    <div class="text-gray-300 px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
-                      Created on {new Date(time).toLocaleString('default', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}
-                    </div>
-                  </div>
+                  <p class="py-4 font-bold">
+                    Created on {new Date(time).toLocaleString('default', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}
+                  </p>
                 )
               }}
             />
-            <div class="space-y-1 my-3 py-3 px-3 justify-center items-center bg-discord-900 rounded-2xl">
-              <div class="text-gray-300 px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
-                Users with access to this transcript
-              </div>
+            <p class="text-gray-300">
+              Users with access to this transcript
+            </p>
+            <div class="space-y-1 my-3 justify-center items-center bg-discord-900 rounded-2xl">
 
               <Resource
                 value={logData}
@@ -146,13 +166,13 @@ export default component$(() => {
                   return (
                     <>
                       {users &&
-                        <div class="text-gray-300 bg-discord-800 px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
+                        <div class="text-gray-300 bg-discord-800 px-4 py-3 rounded-lg text-sm font-medium flex items-center whitespace-nowrap">
                           <img class="h-6 w-6 mr-3 rounded-full" src={`https://cactie.smhsmh.club/assets/images/Cactie.webp`} alt="Cactie Bot" />
                           Cactie
                         </div>
                       }
                       {!users &&
-                        <div class="text-gray-300 bg-discord-800 px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
+                        <div class="text-gray-300 bg-discord-800 px-4 py-3 rounded-lg text-sm font-medium flex items-center whitespace-nowrap">
                           Anyone with the link
                         </div>
                       }
@@ -201,7 +221,7 @@ export default component$(() => {
                       {sameuser && <p class="w-2 mr-16 text-gray-500 font-normal text-sm pl-1"><span class="hidden group-hover:flex">{log.time.split('at')[1].split(' ')[1]}</span></p>}
                       <div>
                         {!sameuser && <h3 class="text-lg font-bold" style={{ color: `#${log.author.color}` }}>{log.author.name} <span class="text-gray-500 font-normal text-sm pl-1">{log.time}</span></h3>}
-                        {log.content && <p dangerouslySetInnerHTML={converter.makeHtml(log.content)}></p>}
+                        {log.content && <Markdown mdContent={log.content} className="text-gray-100" /> }
                         {log.embeds && log.embeds.map((embed: any) => {
                           return (
                             <div class="bg-discord-800 rounded p-4" style={{ borderLeftColor: `#${embed.color}`, borderLeftWidth: '4px' }}>
@@ -214,18 +234,18 @@ export default component$(() => {
                                     </div>
                                   }
                                   {embed.title && <h3 class="text-white font-bold">{embed.title}</h3>}
-                                  {embed.description && <p dangerouslySetInnerHTML={converter.makeHtml(embed.description)}></p>}
+                                  {embed.description && <Markdown mdContent={embed.description} className="text-gray-100" /> }
                                   {embed.fields && embed.fields[0] &&
-                                    <dl class="mt-3">
+                                    <div class="mt-3">
                                       {embed.fields.map((field: any) => {
                                         return (
                                           <>
-                                            <dt class="text-white font-bold" dangerouslySetInnerHTML={converter.makeHtml(field.name)}></dt>
-                                            <dd class="text-gray-300 whitespace-pre-line" dangerouslySetInnerHTML={converter.makeHtml(field.value)}></dd>
+                                            <Markdown mdContent={field.name} className="text-gray-50" />
+                                            <Markdown mdContent={field.value} className="text-gray-100" />
                                           </>
                                         )
                                       })}
-                                    </dl>
+                                    </div>
                                   }
                                 </div>
                                 {embed.thumb && 
