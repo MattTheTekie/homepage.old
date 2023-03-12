@@ -7,7 +7,7 @@ export default component$(() => {
   const files = fs.readdirSync('./files');
   return (
     <section class="mx-auto max-w-6xl px-6" style={{ minHeight: 'calc(100dvh - 64px)' }}>
-        <h1 class="font-bold tracking-tight text-white text-5xl py-12">
+        <h1 class="font-bold text-white text-5xl py-12">
             Files
         </h1>
         <div class="w-full bg-gray-800 rounded-xl">

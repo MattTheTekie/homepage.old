@@ -10,7 +10,7 @@ export default component$(() => {
         <div class="flex sm:hidden relative justify-start sm:ml-auto mb-5" style="width: 100%;">
           <img class="rounded-2xl ease-in-out filter drop-shadow-2xl" src={`https://avatars.githubusercontent.com/u/42164502`} style={{ maxWidth: '50%' }} alt="sab's pfp" />
         </div>
-        <h1 class="font-bold tracking-tight text-red-500 text-2xl sm:text-5xl">
+        <h1 class="font-bold text-red-500 text-2xl sm:text-5xl">
           404: Page not found
         </h1>
         <p class="text-lg sm:text-2xl text-gray-400">

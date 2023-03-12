@@ -41,10 +41,10 @@ export default component$(() => {
 
     return (
         <section class="mx-auto max-w-6xl px-6" style={{ minHeight: 'calc(100dvh - 64px)' }}>
-            <h1 class="font-bold tracking-tight text-white text-5xl py-12">
+            <h1 class="font-bold text-white text-5xl py-12">
                 Zoo
             </h1>
-            <h1 class="font-bold tracking-tight text-3xl pb-6">
+            <h1 class="font-bold text-3xl pb-6">
                 If time used multiples of 100 instead of 60
             </h1>
             <p class="w-full text-xl">

@@ -50,7 +50,7 @@ export default component$(() => {
   return (
     <>
       <header>
-        <nav class="z-10 fixed top-0 w-screen bg-discord-600 border-b-2 border-b-discord-900">
+        <nav class="z-10 fixed top-0 w-screen bg-discord-600/50 backdrop-blur-2xl border-b border-b-discord-900">
           <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="relative flex h-12 items-center">
 
@@ -121,7 +121,7 @@ export default component$(() => {
             </div>
           </div>
 
-          <div class="px-6 py-2 mx-auto max-w-7xl" id="mobile-menu">
+          <div class="hidden px-6 py-2 mx-auto max-w-2xl" id="mobile-menu">
             <Resource
               value={logData}
               onPending={() => <span class="flex-1 ml-3">Loading...</span>}
@@ -218,9 +218,9 @@ export default component$(() => {
                   return (
                     <div class={`flex ${sameuser ? 'p-1 group' : 'mt-2 ml-2 pt-2 pl-2'} hover:bg-discord-700`}>
                       {!sameuser && <img class="w-10 h-10 mr-5 rounded-full" src={log.author.avatar} alt={log.author.name} />}
-                      {sameuser && <p class="w-2 mr-16 text-gray-500 font-normal text-sm pl-1"><span class="hidden group-hover:flex">{log.time.split('at')[1].split(' ')[1]}</span></p>}
+                      {sameuser && <p class="w-2 mr-16 text-gray-300 text-sm pl-2 text-center"><span class="hidden group-hover:flex">{log.time.split(' at ')[1].split(' ')[0]}</span></p>}
                       <div>
-                        {!sameuser && <h3 class="text-lg font-bold" style={{ color: `#${log.author.color}` }}>{log.author.name} <span class="text-gray-500 font-normal text-sm pl-1">{log.time}</span></h3>}
+                        {!sameuser && <h3 class="text-lg font-bold" style={{ color: `#${log.author.color}` }}>{log.author.name} <span class="text-gray-300 font-normal text-sm pl-1">{log.time}</span></h3>}
                         {log.content && <Markdown mdContent={log.content} className="text-gray-100" /> }
                         {log.embeds && log.embeds.map((embed: any) => {
                           return (
