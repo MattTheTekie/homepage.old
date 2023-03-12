@@ -240,7 +240,7 @@ export default component$(() => {
                                       {embed.fields.map((field: any) => {
                                         return (
                                           <>
-                                            <Markdown mdContent={field.name} className="text-gray-50" />
+                                            <Markdown mdContent={field.name} className="text-gray-50 font-bold" />
                                             <Markdown mdContent={field.value} className="text-gray-100" />
                                           </>
                                         )
