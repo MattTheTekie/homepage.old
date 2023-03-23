@@ -42,6 +42,9 @@ export default component$(() => {
           <Link href="/resume" class="transition duration-200 flex sm:hidden hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
             <FileTextIcon/>Resume
           </Link>
+          <Link href="/projects" class="transition duration-200 flex sm:hidden hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
+            <CodeIcon/>Projects
+          </Link>
           <Link href="https://github.com/LuminescentDev" class="transition duration-200 flex sm:hidden hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
             <GithubIcon/>GitHub
           </Link>
