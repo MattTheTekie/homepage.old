@@ -1,10 +1,10 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "smhsmh-club",
-  "short_name": "smhsmh.club",
+  "name": "luminescent-website",
+  "short_name": "luminescent.dev",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#0D0D0D",
   "theme_color": "#0D0D0D",
-  "description": "welcome to sab's website idk"
+  "description": "Luminescent Development"
 }

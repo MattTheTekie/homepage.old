@@ -16,11 +16,11 @@ export const head: DocumentHead = {
   meta: [
       {
           name: 'description',
-          content: 'A fork graph that aims to inform people of the recent forks and patches that have been added to each fork of a fork of a fork while also being as chaotic as possible, made by sab.#6969 on Discord'
+          content: 'A fork graph that aims to inform people of the recent forks and patches that have been added to each fork of a fork of a fork while also being as chaotic as possible, made by sab#4534 on Discord'
       },
       {
           property: 'og:description',
-          content: 'A fork graph that aims to inform people of the recent forks and patches that have been added to each fork of a fork of a fork while also being as chaotic as possible, made by sab.#6969 on Discord'
+          content: 'A fork graph that aims to inform people of the recent forks and patches that have been added to each fork of a fork of a fork while also being as chaotic as possible, made by sab#4534 on Discord'
       },
       {
           name: 'twitter:card',

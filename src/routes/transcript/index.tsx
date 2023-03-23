@@ -6,7 +6,7 @@ export const onPost: any = async ({ text, request }: any) => {
     const url = suffix();
     fs.writeFile(`transcript/${url}.json`, JSON.stringify(await request.json()), function(err) {
         if (err) throw err;
-        console.log(`File is created successfully. https://smhsmh.club/transcript/${url}`);
+        console.log(`File is created successfully. https://luminescent.dev/transcript/${url}`);
     });
-    text(200, `https://smhsmh.club/transcript/${url}`);
+    text(200, `https://luminescent.dev/transcript/${url}`);
 };

@@ -99,8 +99,8 @@ export default component$(() => {
 
               <div class="hidden md:flex flex-1 items-center justify-end">
                 <div class="flex space-x-4">
-                  <Link href="https://cactie.smhsmh.club" class="transition duration-200 group text-gray-300 hover:text-white hover:drop-shadow-2xl hover:px-3 hover:py-2 hover:bg-discord-900 rounded-full text-sm font-medium flex items-center whitespace-nowrap">
-                    <img class="h-6 w-6 group-hover:mr-3 rounded-full" src={`https://cactie.smhsmh.club/assets/images/Cactie.webp`} alt="Cactie Bot" />
+                  <Link href="https://cactie.luminescent.dev" class="transition duration-200 group text-gray-300 hover:text-white hover:drop-shadow-2xl hover:px-3 hover:py-2 hover:bg-discord-900 rounded-full text-sm font-medium flex items-center whitespace-nowrap">
+                    <img class="h-6 w-6 group-hover:mr-3 rounded-full" src={`https://cactie.luminescent.dev/assets/images/Cactie.webp`} alt="Cactie Bot" />
                     <span class="hidden group-hover:flex">Cactie Bot</span>
                   </Link>
                   <Link href="https://netherdepths.com" class="transition duration-200 group text-gray-300 hover:text-white hover:drop-shadow-2xl hover:px-3 hover:py-2 hover:bg-discord-900 rounded-full text-sm font-medium flex items-center whitespace-nowrap">
@@ -167,7 +167,7 @@ export default component$(() => {
                     <>
                       {users &&
                         <div class="text-gray-300 bg-discord-800 px-4 py-3 rounded-lg text-sm font-medium flex items-center whitespace-nowrap">
-                          <img class="h-6 w-6 mr-3 rounded-full" src={`https://cactie.smhsmh.club/assets/images/Cactie.webp`} alt="Cactie Bot" />
+                          <img class="h-6 w-6 mr-3 rounded-full" src={`https://cactie.luminescent.dev/assets/images/Cactie.webp`} alt="Cactie Bot" />
                           Cactie
                         </div>
                       }
@@ -185,8 +185,8 @@ export default component$(() => {
               <div class="text-gray-300 px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
                 Other Projects
               </div>
-              <Link href="https://cactie.smhsmh.club" class="text-gray-300 hover:bg-discord-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
-                <img class="h-6 w-6 mr-3 rounded-full" src={`https://cactie.smhsmh.club/assets/images/Cactie.webp`} alt="Cactie Bot" />
+              <Link href="https://cactie.luminescent.dev" class="text-gray-300 hover:bg-discord-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">
+                <img class="h-6 w-6 mr-3 rounded-full" src={`https://cactie.luminescent.dev/assets/images/Cactie.webp`} alt="Cactie Bot" />
                 Cactie Bot
               </Link>
               <Link href="https://netherdepths.com" class="text-gray-300 hover:bg-discord-800 hover:text-white hover:drop-shadow-2xl px-3 py-2 rounded-xl text-sm font-medium flex items-center whitespace-nowrap">

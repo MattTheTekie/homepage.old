@@ -95,7 +95,7 @@ export const head: DocumentHead = {
       },
       {
         name: 'og:image',
-        content: 'https://avatars.githubusercontent.com/u/42164502'
+        content: 'https://avatars.githubusercontent.com/u/86643576'
       }
   ]
 }
