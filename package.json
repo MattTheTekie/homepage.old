@@ -8,7 +8,9 @@
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.server": "vite build -c adapters/cloudflare-pages/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
+    "deploy": "wrangler pages dev ./dist",
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview & node express",
     "start": "vite --mode ssr & node express",
@@ -41,6 +43,7 @@
     "unified": "^10.1.2",
     "vite": "4.2.1",
     "vite-tsconfig-paths": "4.0.7",
+    "wrangler": "latest",
     "zod": "^3.21.4"
   }
 }
