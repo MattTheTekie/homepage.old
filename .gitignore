@@ -39,8 +39,6 @@ lerna-debug.log*
 
 config/
 data/
-/transcript/
-/files/
 .DS_Store
 package-lock.json
 config.json
