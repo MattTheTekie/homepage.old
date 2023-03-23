@@ -1,7 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import { DocumentHead, Link } from '@builder.io/qwik-city';
 
-import { FileTextIcon, GithubIcon } from "qwik-feather-icons";
+import { GithubIcon } from "qwik-feather-icons";
 
 export default component$(() => {
   return (
