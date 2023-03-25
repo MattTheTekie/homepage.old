@@ -2,6 +2,7 @@ import { component$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
 
 import { GitPullRequestIcon, FileTextIcon, GithubIcon, MenuIcon } from "qwik-feather-icons";
+import Logo from '~/components/Logo';
 
 export default component$(() => {
   return (
@@ -10,8 +11,11 @@ export default component$(() => {
         <div class="relative flex h-16 items-center justify-between">
           <div class="flex flex-1 items-center justify-start">
             <Link href="/" class="transition duration-200 pointer-events-auto text-gray-300 bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 pl-3 pr-4 py-2 rounded-lg text-lg flex items-center whitespace-nowrap">
-              <img class="h-8 w-8 rounded-md" src="https://avatars.githubusercontent.com/u/86643576" alt="LuminescentDev" />
-              <span class="font-bold ml-4">luminescent.dev</span>
+              <div style="filter: drop-shadow(0 0 0 #DD6CFF);" class="h-8 w-32">
+                <div style="filter: drop-shadow(0 0 1rem #CB6CE6);">
+                  <Logo/>
+                </div>
+              </div>
             </Link>
           </div>
           <div class="flex flex-1 items-center justify-end">
