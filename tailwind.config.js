@@ -19,7 +19,6 @@ const luminescent = {
  900: "#CB6CE6",
 };
 
-
 module.exports = {
  content: ['./src/**/*.{js,ts,jsx,tsx}'],
  theme: {

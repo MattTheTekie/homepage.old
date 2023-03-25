@@ -22,15 +22,15 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'Luminescent Development',
+  title: 'Projects',
   meta: [
     {
       name: 'description',
-      content: 'Welcome to our website idk',
+      content: 'These are the projects we are working on!',
     },
     {
       name: 'og:description',
-      content: 'Welcome to our website idk',
+      content: 'These are the projects we are working on!',
     },
     {
       name: 'og:image',

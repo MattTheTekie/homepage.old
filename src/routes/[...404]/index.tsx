@@ -27,15 +27,15 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'Luminescent Development',
+  title: '404: Page not found',
   meta: [
     {
       name: 'description',
-      content: 'Welcome to our website idk',
+      content: 'Whoops! You\'ve hit a dead-end.',
     },
     {
       name: 'og:description',
-      content: 'Welcome to our website idk',
+      content: 'Whoops! You\'ve hit a dead-end.',
     },
     {
       name: 'og:image',

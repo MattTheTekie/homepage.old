@@ -21,7 +21,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'Luminescent Development',
+  title: 'Home',
   meta: [
     {
       name: 'description',
