@@ -11,14 +11,14 @@ export default component$(({ link, name, icon, github }: any) => {
         <Slot />
       </p>
       {link && (
-        <Link href={link} class="transition duration-200 flex bg-luminescent-900/60 hover:bg-luminescent-900/80 text-white hover:drop-shadow-2xl px-4 py-3 rounded-lg text-md font-bold items-center gap-4">
+        <a href={link} class="transition duration-200 flex bg-luminescent-900/60 hover:bg-luminescent-900/80 text-white hover:drop-shadow-2xl px-4 py-3 rounded-lg text-md font-bold items-center gap-4">
           <GlobeIcon/>Visit page
-        </Link>
+        </a>
       )}
       {github && (
-        <Link href={github} class="transition duration-200 flex bg-luminescent-900/60 hover:bg-luminescent-900/80 text-white hover:drop-shadow-2xl px-4 py-3 rounded-lg text-md font-bold items-center gap-4">
+        <a href={github} class="transition duration-200 flex bg-luminescent-900/60 hover:bg-luminescent-900/80 text-white hover:drop-shadow-2xl px-4 py-3 rounded-lg text-md font-bold items-center gap-4">
           <GithubIcon/> Github
-        </Link>
+        </a>
       )}
     </div>
   );
