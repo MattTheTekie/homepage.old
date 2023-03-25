@@ -1,8 +1,8 @@
 import { component$ } from '@builder.io/qwik';
 import { DocumentHead, Link } from '@builder.io/qwik-city';
 
-import { GithubIcon } from "qwik-feather-icons";
-import Logo from '~/components/Logo';
+import { GithubIcon } from 'qwik-feather-icons';
+import Logo from '~/components/elements/Logo';
 
 export default component$(() => {
   return (
@@ -25,15 +25,15 @@ export const head: DocumentHead = {
   meta: [
     {
       name: 'description',
-      content: 'Welcome to our website idk'
+      content: 'Welcome to our website idk',
     },
     {
       name: 'og:description',
-      content: 'Welcome to our website idk'
+      content: 'Welcome to our website idk',
     },
     {
       name: 'og:image',
-      content: 'https://avatars.githubusercontent.com/u/86643576'
-    }
-  ]
-}
+      content: 'https://avatars.githubusercontent.com/u/86643576',
+    },
+  ],
+};

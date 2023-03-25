@@ -1,8 +1,8 @@
 import { component$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
 
-import { GitPullRequestIcon, FileTextIcon, GithubIcon, MenuIcon, CodeIcon } from "qwik-feather-icons";
-import Logo from '~/components/Logo';
+import { GitPullRequestIcon, FileTextIcon, GithubIcon, MenuIcon, CodeIcon } from 'qwik-feather-icons';
+import Logo from '~/components/elements/Logo';
 
 export default component$(() => {
   return (
@@ -32,7 +32,7 @@ export default component$(() => {
               <Link href="https://github.com/LuminescentDev" class="transition duration-200 hidden bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold sm:flex items-center gap-4">
                 <GithubIcon/>GitHub
               </Link>
-              <button id="mobile-menu-button" onClick$={() => document.getElementById('mobile-menu')?.classList.toggle("hidden")} class="transition duration-200 bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-2 py-2 rounded-lg text-md font-bold flex">
+              <button id="mobile-menu-button" onClick$={() => document.getElementById('mobile-menu')?.classList.toggle('hidden')} class="transition duration-200 bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-2 py-2 rounded-lg text-md font-bold flex">
                 <MenuIcon/>
               </button>
             </div>
@@ -53,19 +53,19 @@ export default component$(() => {
             <GithubIcon/>GitHub
           </Link>
           <Link href="https://cactie.luminescent.dev" class="transition duration-200 flex hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
-            <img class="h-6 w-6 rounded-xl" src={`https://cactie.luminescent.dev/assets/images/Cactie.webp`} alt="Cactie Bot" />
+            <img class="h-6 w-6 rounded-xl" src={'https://cactie.luminescent.dev/assets/images/Cactie.webp'} alt="Cactie Bot" />
             Cactie
           </Link>
           <Link href="https://netherdepths.com" class="transition duration-200 flex hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
-            <img class="h-6 w-6 rounded-xl" src={`https://raw.githubusercontent.com/saboooor/Nether-Depths/main/Branding/nd.png`} alt="Cactie Bot" />
+            <img class="h-6 w-6 rounded-xl" src={'https://raw.githubusercontent.com/saboooor/Nether-Depths/main/Branding/nd.png'} alt="Cactie Bot" />
             Nether Depths
           </Link>
           <Link href="https://simplymc.art" class="transition duration-200 flex hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
-            <img class="h-6 w-6 rounded-xl" src={`https://www.simplymc.art/icon-192x192.png`} alt="Cactie Bot" />
+            <img class="h-6 w-6 rounded-xl" src={'https://www.simplymc.art/icon-192x192.png'} alt="Cactie Bot" />
             SimplyMC
           </Link>
           <Link href="https://github.com/pemigrade/botflop" class="transition duration-200 flex hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
-            <img class="h-6 w-6 rounded-xl" src={`https://i.imgur.com/deE1oID.png`} alt="Cactie Bot" />
+            <img class="h-6 w-6 rounded-xl" src={'https://i.imgur.com/deE1oID.png'} alt="Cactie Bot" />
             Botflop
           </Link>
         </div>

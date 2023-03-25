@@ -13,11 +13,10 @@ const gray = {
  900: "hsl(0deg, 0%, 5%)"
 };
 
-const discord = {
- 600: "#36393F",
- 700: "#32353B",
- 800: "#2F3136",
- 900: "#202225"
+const luminescent = {
+ 700: "#F0CCFB",
+ 800: "#E6AAF7",
+ 900: "#CB6CE6",
 };
 
 
@@ -25,7 +24,7 @@ module.exports = {
  content: ['./src/**/*.{js,ts,jsx,tsx}'],
  theme: {
    extend: {
-     colors: { gray, discord },
+     colors: { gray, luminescent },
    },
  },
  plugins: [],
