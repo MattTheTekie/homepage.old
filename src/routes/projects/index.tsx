@@ -13,8 +13,16 @@ export default component$(() => {
         <Card name="SimplyMC" icon="https://www.simplymc.art/icon-192x192.png" github="https://github.com/LuminescentDev/SimplyMC" link="https://simplymc.art">
           A Minecraft Multitool for server owners, developers, and players.
         </Card>
+        <Card name="Cactie" icon="https://cactie.smhsmh.club/assets/images/Cactie.webp" github="https://github.com/saboooor/Cactie" link="https://cactie.smhsmh.club">
+          A Discord bot that does stuff ig
+          Admin, Fun, Tickets, Utilities, Animals, and Actions!
+        </Card>
         <Card name="Botflop" icon="https://rgb.birdflop.com/assets/images/new_birdflop_logo_large.png" github="https://github.com/LuminescentDev/botflop">
           Discord Bot for server hosts, devs, and admins. Analyzes timings reports & uploads text files to a bin
+        </Card>
+        <Card name="Nether Depths" icon="https://raw.githubusercontent.com/saboooor/Nether-Depths/main/Branding/nd.png" link="https://netherdepths.com">
+          Surpass the limits of the Nether.
+          A Minecraft server with various features and custom generation and more
         </Card>
       </div>
     </section>
