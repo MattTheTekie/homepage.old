@@ -1,7 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
 
-import { GitPullRequestIcon, FileTextIcon, GithubIcon, MenuIcon } from "qwik-feather-icons";
+import { GitPullRequestIcon, FileTextIcon, GithubIcon, MenuIcon, CodeIcon } from "qwik-feather-icons";
 import Logo from '~/components/Logo';
 
 export default component$(() => {
@@ -26,6 +26,9 @@ export default component$(() => {
               <Link href="/resume" class="transition duration-200 hidden bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold sm:flex items-center gap-4">
                 <FileTextIcon/>Resume
               </Link>
+              <Link href="/projects" class="transition duration-200 hidden bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold sm:flex items-center gap-4">
+                <CodeIcon/>Projects
+              </Link>
               <Link href="https://github.com/LuminescentDev" class="transition duration-200 hidden bg-gray-900 hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-900 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold sm:flex items-center gap-4">
                 <GithubIcon/>GitHub
               </Link>
@@ -43,6 +46,9 @@ export default component$(() => {
           <Link href="/resume" class="transition duration-200 flex sm:hidden hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
             <FileTextIcon/>Resume
           </Link>
+          <Link href="/projects" class="transition duration-200 flex sm:hidden hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
+            <CodeIcon/>Projects
+          </Link>
           <Link href="https://github.com/LuminescentDev" class="transition duration-200 flex sm:hidden hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
             <GithubIcon/>GitHub
           </Link>
@@ -55,7 +61,7 @@ export default component$(() => {
             Nether Depths
           </Link>
           <Link href="https://simplymc.art" class="transition duration-200 flex hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
-            <img class="h-6 w-6 rounded-xl" src={`https://www.simplymc.art/images/icon.png`} alt="Cactie Bot" />
+            <img class="h-6 w-6 rounded-xl" src={`https://www.simplymc.art/icon-192x192.png`} alt="Cactie Bot" />
             SimplyMC
           </Link>
           <Link href="https://github.com/pemigrade/botflop" class="transition duration-200 flex hover:bg-gray-800 hover:text-white hover:drop-shadow-2xl border-2 border-gray-800 hover:border-gray-700 px-4 py-2 rounded-lg text-md font-bold items-center gap-4">
