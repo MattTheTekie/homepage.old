@@ -1,5 +1,4 @@
 import { component$, Slot } from '@builder.io/qwik';
-import { Link } from '@builder.io/qwik-city';
 import { GithubIcon, GlobeIcon } from 'qwik-feather-icons';
 
 export default component$(({ link, name, icon, github }: any) => {
