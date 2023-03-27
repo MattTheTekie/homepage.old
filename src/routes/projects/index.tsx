@@ -13,7 +13,7 @@ export default component$(() => {
         <Card name="SimplyMC" icon="https://www.simplymc.art/icon-192x192.png" github="https://github.com/LuminescentDev/SimplyMC" link="https://simplymc.art">
           A Minecraft Multitool for server owners, developers, and players.
         </Card>
-        <Card name="Cactie" icon="https://cactie.smhsmh.club/assets/images/Cactie.webp" github="https://github.com/saboooor/Cactie" link="https://cactie.smhsmh.club">
+        <Card name="Cactie" icon="https://cactie.luminescent.dev/assets/images/Cactie.webp" github="https://github.com/saboooor/Cactie" link="https://cactie.luminescent.dev/">
           A Discord bot that does stuff ig
           Admin, Fun, Tickets, Utilities, Animals, and Actions!
         </Card>
