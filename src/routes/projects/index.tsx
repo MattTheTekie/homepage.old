@@ -17,6 +17,10 @@ export default component$(() => {
           A Discord bot that does stuff ig
           Admin, Fun, Tickets, Utilities, Animals, and Actions!
         </Card>
+        <Card name="Shoto" icon="https://cdn.discordapp.com/avatars/796935151417688074/6202f5e5cc62481162ef0a98b364f702.webp?size=2048" github="https://github.com/LuminescentDev/Shoto" link="https://shoto.akiradev.xyz/">
+          Another Discord bot that does stuff ig <br />
+          Fun, Utilies, and more!
+        </Card>
         <Card name="Botflop" icon="https://rgb.birdflop.com/assets/images/new_birdflop_logo_large.png" github="https://github.com/LuminescentDev/botflop">
           Discord Bot for server hosts, devs, and admins. Analyzes timings reports & uploads text files to a bin
         </Card>
