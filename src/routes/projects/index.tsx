@@ -5,11 +5,14 @@ import Card from '~/components/elements/Card';
 
 export default component$(() => {
   return (
-    <section class="flex flex-col gap-10 mx-auto max-w-6xl px-6 items-center justify-center" style={{ minHeight: 'calc(100dvh - 64px)' }}>
+    <section class="flex flex-col gap-5 mx-auto max-w-6xl px-6 items-center justify-center py-16" style={{ minHeight: 'calc(100dvh - 64px)' }}>
       <h1 class="font-bold text-white text-2xl sm:text-5xl">
         Our Projects
       </h1>
-      <div class="flex flex-wrap gap-6 justify-center">
+      <h1 class="text-xl sm:text-3xl pb-10">
+        Come on, hover over any project below :)
+      </h1>
+      <div class="grid sm:grid-cols-3 gap-5">
         <Card name="SimplyMC" icon="https://www.simplymc.art/icon-192x192.png" github="https://github.com/LuminescentDev/SimplyMC" link="https://simplymc.art">
           A Minecraft Multitool for server owners, developers, and players.
         </Card>
@@ -21,6 +24,8 @@ export default component$(() => {
           Another Discord bot that does stuff ig <br />
           Fun, Utilies, and more!
         </Card>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-5">
         <Card name="Botflop" icon="https://rgb.birdflop.com/assets/images/new_birdflop_logo_large.png" github="https://github.com/LuminescentDev/botflop">
           Discord Bot for server hosts, devs, and admins. Analyzes timings reports & uploads text files to a bin
         </Card>

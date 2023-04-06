@@ -3,24 +3,28 @@ import { InGithub, InGlobe } from '@qwikest/icons/iconoir';
 
 export default component$(({ link, name, icon, github }: any) => {
   return (
-    <div class="w-64 border-2 border-gray-700 bg-gray-800 rounded-xl p-8 grid gap-2">
-      <img src={icon} alt={name} class="mb-4" draggable={false}/>
-      <h2 class="text-lg font-bold">{name}</h2>
-      <p class="text-gray-400 mb-2">
-        <Slot />
-      </p>
-      {link && (
-        <a href={link} class="transition duration-200 flex bg-luminescent-900/60 hover:bg-luminescent-900/80 text-white hover:drop-shadow-2xl px-4 py-3 rounded-lg text-md font-bold items-center gap-4">
-          <InGlobe class="text-xl" />
-          Visit page
-        </a>
-      )}
-      {github && (
-        <a href={github} class="transition duration-200 flex bg-luminescent-900/60 hover:bg-luminescent-900/80 text-white hover:drop-shadow-2xl px-4 py-3 rounded-lg text-md font-bold items-center gap-4">
-          <InGithub class="text-xl" />
-          Github
-        </a>
-      )}
+    <div class="relative w-64 bg-gray-800 rounded-xl grid gap-2 group hover:-translate-y-4 hover:scale-105 transition-all duration-300">
+      <div class="grid absolute w-full h-full bg-gray-900/50 opacity-0 group-hover:opacity-100 group-hover:backdrop-blur-sm duration-300">
+        {link && (
+          <a href={link} class="flex flex-col justify-center transition duration-200 hover:bg-luminescent-900/20 text-white rounded-xl font-bold items-center gap-4">
+            <InGlobe class="text-xl" />
+            Visit page
+          </a>
+        )}
+        {github && (
+          <a href={github} class="flex flex-col justify-center transition duration-200 hover:bg-luminescent-900/20 text-white rounded-xl font-bold items-center gap-4">
+            <InGithub class="text-xl" />
+            Github
+          </a>
+        )}
+      </div>
+      <div class="p-8">
+        <img src={icon} alt={name} class="mb-4" draggable={false}/>
+        <h2 class="text-lg font-bold">{name}</h2>
+        <p class="text-gray-400 mb-2">
+          <Slot />
+        </p>
+      </div>
     </div>
   );
 });
