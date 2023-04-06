@@ -1,8 +1,6 @@
 import { component$ } from '@builder.io/qwik';
 import { DocumentHead, Link } from '@builder.io/qwik-city';
 
-import { ChevronLeftIcon } from 'qwik-feather-icons';
-
 export default component$(() => {
   return (
     <section class="flex mx-auto max-w-6xl px-6 items-center" style={{ minHeight: 'calc(100dvh - 64px)' }}>
@@ -18,7 +16,7 @@ export default component$(() => {
         </p>
         <div class="grid sm:flex gap-3 pt-4">
           <Link href="/" class="flex justify-center sm:justify-start transition duration-200 rounded-2xl shadow-lg backdrop-blur-lg bg-luminescent-900/60 hover:bg-luminescent-900/80 border-2 border-luminescent-900 px-6 py-3 font-bold text-purple-100 md:py-4 md:px-8 text-sm md:text-lg whitespace-nowrap gap-4 items-center">
-            <ChevronLeftIcon/> Go back home
+            Go back home
           </Link>
         </div>
       </div>
