@@ -1,5 +1,5 @@
 import { component$, Slot } from '@builder.io/qwik';
-import { InGithub, InGlobe } from '@qwikest/icons/iconoir';
+import { LogoGithub, GlobeOutline } from 'qwik-ionicons';
 
 export default component$(({ link, name, icon, github }: any) => {
   return (
@@ -7,13 +7,13 @@ export default component$(({ link, name, icon, github }: any) => {
       <div class="grid absolute w-full h-full bg-gray-900/50 opacity-0 group-hover:opacity-100 group-hover:backdrop-blur-sm duration-300">
         {link && (
           <a href={link} class="flex flex-col justify-center transition duration-200 hover:bg-luminescent-900/20 text-white rounded-xl font-bold items-center gap-4">
-            <InGlobe class="text-xl" />
+            <GlobeOutline width="24" class="fill-current" />
             Visit page
           </a>
         )}
         {github && (
           <a href={github} class="flex flex-col justify-center transition duration-200 hover:bg-luminescent-900/20 text-white rounded-xl font-bold items-center gap-4">
-            <InGithub class="text-xl" />
+            <LogoGithub width="24" class="fill-current" />
             Github
           </a>
         )}

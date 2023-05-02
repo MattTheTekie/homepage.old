@@ -1,7 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import { DocumentHead, Link } from '@builder.io/qwik-city';
 
-import { InGithub, InDiscord, InCode } from '@qwikest/icons/iconoir';
+import { LogoGithub, LogoDiscord, Code } from 'qwik-ionicons';
 import Logo from '~/components/elements/Logo';
 
 export default component$(() => {
@@ -15,14 +15,15 @@ export default component$(() => {
       <p class="text-xl sm:text-3xl text-white">Welcome to our website idk</p>
       <div class="mx-auto flex flex-col gap-3 justify-center items-center max-w-6xl" >
         <Link href="/projects" class="flex justify-center sm:justify-start transition duration-200 rounded-2xl shadow-lg backdrop-blur-lg bg-gray-800 hover:bg-gray-700 border-2 border-gray-700 px-6 py-3 font-bold text-gray-100 md:py-4 md:px-8 text-sm md:text-lg whitespace-nowrap gap-4 items-center">
-          <InCode class="text-xl md:text-3xl"/> Projects
+          <Code width="24" class="fill-current" />
+          Projects
         </Link>
         <div class="flex gap-3">
-          <a href="https://github.com/LuminescentDev" class="flex justify-center sm:justify-start transition duration-200 rounded-2xl shadow-lg backdrop-blur-lg bg-gray-800 hover:bg-gray-700 border-2 border-gray-700 px-6 py-3 font-bold text-gray-100 md:py-4 md:px-8 text-xl md:text-3xl whitespace-nowrap gap-4 items-center">
-            <InGithub/>
+          <a href="https://github.com/LuminescentDev" class="flex justify-center sm:justify-start transition duration-200 rounded-2xl shadow-lg backdrop-blur-lg bg-gray-800 hover:bg-gray-700 border-2 border-gray-700 px-6 py-3 font-bold text-purple-100 md:py-4 md:px-8 text-xl md:text-3xl whitespace-nowrap gap-4 items-center">
+            <LogoGithub width="24" class="fill-current" />
           </a>
-          <a href="/discord" class="flex justify-center sm:justify-start transition duration-200 rounded-2xl shadow-lg backdrop-blur-lg bg-gray-800 hover:bg-gray-700 border-2 border-gray-700 px-6 py-3 font-bold text-gray-100 md:py-4 md:px-8 text-xl md:text-3xl whitespace-nowrap gap-4 items-center">
-            <InDiscord/>
+          <a href="/discord" class="flex justify-center sm:justify-start transition duration-200 rounded-2xl shadow-lg backdrop-blur-lg bg-gray-800 hover:bg-gray-700 border-2 border-gray-700 px-6 py-3 font-bold text-indigo-100 md:py-4 md:px-8 text-xl md:text-3xl whitespace-nowrap gap-4 items-center">
+            <LogoDiscord width="24" class="fill-current"/>
           </a>
         </div>
       </div>
