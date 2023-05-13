@@ -1,6 +1,6 @@
 {
-  "name": "luminescent-website",
-  "description": "The Website for Luminescent Development",
+  "name": "mattthetekie-homepage",
+  "description": "The Website for MattTheTekie",
   "engines": {
     "node": ">=15.0.0"
   },
