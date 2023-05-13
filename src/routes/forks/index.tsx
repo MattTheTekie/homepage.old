@@ -5,7 +5,7 @@ export default component$(() => {
   return (
     <section class="flex mx-auto max-w-6xl px-6 items-center" style={{ minHeight: 'calc(100dvh - 64px)' }}>
       <div class="justify-center align-center mx-auto">
-        <img class="ease-in-out filter" src={'https://raw.githubusercontent.com/saboooor/fork-graph/main/img.png?v=5'} alt="fork graph" />
+        <img class="ease-in-out filter" src={'https://raw.githubusercontent.com/MattTheTekie/MattTheTekie/main/github-metrics.svg'} alt="fork graph" />
       </div>
     </section>
   );
