@@ -5,18 +5,7 @@ import { component$ } from '@builder.io/qwik';
  */
 export default component$(() => {
   return (
-    <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="1230px"
-    height="318px"
-    style={{
-      shapeRendering: "geometricPrecision",
-      textRendering: "geometricPrecision",
-      imageRendering: "optimizeQuality",
-      fillRule: "evenodd",
-      clipRule: "evenodd",
-    }}
-    xmlnsXlink="http://www.w3.org/1999/xlink"
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" zoomAndPan="magnify" viewBox="0 0 1230 317.999988" height="100%" preserveAspectRatio="xMidYMid meet" version="1.0">
     <g>
       <path
         style={{
