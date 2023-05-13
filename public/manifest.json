@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "luminescent-website",
-  "short_name": "luminescent.dev",
+  "name": "mattthetekie-homepage",
+  "short_name": "https://mattthetekie-test.pages.dev/",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#0D0D0D",
