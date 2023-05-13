@@ -5,7 +5,6 @@ export default component$(() => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="1230"
-      height="318"
       width="100%"
       zoomAndPan="magnify"
       viewBox="0 0 1230 317.999988"
