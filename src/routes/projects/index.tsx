@@ -13,8 +13,8 @@ export default component$(() => {
         Come on, hover over any project below :)
       </h1>
       <div class="grid sm:grid-cols-3 gap-5">
-        <Card name="SimplyMC" icon="https://www.simplymc.art/icon-192x192.png" github="https://github.com/LuminescentDev/SimplyMC" link="https://simplymc.art">
-          A Minecraft Multitool for server owners, developers, and players.
+        <Card name="Dragon TV" icon="https://www.simplymc.art/icon-192x192.png" github="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/DRAGON_TV" link="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/DRAGON_TV">
+          Dragon TV is my web TV station around town. It's pretty epic.
         </Card>
         <Card name="Cactie" icon="https://cactie.luminescent.dev/assets/images/Cactie.webp" github="https://github.com/saboooor/Cactie" link="https://cactie.luminescent.dev/">
           A Discord bot that does stuff ig
