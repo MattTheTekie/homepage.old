@@ -13,7 +13,7 @@ export default component$(() => {
         Come on, hover over any project below :)
       </h1>
       <div class="grid sm:grid-cols-3 gap-5">
-        <Card name="Dragon TV" icon="https://www.simplymc.art/icon-192x192.png" github="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/DRAGON_TV" link="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/DRAGON_TV">
+        <Card name="Dragon TV" icon="https://raw.githubusercontent.com/MattTheTekie/MattTheTekie/main/Personal-Scripts/Images/static.displate.com_800be04aa6f899076275e4dd96dbf9f4_46e904de13eaa602b904b8a5fa5e3e23.jpg" github="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/DRAGON_TV" link="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/DRAGON_TV">
           Dragon TV is my web TV station around town. It's pretty epic.
         </Card>
         <Card name="Dragon Linux" icon="https://cactie.luminescent.dev/assets/images/Cactie.webp" github="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/Distromaking" link="https://freedom-hq.github.io/Dragon-Linux/">
