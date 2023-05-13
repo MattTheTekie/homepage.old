@@ -27,9 +27,8 @@ export default component$(() => {
         <Card name="Freedom-HQ" icon="https://freedom-hq.github.io/FREEDOM-HQ/banner.png" github="https://freedom-hq.github.io/FREEDOM-HQ/">
           Freedom-HQ is my development group focusing on Linux, Android, and the DSiPaint archival process.
         </Card>
-        <Card name="Nether Depths" icon="https://raw.githubusercontent.com/saboooor/Nether-Depths/main/Branding/nd.png" link="https://netherdepths.com">
-          Surpass the limits of the Nether.
-          A Minecraft server with various features and custom generation and more
+        <Card name="Personal Scripts" icon="https://raw.githubusercontent.com/saboooor/Nether-Depths/main/Branding/nd.png" link="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts">
+          You can check out my personal scripts over here.
         </Card>
       </div>
     </section>
