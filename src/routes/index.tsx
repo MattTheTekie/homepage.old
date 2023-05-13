@@ -36,11 +36,11 @@ export const head: DocumentHead = {
   meta: [
     {
       name: 'description',
-      content: 'Welcome to my homepage! I am MattTheTekie, a passionate technology enthusiast and expert. On this page, you will find a plethora of information and insights related to technology, ranging from the latest gadgets to cutting-edge software and applications. As a technology expert, I am committed to sharing my knowledge and expertise with others. Whether you are a tech novice or an experienced professional, I can help you stay up-to-date with the latest trends and developments in the field of technology. On this homepage, you will find informative articles, tutorials, reviews, and other resources that can help you navigate the ever-evolving world of technology. So, if you are looking for reliable and accurate information on all things tech, you have come to the right place. Thank you for visiting my homepage, and I hope you find it informative and useful.',
+      content: '👋 Welcome to my homepage! ',
     },
     {
       name: 'og:description',
-      content: '👋 Welcome to my homepage!',
+      content: 'Welcome to my homepage! I am MattTheTekie, a passionate technology enthusiast and expert. On this page, you will find a plethora of information and insights related to technology, ranging from the latest gadgets to cutting-edge software and applications. As a technology expert, I am committed to sharing my knowledge and expertise with others. Whether you are a tech novice or an experienced professional, I can help you stay up-to-date with the latest trends and developments in the field of technology. On this homepage, you will find informative articles, tutorials, reviews, and other resources that can help you navigate the ever-evolving world of technology. So, if you are looking for reliable and accurate information on all things tech, you have come to the right place. Thank you for visiting my homepage, and I hope you find it informative and useful.',
     },
     {
       name: 'og:image',
