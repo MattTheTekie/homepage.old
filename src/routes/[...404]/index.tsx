@@ -6,7 +6,7 @@ export default component$(() => {
     <section class="flex mx-auto max-w-6xl px-6 items-center" style={{ minHeight: 'calc(100dvh - 64px)' }}>
       <div class="text-left space-y-5">
         <div class="flex sm:hidden relative justify-start sm:ml-auto mb-5" style="width: 100%;">
-          <img class="rounded-2xl ease-in-out filter drop-shadow-2xl" src={'https://avatars.githubusercontent.com/u/86643576'} style={{ maxWidth: '50%' }} alt="LuminescentDev" />
+          <img class="rounded-2xl ease-in-out filter drop-shadow-2xl" src={'https://avatars.githubusercontent.com/u/94870997'} style={{ maxWidth: '50%' }} alt="LuminescentDev" />
         </div>
         <h1 class="font-bold text-red-500 text-2xl sm:text-5xl">
           404: Page not found
@@ -37,7 +37,7 @@ export const head: DocumentHead = {
     },
     {
       name: 'og:image',
-      content: 'https://avatars.githubusercontent.com/u/86643576',
+      content: 'https://avatars.githubusercontent.com/u/94870997',
     },
   ],
 };
