@@ -28,7 +28,7 @@ export const head: DocumentHead = {
     },
     {
       property: 'og:image',
-      content: 'https://raw.githubusercontent.com/saboooor/fork-graph/main/img.png?v=6',
+      content: 'https://raw.githubusercontent.com/MattTheTekie/MattTheTekie/main/github-metrics.svg',
     },
   ],
 };
