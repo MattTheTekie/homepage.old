@@ -6,11 +6,11 @@ export default component$(() => {
       xmlns="http://www.w3.org/2000/svg"
       width="1230"
       height="318"
-      fillRule="evenodd"
-      clipRule="evenodd"
-      imageRendering="optimizeQuality"
-      shapeRendering="geometricPrecision"
-      textRendering="geometricPrecision"
+      width="100%"
+      zoomAndPan="magnify"
+      viewBox="0 0 1230 317.999988"
+      height="100%"
+      preserveAspectRatio="xMidYMid meet"
     >
       <path
         fill="#0d8af6"
