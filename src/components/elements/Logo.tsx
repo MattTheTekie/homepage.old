@@ -17,8 +17,6 @@ export default component$(() => {
       clipRule: "evenodd",
     }}
     xmlnsXlink="http://www.w3.org/1999/xlink"
-    {...props}
-  >
     <g>
       <path
         style={{
