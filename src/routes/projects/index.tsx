@@ -24,8 +24,8 @@ export default component$(() => {
         </Card>
       </div>
       <div class="grid sm:grid-cols-2 gap-5">
-        <Card name="Botflop" icon="https://rgb.birdflop.com/assets/images/new_birdflop_logo_large.png" github="https://github.com/LuminescentDev/botflop">
-          Discord Bot for server hosts, devs, and admins. Analyzes timings reports & uploads text files to a bin
+        <Card name="Freedom-HQ" icon="https://freedom-hq.github.io/FREEDOM-HQ/banner.png" github="https://freedom-hq.github.io/FREEDOM-HQ/">
+          Freedom-HQ is my development group focusing on Linux, Android, and the DSiPaint archival process.
         </Card>
         <Card name="Nether Depths" icon="https://raw.githubusercontent.com/saboooor/Nether-Depths/main/Branding/nd.png" link="https://netherdepths.com">
           Surpass the limits of the Nether.
