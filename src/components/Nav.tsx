@@ -10,7 +10,7 @@ export default component$(() => {
       <MainNav>
         <NavButton href="/forks" extraClass="hidden xl:flex gap-3">
           <GitBranchOutline width="24" class="fill-current" />
-          Fork Graph
+          Commit History
         </NavButton>
         <NavButton href="/projects" extraClass="hidden xl:flex gap-4">
           <Code width="24" class="fill-current" />
