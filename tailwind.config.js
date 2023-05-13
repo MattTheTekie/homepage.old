@@ -13,7 +13,7 @@ const gray = {
  900: "hsl(0deg, 0%, 5%)"
 };
 
-const luminescent = {
+const mattthetekie = {
  700: "#F0CCFB",
  800: "#E6AAF7",
  900: "#CB6CE6",
@@ -23,7 +23,7 @@ module.exports = {
  content: ['./src/**/*.{js,ts,jsx,tsx}'],
  theme: {
    extend: {
-     colors: { gray, luminescent },
+     colors: { gray, mattthetekie },
    },
  },
  plugins: [],
