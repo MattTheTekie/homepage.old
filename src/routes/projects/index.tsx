@@ -16,9 +16,8 @@ export default component$(() => {
         <Card name="Dragon TV" icon="https://www.simplymc.art/icon-192x192.png" github="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/DRAGON_TV" link="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/DRAGON_TV">
           Dragon TV is my web TV station around town. It's pretty epic.
         </Card>
-        <Card name="Cactie" icon="https://cactie.luminescent.dev/assets/images/Cactie.webp" github="https://github.com/saboooor/Cactie" link="https://cactie.luminescent.dev/">
-          A Discord bot that does stuff ig
-          Admin, Fun, Tickets, Utilities, Animals, and Actions!
+        <Card name="Dragon Linux" icon="https://cactie.luminescent.dev/assets/images/Cactie.webp" github="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/Distromaking" link="https://freedom-hq.github.io/Dragon-Linux/">
+          Dragon Linux, is a awesome Linux distro I made many years back.
         </Card>
         <Card name="Shoto" icon="https://cdn.discordapp.com/avatars/796935151417688074/6202f5e5cc62481162ef0a98b364f702.webp?size=2048" github="https://github.com/LuminescentDev/Shoto" link="https://shoto.akiradev.xyz/">
           Another Discord bot that does stuff ig <br />
