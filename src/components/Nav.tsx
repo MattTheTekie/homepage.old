@@ -33,7 +33,7 @@ export default component$(() => {
       <MobileNav>
         <NavButton mobile href="/forks" extraClass="flex xl:hidden gap-2">
           <GitBranchOutline width="24" class="fill-current" />
-          Fork Graph
+          Commit History
         </NavButton>
         <NavButton mobile href="/forks" extraClass="flex xl:hidden gap-2">
           <Code width="24" class="fill-current" />
