@@ -19,9 +19,8 @@ export default component$(() => {
         <Card name="Dragon Linux" icon="https://cactie.luminescent.dev/assets/images/Cactie.webp" github="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/Distromaking" link="https://freedom-hq.github.io/Dragon-Linux/">
           Dragon Linux, is a awesome Linux distro I made many years back.
         </Card>
-        <Card name="Shoto" icon="https://cdn.discordapp.com/avatars/796935151417688074/6202f5e5cc62481162ef0a98b364f702.webp?size=2048" github="https://github.com/LuminescentDev/Shoto" link="https://shoto.akiradev.xyz/">
-          Another Discord bot that does stuff ig <br />
-          Fun, Utilies, and more!
+        <Card name="HomeLab" icon="https://cdn.discordapp.com/avatars/796935151417688074/6202f5e5cc62481162ef0a98b364f702.webp?size=2048" github="https://github.com/MattTheTekie/HomeLab" link="https://tsukashomelab.netlify.app/">
+          This is my current HomeLab management portal.<br />
         </Card>
       </div>
       <div class="grid sm:grid-cols-2 gap-5">
