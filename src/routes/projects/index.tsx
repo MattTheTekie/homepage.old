@@ -30,6 +30,9 @@ export default component$(() => {
         <Card name="Personal Scripts" icon="https://avatars.githubusercontent.com/u/94870997" github="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts">
           You can check out my personal scripts over here.
         </Card>
+        <Card name="Blog" icon="https://avatars.githubusercontent.com/u/94870997" link="https://mattthetekie.github.io/MattTheTekie/">
+          You can check out my personal blog over here.
+        </Card>
       </div>
     </section>
   );
