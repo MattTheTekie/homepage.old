@@ -12,7 +12,7 @@ export default component$(() => {
           <Logo/>
         </div>
       </div>
-      <p class="text-xl sm:text-3xl text-white">Hello there! 👋</p><p>As a technology expert, I am committed to sharing my knowledge and expertise with others. Whether you are a tech novice or an experienced professional, I can help you stay up-to-date with the latest trends and developments in the field of technology.</p>
+      <p class="text-xl sm:text-3xl text-white">Hello there! 👋</p><p>I'm MattTheTekie. As a technology expert, I am committed to sharing my knowledge and expertise with others. Whether you are a tech novice or an experienced professional, I can help you stay up-to-date with the latest trends and developments in the field of technology.</p>
       <div class="mx-auto flex flex-col gap-3 justify-center items-center max-w-6xl" >
         <Link href="/projects" class="flex justify-center sm:justify-start transition duration-200 rounded-2xl shadow-lg backdrop-blur-lg bg-gray-800 hover:bg-gray-700 border-2 border-gray-700 px-6 py-3 font-bold text-gray-100 md:py-4 md:px-8 text-sm md:text-lg whitespace-nowrap gap-4 items-center">
           <Code width="24" class="fill-current" />
