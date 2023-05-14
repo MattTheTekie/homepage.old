@@ -8,7 +8,7 @@ export default component$(() => {
   return (
     <Nav>
       <MainNav>
-        <NavButton href="/forks" extraClass="hidden xl:flex gap-3">
+        <NavButton href="/commits" extraClass="hidden xl:flex gap-3">
           <GitBranchOutline width="24" class="fill-current" />
           Commit History
         </NavButton>
@@ -31,11 +31,11 @@ export default component$(() => {
         </button>
       </MainNav>
       <MobileNav>
-        <NavButton mobile href="/forks" extraClass="flex xl:hidden gap-2">
+        <NavButton mobile href="/commits" extraClass="flex xl:hidden gap-2">
           <GitBranchOutline width="24" class="fill-current" />
           Commit History
         </NavButton>
-        <NavButton mobile href="/forks" extraClass="flex xl:hidden gap-2">
+        <NavButton mobile href="/projects" extraClass="flex xl:hidden gap-2">
           <Code width="24" class="fill-current" />
           Projects
         </NavButton>
