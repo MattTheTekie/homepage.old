@@ -13,7 +13,7 @@ export default component$(() => {
         Come on, hover over any project below :)
       </h1>
       <div class="grid sm:grid-cols-3 gap-5">
-        <Card name="Dragon TV" icon="https://raw.githubusercontent.com/MattTheTekie/MattTheTekie/main/Personal-Scripts/Images/static.displate.com_800be04aa6f899076275e4dd96dbf9f4_46e904de13eaa602b904b8a5fa5e3e23.jpg" github="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/DRAGON_TV" link="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/DRAGON_TV">
+        <Card name="Dragon TV" icon="https://raw.githubusercontent.com/MattTheTekie/MattTheTekie/main/Personal-Scripts/Images/Resized/dragon_460x460.jpeg" github="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/DRAGON_TV" link="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/DRAGON_TV">
           Dragon TV is my web TV station around town. It's pretty epic.
         </Card>
         <Card name="Dragon Linux" icon="https://dragon-linux.surge.sh/img/dragon.jpeg" github="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts/Distromaking" link="https://freedom-hq.github.io/Dragon-Linux/">
@@ -24,7 +24,7 @@ export default component$(() => {
         </Card>
       </div>
       <div class="grid sm:grid-cols-2 gap-5">
-        <Card name="Freedom-HQ" icon="https://freedom-hq.github.io/FREEDOM-HQ/banner.png" github="https://freedom-hq.github.io/FREEDOM-HQ/">
+        <Card name="Freedom-HQ" icon="https://freedom-hq.github.io/FREEDOM-HQ/banner.png" link="https://freedom-hq.github.io/FREEDOM-HQ/">
           Freedom-HQ is my development group focusing on Linux, Android, and the DSiPaint archival process.
         </Card>
         <Card name="Personal Scripts" icon="https://avatars.githubusercontent.com/u/94870997" link="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts">
