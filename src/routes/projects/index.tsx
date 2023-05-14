@@ -27,7 +27,7 @@ export default component$(() => {
         <Card name="Freedom-HQ" icon="https://freedom-hq.github.io/FREEDOM-HQ/banner.png" link="https://freedom-hq.github.io/FREEDOM-HQ/">
           Freedom-HQ is my development group focusing on Linux, Android, and the DSiPaint archival process.
         </Card>
-        <Card name="Personal Scripts" icon="https://avatars.githubusercontent.com/u/94870997" link="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts">
+        <Card name="Personal Scripts" icon="https://avatars.githubusercontent.com/u/94870997" github="https://github.com/MattTheTekie/MattTheTekie/tree/main/Personal-Scripts">
           You can check out my personal scripts over here.
         </Card>
       </div>
