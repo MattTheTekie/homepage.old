@@ -66,8 +66,8 @@ export const Brand = component$(() => {
   return (
     <div class="flex flex-1 items-center justify-start">
       <Link href="/" class="transition duration-200 ease-in-out text-gray-300 hover:bg-gray-800 hover:text-white drop-shadow-2xl px-3 pt-3 pb-2 rounded-lg text-lg flex items-center whitespace-nowrap">
-        <div style="filter: drop-shadow(0 0 0 #DD6CFF);" class="h-8 w-32">
-          <div style="filter: drop-shadow(0 0 1rem #CB6CE6);">
+        <div style="filter: drop-shadow(0 0 0 #red);" class="h-8 w-32">
+          <div style="filter: drop-shadow(0 0 1rem #red);">
             <Logo/>
           </div>
         </div>
