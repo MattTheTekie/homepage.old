@@ -24,7 +24,7 @@ export default component$(() => {
         </Link>
         <div class="flex gap-3">
           <a href="https://github.com/MattTheTekie" class="flex justify-center sm:justify-start transition duration-200 rounded-2xl shadow-lg backdrop-blur-lg bg-gray-800 hover:bg-gray-700 border-2 border-gray-700 px-6 py-3 font-bold text-purple-100 md:py-4 md:px-8 text-xl md:text-3xl whitespace-nowrap gap-4 items-center">
-            <LogoGithub width="24" class="fill-current" />
+            <LogoGithub width="24" class="fill-red" />
           </a>
           <a href="/discord" class="flex justify-center sm:justify-start transition duration-200 rounded-2xl shadow-lg backdrop-blur-lg bg-gray-800 hover:bg-gray-700 border-2 border-gray-700 px-6 py-3 font-bold text-indigo-100 md:py-4 md:px-8 text-xl md:text-3xl whitespace-nowrap gap-4 items-center">
             <LogoDiscord width="24" class="fill-current"/>
