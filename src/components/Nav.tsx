@@ -17,7 +17,7 @@ export default component$(() => {
           Projects
         </NavButton>
         <NavButton external icon href="https://github.com/MattTheTekie" title="GitHub" extraClass="hidden xl:flex">
-          <LogoGithub width="24" class="fill-purple-200" />
+          <LogoGithub width="24" class="fill-red-200" />
         </NavButton>
         <NavButton icon href="/discord" title="Discord" extraClass="hidden xl:flex">
           <LogoDiscord width="24" class="fill-indigo-200" />
@@ -41,7 +41,7 @@ export default component$(() => {
         </NavButton>
         <div class="flex flex-row">
           <NavButton external mobile icon href="https://github.com/MattTheTekie" title="GitHub" extraClass="flex xl:hidden">
-            <LogoGithub width="24" class="fill-purple-200" />
+            <LogoGithub width="24" class="fill-red-200" />
           </NavButton>
           <NavButton external mobile icon href="https://discord.com/invite/VhfM3UncBB" title="Discord" extraClass="flex xl:hidden">
             <LogoDiscord width="24" class="fill-indigo-200" />
